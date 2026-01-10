@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://badnnpq4wqsrl"]
+
+[node name="ui_send_wave" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer_SendWave" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_right = 49.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="btn_send_wave" type="Button" parent="MarginContainer_SendWave"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SEND WAVE"
