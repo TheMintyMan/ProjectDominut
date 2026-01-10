@@ -1,17 +1,10 @@
 extends Resource
 class_name DonutType
 
-enum ResistanceType{
-	NONE,
-	SHOOTER,
-	AREA,
-	PLACING,
-	WALL,
-}
 
 @export var speed: float = 1.0
 @export var health: int = 10
-@export var resistance_type: ResistanceType = ResistanceType.NONE
+@export var resistance_type: Global.ResistanceType = Global.ResistanceType.NONE
 @export var camo: bool = false
 
 
