@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0l02gvs4u18c"]
+
+[ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map_editor_tool.gd" id="1_sfqdc"]
+
+[node name="MapEditorTool" type="EditorPlugin" node_paths=PackedStringArray("map", "labelParent", "floor")]
+script = ExtResource("1_sfqdc")
+map = NodePath("")
+labelParent = NodePath("")
+floor = NodePath("")
+mapSizeX = 40
+mapSizeY = 30

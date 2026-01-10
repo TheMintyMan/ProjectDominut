@@ -1,0 +1,156 @@
+[gd_scene load_steps=17 format=3 uid="uid://c45t6xkiltfyb"]
+
+[ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map_editor_tool.gd" id="1_2m761"]
+[ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map.gd" id="2_8fkir"]
+[ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="3_nmjbi"]
+[ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="4_yd4n3"]
+[ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/donut_path.tscn" id="5_wehgl"]
+[ext_resource type="PackedScene" uid="uid://dmnax2fgw7af1" path="res://scripts/test_donut.tscn" id="6_xoo4j"]
+[ext_resource type="PackedScene" uid="uid://8bplnduhxju" path="res://scripts/map_object.tscn" id="7_twgoi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jvd7"]
+transparency = 1
+albedo_color = Color(1, 0, 1, 0.49411765)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0cxyw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cxyw"]
+transparency = 1
+albedo_color = Color(1, 0.60784316, 0, 0.49019608)
+emission_enabled = true
+emission = Color(1, 0.58431375, 0.05490196, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0cxyw"]
+size = Vector3(40, 1, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wgqo"]
+albedo_texture = ExtResource("3_nmjbi")
+uv1_scale = Vector3(120, 60, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2wgqo"]
+
+[sub_resource type="GDScript" id="GDScript_6jvd7"]
+script/source = "extends Button
+
+@export var player : Player = null
+
+func _on_Button_pressed():
+	print(\"Try\")
+	player.StartRound()
+	
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5usn2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5usn2"]
+
+[node name="MainMap" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MapEditorTool" type="Node3D" parent="." node_paths=PackedStringArray("map", "labelParent", "floor", "floorMesh", "floorCollider", "startPointIndicator", "endPointIndicator")]
+script = ExtResource("1_2m761")
+map = NodePath("../Map")
+labelParent = NodePath("../Map/LabelParent")
+floor = NodePath("../Map/Floor")
+floorMesh = NodePath("../Map/Floor/FloorMesh")
+floorCollider = NodePath("../Map/Floor/FloorCollision")
+mapSizeX = 40
+mapSizeY = 30
+endPoint = 1179
+startPointIndicator = NodePath("../Map/StartPoint")
+endPointIndicator = NodePath("../Map/EndPoint")
+
+[node name="Map" type="Node3D" parent="."]
+script = ExtResource("2_8fkir")
+
+[node name="StartPoint" type="Node3D" parent="Map"]
+
+[node name="StartPointMesh" type="MeshInstance3D" parent="Map/StartPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+material_override = SubResource("StandardMaterial3D_6jvd7")
+mesh = SubResource("BoxMesh_0cxyw")
+skeleton = NodePath("../../Floor/FloorMesh")
+
+[node name="EndPoint" type="Node3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 29)
+
+[node name="StartPointMesh" type="MeshInstance3D" parent="Map/EndPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+material_override = SubResource("StandardMaterial3D_6jvd7")
+mesh = SubResource("BoxMesh_0cxyw")
+skeleton = NodePath("../../Floor/FloorMesh")
+
+[node name="SelectionCube" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0784454, 1, 0.5)
+material_override = SubResource("StandardMaterial3D_0cxyw")
+mesh = SubResource("BoxMesh_0cxyw")
+skeleton = NodePath("../Floor/FloorMesh")
+
+[node name="LabelParent" type="Node3D" parent="Map"]
+
+[node name="Floor" type="StaticBody3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15)
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Map/Floor"]
+shape = SubResource("BoxShape3D_0cxyw")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Map/Floor"]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_2wgqo")
+mesh = SubResource("BoxMesh_2wgqo")
+skeleton = NodePath("")
+
+[node name="Player" type="Node3D" parent="Map/Floor" node_paths=PackedStringArray("map", "selectionCube")]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+script = ExtResource("4_yd4n3")
+map = NodePath("../..")
+selectionCube = NodePath("../../SelectionCube")
+donutPathPrefab = ExtResource("5_wehgl")
+donutPrefab = ExtResource("6_xoo4j")
+
+[node name="RayCast3D" type="RayCast3D" parent="Map/Floor/Player"]
+transform = Transform3D(0.025, 0, 0, 0, 1, 0, 0, 0, 0.033333335, -0.5, 0, -0.5)
+
+[node name="Camera3D" type="Camera3D" parent="Map/Floor/Player"]
+transform = Transform3D(0.025, 0, 0, 0, -5.8281856e-08, 1, 0, -0.033333335, -1.9427286e-09, 0, 21.859045, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Map/Floor/Player/Camera3D"]
+follow_viewport_enabled = true
+
+[node name="StartRoundButton" type="Button" parent="Map/Floor/Player/Camera3D/CanvasLayer" node_paths=PackedStringArray("player")]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 33.0
+text = "Test"
+script = SubResource("GDScript_6jvd7")
+player = NodePath("../../..")
+
+[node name="MapObject2" parent="Map" instance=ExtResource("7_twgoi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.0657425, 0.38810325, 8.445295)
+gridPositions = Array[int]([327, 328, 329, 330])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObject2"]
+transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0.5689151, -0.10380268)
+material_override = SubResource("StandardMaterial3D_5usn2")
+transparency = 1.0
+mesh = SubResource("BoxMesh_5usn2")
+skeleton = NodePath("")
+
+[node name="MapObject" parent="Map" instance=ExtResource("7_twgoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5328712, 0.8742516, 5.0747256)
+gridPositions = Array[int]([124, 164, 204, 244])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObject"]
+transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5usn2")
+transparency = 1.0
+mesh = SubResource("BoxMesh_5usn2")
+skeleton = NodePath("")
+
+[node name="TestDonut" parent="Map" instance=ExtResource("6_xoo4j")]
+
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/StartRoundButton" to="Map/Floor/Player" method="StartRound"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8bplnduhxju"]
+
+[ext_resource type="Script" uid="uid://bcbdtatgjmub2" path="res://scripts/map_object.gd" id="1_tky1d"]
+
+[node name="MapObject" type="Node3D"]
+script = ExtResource("1_tky1d")
