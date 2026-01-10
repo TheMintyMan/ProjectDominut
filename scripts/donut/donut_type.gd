@@ -3,6 +3,10 @@ class_name DonutType
 
 enum ResistanceType{
 	NONE,
+	SHOOTER,
+	AREA,
+	PLACING,
+	WALL,
 }
 
 @export var speed: float = 1.0

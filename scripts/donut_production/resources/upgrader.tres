@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DonutUpgrader" load_steps=2 format=3 uid="uid://dwqhj8ti5clxl"]
+
+[ext_resource type="Script" uid="uid://p3tr8jax1df" path="res://scripts/donut_production/donut_upgrader.gd" id="1_smfuf"]
+
+[resource]
+script = ExtResource("1_smfuf")
+metadata/_custom_type_script = "uid://p3tr8jax1df"

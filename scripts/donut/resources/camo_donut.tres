@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_up0li")
+resistance_type = Array[int]([1, 2, 3])
 metadata/_custom_type_script = "uid://dlwwbsc8ac6qa"
