@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c45t6xkiltfyb"]
+[gd_scene load_steps=19 format=3 uid="uid://c45t6xkiltfyb"]
 
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map_editor_tool.gd" id="1_2m761"]
 [ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map.gd" id="2_8fkir"]
+[ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scenes/fruit_veg_manager.gd" id="2_nmjbi"]
 [ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="3_nmjbi"]
+[ext_resource type="PackedScene" uid="uid://dixtdhkgp6k4d" path="res://scripts/fruit_veg_unit.tscn" id="3_yd4n3"]
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="4_yd4n3"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/donut_path.tscn" id="5_wehgl"]
 [ext_resource type="PackedScene" uid="uid://dmnax2fgw7af1" path="res://scripts/test_donut.tscn" id="6_xoo4j"]
@@ -21,11 +23,11 @@ emission_enabled = true
 emission = Color(1, 0.58431375, 0.05490196, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cxyw"]
-size = Vector3(40, 1, 30)
+size = Vector3(30, 1, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wgqo"]
 albedo_texture = ExtResource("3_nmjbi")
-uv1_scale = Vector3(120, 60, 0)
+uv1_scale = Vector3(90, 60, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2wgqo"]
 
@@ -57,11 +59,16 @@ labelParent = NodePath("../Map/LabelParent")
 floor = NodePath("../Map/Floor")
 floorMesh = NodePath("../Map/Floor/FloorMesh")
 floorCollider = NodePath("../Map/Floor/FloorCollision")
-mapSizeX = 40
+mapSizeX = 30
 mapSizeY = 30
-endPoint = 1179
+endPoint = 885
 startPointIndicator = NodePath("../Map/StartPoint")
 endPointIndicator = NodePath("../Map/EndPoint")
+
+[node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map")]
+script = ExtResource("2_nmjbi")
+map = NodePath("../Map")
+FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yd4n3")])
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("2_8fkir")
@@ -75,7 +82,7 @@ mesh = SubResource("BoxMesh_0cxyw")
 skeleton = NodePath("../../Floor/FloorMesh")
 
 [node name="EndPoint" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 29)
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="Map/EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
@@ -92,13 +99,13 @@ skeleton = NodePath("../Floor/FloorMesh")
 [node name="LabelParent" type="Node3D" parent="Map"]
 
 [node name="Floor" type="StaticBody3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_0cxyw")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Map/Floor"]
-transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2wgqo")
 mesh = SubResource("BoxMesh_2wgqo")
 skeleton = NodePath("")
@@ -129,28 +136,54 @@ text = "Test"
 script = SubResource("GDScript_6jvd7")
 player = NodePath("../../..")
 
-[node name="MapObject2" parent="Map" instance=ExtResource("7_twgoi")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.0657425, 0.38810325, 8.445295)
-gridPositions = Array[int]([327, 328, 329, 330])
+[node name="MapObjects" type="Node3D" parent="Map"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObject2"]
-transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0.5689151, -0.10380268)
+[node name="MapObject3" parent="Map/MapObjects" instance=ExtResource("7_twgoi")]
+transform = Transform3D(-5.9187217, 0, -8.742282e-08, 0, 1, 0, 5.174311e-07, 0, -1.0000005, 17.307106, 0.33862317, 10.914314)
+gridPositions = Array[int]([284, 285, 286, 287, 288, 289, 290, 291, 314, 315, 316, 317, 318, 319, 320, 321, 344, 345, 346, 347, 348, 349, 350, 351])
+spawnable = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject3"]
+transform = Transform3D(1.3149004, 0, 0, 0, 1, 0, 1.1368684e-13, 0, 2.0990808, -0.116755724, 0.5689151, 0.3936243)
 material_override = SubResource("StandardMaterial3D_5usn2")
 transparency = 1.0
 mesh = SubResource("BoxMesh_5usn2")
 skeleton = NodePath("")
 
-[node name="MapObject" parent="Map" instance=ExtResource("7_twgoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5328712, 0.8742516, 5.0747256)
-gridPositions = Array[int]([124, 164, 204, 244])
+[node name="MapObject4" parent="Map/MapObjects" instance=ExtResource("7_twgoi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.052944, 0.9600425, 15.447187)
+gridPositions = Array[int]([462, 463, 464, 465])
+spawnable = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObject"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject4"]
 transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_5usn2")
 transparency = 1.0
 mesh = SubResource("BoxMesh_5usn2")
 skeleton = NodePath("")
 
-[node name="TestDonut" parent="Map" instance=ExtResource("6_xoo4j")]
+[node name="MapObject2" parent="Map/MapObjects" instance=ExtResource("7_twgoi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.0657425, 0.38810325, 8.445295)
+gridPositions = Array[int]([247, 248, 249, 250])
+spawnable = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject2"]
+transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0.5689151, -0.10380268)
+material_override = SubResource("StandardMaterial3D_5usn2")
+transparency = 1.0
+mesh = SubResource("BoxMesh_5usn2")
+skeleton = NodePath("")
+
+[node name="MapObject" parent="Map/MapObjects" instance=ExtResource("7_twgoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5328712, 0.8742516, 5.0747256)
+gridPositions = Array[int]([94, 124, 154, 184])
+spawnable = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject"]
+transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5usn2")
+transparency = 1.0
+mesh = SubResource("BoxMesh_5usn2")
+skeleton = NodePath("")
 
 [connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/StartRoundButton" to="Map/Floor/Player" method="StartRound"]

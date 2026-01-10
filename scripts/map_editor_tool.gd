@@ -83,7 +83,7 @@ func on_resource_changed():
 			var colour = Color(0, 1, 0)
 			var height = 1
 			if(map != null):
-				for child in map.get_children():
+				for child in GetAllChildren(map):
 					# Check if the child is of the specified type
 					if child is MapObject:
 						for pos in child.gridPositions:
@@ -93,6 +93,19 @@ func on_resource_changed():
 								break
 				
 			CreateLabel(str(id), colour, Vector3(x+0.5, height, y+0.5))
+
+	
+func GetAllChildren(node = null):
+	if(node == null):
+		node = self
+	var nodes : Array = []
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			nodes.append(N)
+			nodes = nodes + GetAllChildren(N)
+		else:
+			nodes.append(N)
+	return nodes
 	
 	
 func CreateLabel(name, colour, origin):

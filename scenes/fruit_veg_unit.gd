@@ -1,10 +1,10 @@
-class_name MapObject extends Node3D 
+class_name FruitVegUnit extends MapObject
 
-@export var gridPositions : Array[int]
-@export var spawnable = false
-var gridPositionsTest : Array[int]
+var weakness : Global.ResistanceType = Global.ResistanceType.NONE
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawnable = false
 	pass # Replace with function body.
 
 

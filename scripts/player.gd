@@ -35,8 +35,6 @@ func StartRound():
 	print("Cant start")
 
 
-
-
 func DoesPathInterceptStart(path):
 	var point = map.CalculateXYFromGridPos(map.startPoint)
 	if path.IsPointOnPath(point[0], point[1]):

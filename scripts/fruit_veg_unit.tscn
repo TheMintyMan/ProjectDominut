@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dixtdhkgp6k4d"]
+
+[ext_resource type="Script" uid="uid://cy41wao07mbfh" path="res://scenes/fruit_veg_unit.gd" id="1_coapm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_coapm"]
+albedo_color = Color(0, 0.59651214, 3.85046e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0cxyw"]
+
+[node name="FruitVegUnit" type="Node3D"]
+script = ExtResource("1_coapm")
+
+[node name="StartPointMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+material_override = SubResource("StandardMaterial3D_coapm")
+mesh = SubResource("BoxMesh_0cxyw")
+skeleton = NodePath("../../Floor/FloorMesh")
