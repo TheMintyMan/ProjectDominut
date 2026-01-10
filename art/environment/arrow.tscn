@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://n1i1j6kv82pf"]
+
+[ext_resource type="PackedScene" uid="uid://cuqxjyxve30hy" path="res://art/environment/arrow.glb" id="1_fi1eq"]
+[ext_resource type="Material" uid="uid://cxmgdcy37h2uf" path="res://art/materials/mat_red.tres" id="2_uhfpj"]
+
+[node name="arrow" instance=ExtResource("1_fi1eq")]
+
+[node name="arrow" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_uhfpj")

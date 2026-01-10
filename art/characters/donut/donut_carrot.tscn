@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dywudnr120bvq"]
+
+[ext_resource type="PackedScene" uid="uid://cfqr0cp6qbx7j" path="res://art/characters/donut/models/donut_carrot.glb" id="1_oees0"]
+
+[node name="donut_carrot" instance=ExtResource("1_oees0")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwvrlqcohsv5t"]
+
+[ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="1_vgwo7"]
+
+[node name="counter" instance=ExtResource("1_vgwo7")]
