@@ -1,14 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8tmo8mtcynuy"]
+[gd_scene load_steps=16 format=3 uid="uid://b8tmo8mtcynuy"]
 
-[ext_resource type="PackedScene" uid="uid://cn4h875jrqdpn" path="res://art/environment/floor_tile_01.glb" id="1_sdt66"]
-[ext_resource type="PackedScene" uid="uid://cfqr0cp6qbx7j" path="res://art/characters/donut/donut_carrot.glb" id="3_bvrxu"]
-[ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/counter.glb" id="4_70m73"]
-[ext_resource type="PackedScene" uid="uid://dscbqifv2y2mm" path="res://art/environment/shelf.glb" id="5_lyjw5"]
-[ext_resource type="PackedScene" uid="uid://b1qtemqnj3qoa" path="res://art/environment/shelf_corner.glb" id="6_v7mqq"]
-[ext_resource type="PackedScene" uid="uid://4gg4h74utvkc" path="res://art/environment/veg_tray.glb" id="7_mmwjx"]
-[ext_resource type="PackedScene" uid="uid://b8h4akxhy5t7i" path="res://art/environment/veg_tray_end.glb" id="8_7cqth"]
+[ext_resource type="PackedScene" uid="uid://cn4h875jrqdpn" path="res://art/environment/models/floor_tile_01.glb" id="1_sdt66"]
+[ext_resource type="PackedScene" uid="uid://cfqr0cp6qbx7j" path="res://art/characters/donut/models/donut_carrot.glb" id="3_bvrxu"]
+[ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="4_70m73"]
+[ext_resource type="PackedScene" uid="uid://dscbqifv2y2mm" path="res://art/environment/models/shelf.glb" id="5_lyjw5"]
+[ext_resource type="PackedScene" uid="uid://b1qtemqnj3qoa" path="res://art/environment/models/shelf_corner.glb" id="6_v7mqq"]
+[ext_resource type="PackedScene" uid="uid://4gg4h74utvkc" path="res://art/environment/models/veg_tray.glb" id="7_mmwjx"]
+[ext_resource type="PackedScene" uid="uid://b8h4akxhy5t7i" path="res://art/environment/models/veg_tray_end.glb" id="8_7cqth"]
 [ext_resource type="PackedScene" uid="uid://biuxwwb1lupqw" path="res://art/characters/donut/donut_base.tscn" id="9_4r7l0"]
 [ext_resource type="PackedScene" uid="uid://n1i1j6kv82pf" path="res://art/environment/arrow.tscn" id="9_sdt66"]
+[ext_resource type="PackedScene" uid="uid://k154pa5ihvkm" path="res://art/characters/fruit_veg/models/CarrotCannon_Model.fbx" id="10_bvrxu"]
+[ext_resource type="PackedScene" uid="uid://c2hb5de6vshev" path="res://art/characters/fruit_veg/models/CornTurret_Model.fbx" id="11_70m73"]
+[ext_resource type="PackedScene" uid="uid://c21682c3ci0rk" path="res://art/characters/fruit_veg/models/Lettuce_Stage1_Model.fbx" id="12_70m73"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sdt66"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -193,3 +196,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="donut_base" parent="." instance=ExtResource("9_4r7l0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="CarrotCannon_Model" parent="." instance=ExtResource("10_bvrxu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0431476, 0, 1.8666408)
+
+[node name="CornTurret_Model" parent="." instance=ExtResource("11_70m73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.052155, -2.3841858e-07, 1.9499223)
+
+[node name="Lettuce_Stage1_Model" parent="." instance=ExtResource("12_70m73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8822336, 0, 2.1010695)

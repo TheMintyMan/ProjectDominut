@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://badnnpq4wqsrl"]
+[gd_scene load_steps=0 format=3 uid="uid://badnnpq4wqsrl"]
 
 [node name="ui_send_wave" type="Control"]
 layout_mode = 3

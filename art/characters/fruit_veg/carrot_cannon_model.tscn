@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkiy8ik3nop0i"]
+
+[ext_resource type="PackedScene" uid="uid://k154pa5ihvkm" path="res://art/characters/fruit_veg/models/CarrotCannon_Model.fbx" id="1_bbbgx"]
+[ext_resource type="Material" uid="uid://bhwhfigwplrgq" path="res://art/characters/fruit_veg/textures/Veggie_material.tres" id="2_mg4kp"]
+
+[node name="CarrotCannon_Model" instance=ExtResource("1_bbbgx")]
+
+[node name="CarrotLeaf" parent="CarrotCannon" index="4"]
+material_override = ExtResource("2_mg4kp")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://moq1gd3o3viw"]
+
+[ext_resource type="PackedScene" uid="uid://ble4kami4kl26" path="res://art/characters/fruit_veg/models/LettuceWall_Model.fbx" id="1_v8neh"]
+[ext_resource type="Material" uid="uid://bhwhfigwplrgq" path="res://art/characters/fruit_veg/textures/Veggie_material.tres" id="2_bxjb7"]
+
+[node name="LettuceWall_Model" instance=ExtResource("1_v8neh")]
+
+[node name="LettuceWall" parent="." index="0"]
+material_override = ExtResource("2_bxjb7")
