@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj56jpjec347f"]
+
+[ext_resource type="PackedScene" uid="uid://biuxwwb1lupqw" path="res://art/characters/donut/donut_base.tscn" id="1_rp0p1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rp0p1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_rdxlb"]
+sky_material = SubResource("ProceduralSkyMaterial_rp0p1")
+
+[sub_resource type="Environment" id="Environment_glvs1"]
+background_mode = 2
+sky = SubResource("Sky_rdxlb")
+tonemap_mode = 2
+
+[node name="map_minty_test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_glvs1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8873491, 0, 0.4610983, 0, 1, 0, -0.4610983, 0, 0.8873491, 0.52040035, 0.4500581, 0.8538197)
+
+[node name="donut_base" parent="." instance=ExtResource("1_rp0p1")]

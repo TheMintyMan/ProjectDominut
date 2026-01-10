@@ -1,13 +1,55 @@
 [gd_scene load_steps=4 format=3 uid="uid://biuxwwb1lupqw"]
 
-[ext_resource type="PackedScene" uid="uid://q2excrco7n7h" path="res://art/characters/donut/donut_base.glb" id="1_vjvo5"]
+[ext_resource type="PackedScene" uid="uid://q2excrco7n7h" path="res://art/characters/donut/models/donut_base.glb" id="1_vjvo5"]
 [ext_resource type="Material" uid="uid://c0csbsnej2vf3" path="res://art/materials/mat_donut_base.tres" id="2_23pqs"]
-[ext_resource type="Material" uid="uid://cxrukrsdmdttr" path="res://art/materials/mat_black_shiny.tres" id="3_2fjpr"]
+[ext_resource type="Script" uid="uid://bvkuchgsovb2s" path="res://art/characters/donut/minty_test_donut.gd" id="2_u7ddq"]
 
-[node name="donut_base" instance=ExtResource("1_vjvo5")]
+[node name="donut_base" node_paths=PackedStringArray("icing_mesh") instance=ExtResource("1_vjvo5")]
+script = ExtResource("2_u7ddq")
+icing_mesh = NodePath("donut_rig/Skeleton3D/donut_icing_01")
 
-[node name="donut_base" parent="." index="0"]
+[node name="Skeleton3D" parent="donut_rig" index="0"]
+bones/0/position = Vector3(0, 0.13371305, 0)
+bones/0/rotation = Quaternion(0, 0.005964565, 0, 0.9999823)
+bones/1/rotation = Quaternion(0, -0.0030859262, 0, 0.9999953)
+bones/4/rotation = Quaternion(-0.032562323, -0.027082141, -0.99614346, 0.07684064)
+bones/5/rotation = Quaternion(0.14523266, -1.1449609e-07, -7.57353e-08, 0.9893975)
+bones/6/rotation = Quaternion(0.054898653, -0.027721792, 0.9930792, 0.10005677)
+bones/7/rotation = Quaternion(0.131948, 1.1309618e-07, 9.561484e-08, 0.9912567)
+bones/8/rotation = Quaternion(-0.0058268756, -0.062756605, 0.99801123, -0.0011684593)
+bones/10/rotation = Quaternion(-0.00597039, 0.016431566, 0.9998469, 0.0008718075)
+bones/12/position = Vector3(-0.15000015, 0.032419637, 0.007488148)
+bones/12/rotation = Quaternion(1.5946989e-07, 0.61150354, 0.79124177, 1.2548873e-07)
+bones/13/position = Vector3(0.15000013, 0.0015243838, -0.02645848)
+bones/13/rotation = Quaternion(-1.7398489e-07, 0.6935363, 0.7204218, -1.6733492e-07)
+bones/14/position = Vector3(0.15000005, 0.0015245028, -0.026458476)
+bones/14/rotation = Quaternion(-8.582953e-08, -0.019010957, 0.9998193, -3.9355177e-07)
+bones/16/position = Vector3(-0.15000008, 0.032419752, 0.007488178)
+bones/16/rotation = Quaternion(1.2114968e-07, -0.1270941, 0.99189067, 3.4402547e-07)
+
+[node name="donut_base_body" parent="donut_rig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_23pqs")
+
+[node name="donut_base_eyebrow_l" parent="donut_rig/Skeleton3D" index="9"]
 material_override = ExtResource("2_23pqs")
 
-[node name="Cube_010" parent="." index="1"]
-material_override = ExtResource("3_2fjpr")
+[node name="donut_base_eyebrow_r" parent="donut_rig/Skeleton3D" index="10"]
+material_override = ExtResource("2_23pqs")
+
+[node name="donut_base_l_arm" parent="donut_rig/Skeleton3D" index="11"]
+material_override = ExtResource("2_23pqs")
+
+[node name="donut_base_l_feet" parent="donut_rig/Skeleton3D" index="12"]
+material_override = ExtResource("2_23pqs")
+
+[node name="donut_base_l_leg" parent="donut_rig/Skeleton3D" index="13"]
+material_override = ExtResource("2_23pqs")
+
+[node name="donut_base_r_feet" parent="donut_rig/Skeleton3D" index="15"]
+material_override = ExtResource("2_23pqs")
+
+[node name="donut_base_r_leg" parent="donut_rig/Skeleton3D" index="16"]
+material_override = ExtResource("2_23pqs")
+
+[node name="AnimationPlayer" parent="." index="1"]
+deterministic = true

@@ -1,5 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dywudnr120bvq"]
+[gd_scene load_steps=4 format=3 uid="uid://dywudnr120bvq"]
 
 [ext_resource type="PackedScene" uid="uid://cfqr0cp6qbx7j" path="res://art/characters/donut/models/donut_carrot.glb" id="1_oees0"]
+[ext_resource type="Material" uid="uid://cxrukrsdmdttr" path="res://art/materials/mat_black_shiny.tres" id="2_hofuv"]
+[ext_resource type="Material" uid="uid://c0csbsnej2vf3" path="res://art/materials/mat_donut_base.tres" id="3_swnba"]
 
 [node name="donut_carrot" instance=ExtResource("1_oees0")]
+
+[node name="Cube_086" parent="." index="0"]
+material_override = ExtResource("2_hofuv")
+
+[node name="Plane" parent="." index="1"]
+material_override = ExtResource("3_swnba")
+
+[node name="Cylinder_002" parent="." index="2"]
+material_override = ExtResource("3_swnba")
+
+[node name="Cylinder_003" parent="." index="3"]
+material_override = ExtResource("3_swnba")
+
+[node name="Cube_087" parent="." index="4"]
+material_override = ExtResource("3_swnba")
+
+[node name="Cube_088" parent="." index="5"]
+material_override = ExtResource("3_swnba")
+
+[node name="Plane_001" parent="." index="6"]
+material_override = ExtResource("3_swnba")
+
+[node name="Cube_089" parent="." index="7"]
+material_override = ExtResource("3_swnba")

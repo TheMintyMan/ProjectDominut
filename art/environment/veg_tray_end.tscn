@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdp7rylsqiabr"]
+[gd_scene load_steps=3 format=3 uid="uid://bdp7rylsqiabr"]
 
 [ext_resource type="PackedScene" uid="uid://b8h4akxhy5t7i" path="res://art/environment/models/veg_tray_end.glb" id="1_10aig"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="2_j18wn"]
 
 [node name="veg_tray_end" instance=ExtResource("1_10aig")]
+
+[node name="veg_tray_end" parent="." index="0"]
+material_override = ExtResource("2_j18wn")
