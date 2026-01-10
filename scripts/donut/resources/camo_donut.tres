@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DonutType" load_steps=2 format=3 uid="uid://ddpwhb2rx6kks"]
+
+[ext_resource type="Script" uid="uid://dlwwbsc8ac6qa" path="res://scripts/donut/donut_type.gd" id="1_up0li"]
+
+[resource]
+script = ExtResource("1_up0li")
+metadata/_custom_type_script = "uid://dlwwbsc8ac6qa"
