@@ -3,5 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dfui4mwpdg54" path="res://art/characters/fruit_veg/textures/Veggie_BaseColor.png" id="1_vopjk"]
 
 [resource]
-transparency = 1
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("1_vopjk")

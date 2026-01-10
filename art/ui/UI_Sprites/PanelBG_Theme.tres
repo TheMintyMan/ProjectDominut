@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://h1stwtlp1a3f"]
+
+[ext_resource type="Texture2D" uid="uid://b8f4u37iydrg3" path="res://art/ui/UI_Sprites/CookingBG_UI.png" id="1_wfsgt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4odi"]
+texture = ExtResource("1_wfsgt")
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxTexture_e4odi")

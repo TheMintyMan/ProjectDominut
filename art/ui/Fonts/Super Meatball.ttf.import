@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c175avra4luyg"
+path="res://.godot/imported/Super Meatball.ttf-2c19d309c7f1f6a1336c3ecbde704aeb.fontdata"
+
+[deps]
+
+source_file="res://art/ui/Fonts/Super Meatball.ttf"
+dest_files=["res://.godot/imported/Super Meatball.ttf-2c19d309c7f1f6a1336c3ecbde704aeb.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
