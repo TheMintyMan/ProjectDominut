@@ -8,7 +8,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.71400005
@@ -18,78 +18,71 @@ offset_top = -24.080017
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="VBox_BuyBaseDonuts" type="VBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="VBox_BuyBaseDonuts" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 10
 
-[node name="Label_BUY_DONUTS" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
+[node name="Label_BUY_DONUTS" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "Buy Base Donuts"
 horizontal_alignment = 1
 
-[node name="buy_base_donuts" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
+[node name="btn_buy_donuts" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
 layout_mode = 2
 text = "BUY"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label_YourDonuts" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts/HBoxContainer"]
+[node name="_text_base_donuts" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
 text = "Your Availabe Base Donuts: "
 horizontal_alignment = 1
 
-[node name="Label_YourDonuts2" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_BuyBaseDonuts/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 20
-text = "0"
-horizontal_alignment = 1
-
-[node name="VBox_Upgrade" type="VBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="VBox_Upgrade" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="Label_UPGRADE" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade"]
+[node name="Label_UPGRADE" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "UPGRADE DONUT"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="HBox_HEALTH" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_HEALTH" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="HEALTH_TEXT" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="HEALTH_TEXT" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -97,23 +90,23 @@ theme_override_font_sizes/font_size = 20
 text = "HEALTH: "
 horizontal_alignment = 1
 
-[node name="btn_remove_health" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="btn_remove_health" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 text = "-"
 
-[node name="btn_add_health" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="btn_add_health" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 text = "+"
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 text = " 0"
 
-[node name="HBox_SPEED" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_SPEED" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="SPEED_TEXT" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="SPEED_TEXT" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -121,23 +114,23 @@ theme_override_font_sizes/font_size = 20
 text = "SPEED: "
 horizontal_alignment = 1
 
-[node name="btn_remove_speed" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="btn_remove_speed" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 text = "-"
 
-[node name="btn_add_speed" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="btn_add_speed" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 text = "+"
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 text = " 0"
 
-[node name="HBox_RESISTANCE" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_RESISTANCE" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="RESISTANCE_TEXT" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
+[node name="RESISTANCE_TEXT" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -145,7 +138,7 @@ theme_override_font_sizes/font_size = 20
 text = "RESISTANCE: "
 horizontal_alignment = 1
 
-[node name="optn_resistance" type="OptionButton" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
+[node name="_optn_resistance" type="OptionButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
 item_count = 5
 popup/item_0/text = "NONE"
@@ -159,15 +152,15 @@ popup/item_3/id = 3
 popup/item_4/text = "WALL"
 popup/item_4/id = 4
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
 text = " 0"
 
-[node name="HBox_CAMOUFLAGE" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_CAMOUFLAGE" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="CAMOUFLAGE" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
+[node name="CAMOUFLAGE" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -175,78 +168,68 @@ theme_override_font_sizes/font_size = 20
 text = "CAMOUFLAGE: "
 horizontal_alignment = 2
 
-[node name="CheckButton" type="CheckButton" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
+[node name="chck_camo" type="CheckButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
 text = " 0"
 
-[node name="HBox_CAMOUFLAGE2" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_CAMOUFLAGE2" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TOTALCOST_TEXT" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2"]
+[node name="_text_upgrade_cost" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 20
 text = "UPGRADE COST: "
 horizontal_alignment = 1
 
-[node name="_total_cost" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = " 0"
-
-[node name="VBox_READY" type="VBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="VBox_READY" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 10
 
-[node name="Label_READY" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY"]
+[node name="Label_READY" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_READY"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Ready"
 horizontal_alignment = 1
 
-[node name="btn_ready" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY"]
+[node name="btn_ready" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_READY"]
 layout_mode = 2
 text = "READY"
 
-[node name="btn_ready_all" type="Button" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY"]
+[node name="btn_ready_all" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_READY"]
 layout_mode = 2
 text = "READY ALL"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_READY"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label_YourDonuts" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 20
-text = "Your Readied Donuts: "
-horizontal_alignment = 1
-
-[node name="Label_YourDonuts2" type="Label" parent="PanelContainer2/MarginContainer/HBoxContainer/VBox_READY/HBoxContainer"]
+[node name="_text_readied_donuts" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBox_READY/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
-text = "0"
+text = "Your Readied Donuts: 0"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -88.890015
-offset_right = 88.890015
-offset_bottom = 40.0
-grow_horizontal = 2
+[node name="openclose_container" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 387.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Button" type="Button" parent="PanelContainer"]
+[node name="btn_openclose" type="Button" parent="openclose_container"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "SEND WAVE"
+size_flags_horizontal = 0
+size_flags_vertical = 0
