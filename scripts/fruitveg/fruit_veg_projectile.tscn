@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djl15ajbyp4p6" path="res://scripts/fruitveg/fruit_veg_projectile.gd" id="1_x30yr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p0np"]
-albedo_color = Color(1, 0.60784316, 0, 1)
+albedo_color = Color(1, 0.6627451, 0.17254902, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j545n"]
 radius = 0.2

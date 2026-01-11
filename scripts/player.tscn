@@ -42,10 +42,12 @@ script = ExtResource("8_0pev8")
 player = NodePath("../../..")
 camo_cost = 100
 health_cost = Dictionary[int, int]({
-0: 0
+0: 0,
+1: 250
 })
 speed_cost = Dictionary[int, int]({
-0: 0
+0: 0,
+1: 250
 })
 resistance_cost = Dictionary[int, int]({
 0: 0,
@@ -55,10 +57,12 @@ resistance_cost = Dictionary[int, int]({
 4: 1000
 })
 health_values = Dictionary[int, int]({
-0: 1
+0: 1,
+1: 2
 })
 speed_values = Dictionary[int, float]({
-0: 3.0
+0: 3.0,
+1: 5.0
 })
 
 [node name="btn_buy_donuts" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
@@ -67,6 +71,12 @@ text = "BUY BULK"
 [node name="btn_send_wave" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
 text = "Start Round"
 
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="item_selected" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
+[connection signal="toggled" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/btn_send_wave" to="." method="StartRound"]

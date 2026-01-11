@@ -12,7 +12,7 @@ albedo_color = Color(1, 0.654902, 0, 1)
 script = ExtResource("1_3l1p4")
 projectilePrefab = ExtResource("2_oruhs")
 weakness = 1
-attackDistance = 10
+attackDistance = 7
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)

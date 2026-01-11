@@ -98,7 +98,7 @@ func CalculatePathIntersections():
 				print("intersect")
 
 func DonutMove(donut : Donut):
-	money+=round*(donut.cost/10)	
+	money+=(sqrt(donut.cost))	
 
 func RemainingDonuts():
 	var count : int = 0

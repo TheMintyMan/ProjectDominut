@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://2inb7ux2pijv"]
+[gd_scene load_steps=16 format=3 uid="uid://2inb7ux2pijv"]
 
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_8xte0"]
 [ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_0axaf"]
 [ext_resource type="PackedScene" uid="uid://qhxeklit67ga" path="res://scripts/fruitveg/fruit_veg_shooter.tscn" id="3_yxl6f"]
+[ext_resource type="PackedScene" uid="uid://cvfl6hs5jplyl" path="res://scripts/fruitveg/fruit_veg_area.tscn" id="4_0axaf"]
 [ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map/map.gd" id="4_nghdb"]
 [ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="5_3a54n"]
 [ext_resource type="PackedScene" uid="uid://dmvdiab568plo" path="res://scripts/player.tscn" id="6_t86ox"]
@@ -49,7 +50,7 @@ endPointIndicator = NodePath("../Map/EndPoint")
 [node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map")]
 script = ExtResource("2_0axaf")
 map = NodePath("../Map")
-FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yxl6f")])
+FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yxl6f"), ExtResource("4_0axaf")])
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("4_nghdb")
