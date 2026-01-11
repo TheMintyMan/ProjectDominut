@@ -1,20 +1,60 @@
-[gd_scene load_steps=6 format=3 uid="uid://gf475yqk5h2j"]
+[gd_scene load_steps=24 format=3 uid="uid://nn4os867moa7"]
 
-[ext_resource type="Texture2D" uid="uid://djdvwxmvpq6jf" path="res://art/ui/UI_Sprites/Coin.png" id="1_5jobo"]
-[ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
+[ext_resource type="Script" path="res://art/ui/main_menu.gd" id="1_me1i1"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
+[ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
+[ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
+[ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/BaseButton.png" id="5_0ty7k"]
+[ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/PresedButton.png" id="6_dunp4"]
+[ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/HoverButton.png" id="6_mp0qs"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b4tus"]
-texture = ExtResource("1_5jobo")
-modulate_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mp0qs"]
+texture = ExtResource("5_0ty7k")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80kkk"]
-bg_color = Color(0.91228896, 0.9122889, 0.91228884, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esp8h"]
+texture = ExtResource("6_dunp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7xlwl"]
+texture = ExtResource("6_mp0qs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ty7k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nhcby"]
+texture = ExtResource("5_0ty7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_habwj"]
+texture = ExtResource("6_dunp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ud3x8"]
+texture = ExtResource("6_mp0qs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dunp4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dunp4"]
+texture = ExtResource("5_0ty7k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4q1d2"]
+texture = ExtResource("6_dunp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hqk63"]
+texture = ExtResource("6_mp0qs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqk63"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ty7k"]
+texture = ExtResource("5_0ty7k")
+expand_margin_left = 20.0
+expand_margin_top = 5.0
+expand_margin_right = 20.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nws0h"]
+texture = ExtResource("6_dunp4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jqqrl"]
+texture = ExtResource("6_mp0qs")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xlwl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -32,7 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_b4tus")
+theme = ExtResource("2_mp0qs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -47,31 +87,59 @@ offset_right = 215.5
 offset_bottom = 152.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_dunp4")
 theme_override_constants/separation = 10
 
 [node name="Button_Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.064696394, 0.0646966, 0.06469644, 1)
+theme_override_colors/font_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_me1i1")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_80kkk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mp0qs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_esp8h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7xlwl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ty7k")
 text = "Start Game"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button_Credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.064696394, 0.0646966, 0.06469644, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_me1i1")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_80kkk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nhcby")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_habwj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ud3x8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dunp4")
 text = "Credits"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Button_Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.064696394, 0.0646966, 0.06469644, 1)
+theme = ExtResource("2_mp0qs")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_me1i1")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_80kkk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dunp4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4q1d2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hqk63")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hqk63")
 text = "Quit"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -108,7 +176,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_b4tus")
+theme = ExtResource("2_mp0qs")
 
 [node name="Label2" type="Label" parent="Credits"]
 layout_mode = 1
@@ -121,20 +189,31 @@ offset_right = 99.5
 offset_bottom = 187.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.92941177)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_me1i1")
 theme_override_font_sizes/font_size = 50
 text = "CREDITS"
 
 [node name="Button_Back" type="Button" parent="Credits"]
 layout_mode = 0
-offset_left = 1133.0
-offset_top = 641.0
-offset_right = 1225.0
-offset_bottom = 696.0
+offset_left = 1125.0
+offset_top = 623.0
+offset_right = 1217.0
+offset_bottom = 678.0
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.064696394, 0.0646966, 0.06469644, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_80kkk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ty7k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nws0h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jqqrl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7xlwl")
 text = "Back"
+icon_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
