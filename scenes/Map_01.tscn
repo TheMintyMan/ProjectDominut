@@ -1,0 +1,620 @@
+[gd_scene load_steps=6 format=3 uid="uid://3e4178cerbh1"]
+
+[ext_resource type="PackedScene" uid="uid://c45t6xkiltfyb" path="res://scenes/MainMap.tscn" id="1_5orey"]
+[ext_resource type="PackedScene" uid="uid://cwvrlqcohsv5t" path="res://art/environment/counter.tscn" id="2_lbpqm"]
+[ext_resource type="Script" uid="uid://bcbdtatgjmub2" path="res://scripts/map_object.gd" id="3_spirc"]
+[ext_resource type="PackedScene" uid="uid://7bv4t2ma7u10" path="res://art/environment/wall_01.tscn" id="4_4b2qa"]
+[ext_resource type="PackedScene" uid="uid://n1i1j6kv82pf" path="res://art/environment/arrow.tscn" id="4_spirc"]
+
+[node name="MainMap" instance=ExtResource("1_5orey")]
+
+[node name="MapEditorTool" parent="." index="0"]
+mapSizeX = 20
+mapSizeY = 20
+startPoint = 381
+endPoint = 393
+
+[node name="StartPoint" parent="Map" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 19)
+
+[node name="EndPoint" parent="Map" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 19)
+
+[node name="Floor" parent="Map" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="FloorMesh" parent="Map/Floor" index="1"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="counter" parent="Map/MapObjects" index="0" instance=ExtResource("2_lbpqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5188465, 0.5, 17.397697)
+script = ExtResource("3_spirc")
+gridPositions = Array[int]([354, 374, 394])
+
+[node name="wall_01" parent="Map/MapObjects" index="1" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 19.5)
+
+[node name="wall_02" parent="Map/MapObjects" index="2" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 19.5)
+
+[node name="wall_03" parent="Map/MapObjects" index="3" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 19.5)
+
+[node name="wall_05" parent="Map/MapObjects" index="4" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 18.5)
+
+[node name="wall_06" parent="Map/MapObjects" index="5" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 18.5)
+
+[node name="wall_07" parent="Map/MapObjects" index="6" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 18.5)
+
+[node name="wall_09" parent="Map/MapObjects" index="7" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 17.5)
+
+[node name="wall_10" parent="Map/MapObjects" index="8" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 17.5)
+
+[node name="wall_11" parent="Map/MapObjects" index="9" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 17.5)
+
+[node name="wall_13" parent="Map/MapObjects" index="10" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 16.5)
+
+[node name="wall_25" parent="Map/MapObjects" index="11" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 19.5)
+
+[node name="wall_26" parent="Map/MapObjects" index="12" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 18.5)
+
+[node name="wall_27" parent="Map/MapObjects" index="13" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 17.5)
+
+[node name="wall_28" parent="Map/MapObjects" index="14" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 16.5)
+
+[node name="wall_29" parent="Map/MapObjects" index="15" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 19.5)
+
+[node name="wall_30" parent="Map/MapObjects" index="16" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 18.5)
+
+[node name="wall_31" parent="Map/MapObjects" index="17" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 17.5)
+
+[node name="wall_32" parent="Map/MapObjects" index="18" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 16.5)
+
+[node name="wall_14" parent="Map/MapObjects" index="19" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 16.5)
+
+[node name="wall_15" parent="Map/MapObjects" index="20" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 16.5)
+
+[node name="wall_17" parent="Map/MapObjects" index="21" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 15.5)
+
+[node name="wall_18" parent="Map/MapObjects" index="22" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 15.5)
+
+[node name="wall_19" parent="Map/MapObjects" index="23" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 15.5)
+
+[node name="wall_21" parent="Map/MapObjects" index="24" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 14.5)
+
+[node name="wall_22" parent="Map/MapObjects" index="25" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 14.5)
+
+[node name="wall_23" parent="Map/MapObjects" index="26" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 14.5)
+
+[node name="wall_33" parent="Map/MapObjects" index="27" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 13.5)
+
+[node name="wall_34" parent="Map/MapObjects" index="28" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 13.5)
+
+[node name="wall_35" parent="Map/MapObjects" index="29" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 13.5)
+
+[node name="wall_37" parent="Map/MapObjects" index="30" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 12.5)
+
+[node name="wall_38" parent="Map/MapObjects" index="31" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 12.5)
+
+[node name="wall_39" parent="Map/MapObjects" index="32" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 12.5)
+
+[node name="wall_41" parent="Map/MapObjects" index="33" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 11.5)
+
+[node name="wall_81" parent="Map/MapObjects" index="34" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 13.5, 0.5, 13.5)
+
+[node name="wall_82" parent="Map/MapObjects" index="35" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 13.5, 0.5, 12.5)
+
+[node name="wall_83" parent="Map/MapObjects" index="36" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 11.5)
+
+[node name="wall_90" parent="Map/MapObjects" index="37" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 12.5, 0.5, 13.5)
+
+[node name="wall_91" parent="Map/MapObjects" index="38" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 12.5, 0.5, 12.5)
+
+[node name="wall_92" parent="Map/MapObjects" index="39" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 11.5)
+
+[node name="wall_84" parent="Map/MapObjects" index="40" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 14.5, 0.5, 13.5)
+
+[node name="wall_195" parent="Map/MapObjects" index="41" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 14.5, 0.5, 14.5)
+
+[node name="wall_85" parent="Map/MapObjects" index="42" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 14.5, 0.5, 12.5)
+
+[node name="wall_86" parent="Map/MapObjects" index="43" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 11.5)
+
+[node name="wall_87" parent="Map/MapObjects" index="44" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 15.5, 0.5, 13.5)
+
+[node name="wall_102" parent="Map/MapObjects" index="45" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 15.5, 0.5, 14.5)
+
+[node name="wall_88" parent="Map/MapObjects" index="46" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 15.5, 0.5, 12.5)
+
+[node name="wall_89" parent="Map/MapObjects" index="47" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 11.5)
+
+[node name="wall_107" parent="Map/MapObjects" index="48" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 10.5)
+
+[node name="wall_108" parent="Map/MapObjects" index="49" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 9.5)
+
+[node name="wall_109" parent="Map/MapObjects" index="50" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 8.5)
+
+[node name="wall_110" parent="Map/MapObjects" index="51" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 7.5)
+
+[node name="wall_103" parent="Map/MapObjects" index="52" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 13.5)
+
+[node name="wall_104" parent="Map/MapObjects" index="53" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 14.5)
+
+[node name="wall_105" parent="Map/MapObjects" index="54" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 12.5)
+
+[node name="wall_106" parent="Map/MapObjects" index="55" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 11.5)
+
+[node name="wall_42" parent="Map/MapObjects" index="56" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 11.5)
+
+[node name="wall_43" parent="Map/MapObjects" index="57" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 11.5)
+
+[node name="wall_45" parent="Map/MapObjects" index="58" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 10.5)
+
+[node name="wall_46" parent="Map/MapObjects" index="59" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 10.5)
+
+[node name="wall_47" parent="Map/MapObjects" index="60" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 10.5)
+
+[node name="wall_40" parent="Map/MapObjects" index="61" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 12.5)
+
+[node name="wall_44" parent="Map/MapObjects" index="62" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 11.5)
+
+[node name="wall_48" parent="Map/MapObjects" index="63" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 10.5)
+
+[node name="wall_49" parent="Map/MapObjects" index="64" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 9.5)
+
+[node name="wall_50" parent="Map/MapObjects" index="65" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 9.5)
+
+[node name="wall_51" parent="Map/MapObjects" index="66" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 9.5)
+
+[node name="wall_53" parent="Map/MapObjects" index="67" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 8.5)
+
+[node name="wall_54" parent="Map/MapObjects" index="68" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 8.5)
+
+[node name="wall_55" parent="Map/MapObjects" index="69" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 8.5)
+
+[node name="wall_57" parent="Map/MapObjects" index="70" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 7.5)
+
+[node name="wall_58" parent="Map/MapObjects" index="71" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 7.5)
+
+[node name="wall_59" parent="Map/MapObjects" index="72" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 7.5)
+
+[node name="wall_61" parent="Map/MapObjects" index="73" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 6.5)
+
+[node name="wall_62" parent="Map/MapObjects" index="74" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 6.5)
+
+[node name="wall_63" parent="Map/MapObjects" index="75" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 6.5)
+
+[node name="wall_56" parent="Map/MapObjects" index="76" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 8.5)
+
+[node name="wall_60" parent="Map/MapObjects" index="77" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 7.5)
+
+[node name="wall_52" parent="Map/MapObjects" index="78" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 9.5)
+
+[node name="wall_120" parent="Map/MapObjects" index="79" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 8.5)
+
+[node name="wall_121" parent="Map/MapObjects" index="80" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 7.5)
+
+[node name="wall_64" parent="Map/MapObjects" index="81" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 6.5)
+
+[node name="wall_68" parent="Map/MapObjects" index="82" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 8.5)
+
+[node name="wall_111" parent="Map/MapObjects" index="83" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 7.5)
+
+[node name="wall_119" parent="Map/MapObjects" index="84" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 6.5)
+
+[node name="wall_65" parent="Map/MapObjects" index="85" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 7.5, 0.5, 5.5)
+
+[node name="wall_69" parent="Map/MapObjects" index="86" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 7.5)
+
+[node name="wall_194" parent="Map/MapObjects" index="87" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 8.5)
+
+[node name="wall_70" parent="Map/MapObjects" index="88" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 8.5, 0.5, 6.5)
+
+[node name="wall_71" parent="Map/MapObjects" index="89" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 8.5, 0.5, 5.5)
+
+[node name="wall_72" parent="Map/MapObjects" index="90" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 7.5)
+
+[node name="wall_73" parent="Map/MapObjects" index="91" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 9.5, 0.5, 6.5)
+
+[node name="wall_74" parent="Map/MapObjects" index="92" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 9.5, 0.5, 5.5)
+
+[node name="wall_75" parent="Map/MapObjects" index="93" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 7.5)
+
+[node name="wall_76" parent="Map/MapObjects" index="94" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 10.5, 0.5, 6.5)
+
+[node name="wall_77" parent="Map/MapObjects" index="95" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 10.5, 0.5, 5.5)
+
+[node name="wall_78" parent="Map/MapObjects" index="96" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 7.5)
+
+[node name="wall_79" parent="Map/MapObjects" index="97" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 11.5, 0.5, 6.5)
+
+[node name="wall_80" parent="Map/MapObjects" index="98" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 11.5, 0.5, 5.5)
+
+[node name="wall_93" parent="Map/MapObjects" index="99" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 19.5, 0.5, 0.5)
+
+[node name="wall_94" parent="Map/MapObjects" index="100" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 18.5, 0.5, 0.5)
+
+[node name="wall_95" parent="Map/MapObjects" index="101" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 17.5, 0.5, 0.5)
+
+[node name="wall_96" parent="Map/MapObjects" index="102" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 19.5, 0.5, 1.5)
+
+[node name="wall_97" parent="Map/MapObjects" index="103" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 18.5, 0.5, 1.5)
+
+[node name="wall_98" parent="Map/MapObjects" index="104" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 17.5, 0.5, 1.5)
+
+[node name="wall_99" parent="Map/MapObjects" index="105" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 19.5, 0.5, 2.5)
+
+[node name="wall_100" parent="Map/MapObjects" index="106" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 18.5, 0.5, 2.5)
+
+[node name="wall_101" parent="Map/MapObjects" index="107" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 17.5, 0.5, 2.5)
+
+[node name="wall_112" parent="Map/MapObjects" index="108" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 19.5, 0.5, 3.5)
+
+[node name="wall_113" parent="Map/MapObjects" index="109" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 18.5, 0.5, 3.5)
+
+[node name="wall_114" parent="Map/MapObjects" index="110" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 17.5, 0.5, 3.5)
+
+[node name="wall_115" parent="Map/MapObjects" index="111" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 0.5)
+
+[node name="wall_116" parent="Map/MapObjects" index="112" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 1.5)
+
+[node name="wall_117" parent="Map/MapObjects" index="113" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 2.5)
+
+[node name="wall_118" parent="Map/MapObjects" index="114" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(0.9999379, -0.0013764263, 0.011061556, 0.0013725327, 0.999999, 0.000359699, -0.01106204, -0.00034449983, 0.9999388, 16.5, 0.5, 3.5)
+
+[node name="wall_66" parent="Map/MapObjects" index="115" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 5.5)
+
+[node name="wall_67" parent="Map/MapObjects" index="116" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 5.5)
+
+[node name="wall_04" parent="Map/MapObjects" index="117" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 19.5)
+
+[node name="wall_136" parent="Map/MapObjects" index="118" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 20.5)
+
+[node name="wall_08" parent="Map/MapObjects" index="119" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 18.5)
+
+[node name="wall_12" parent="Map/MapObjects" index="120" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 17.5)
+
+[node name="wall_16" parent="Map/MapObjects" index="121" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 16.5)
+
+[node name="wall_20" parent="Map/MapObjects" index="122" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 15.5)
+
+[node name="wall_24" parent="Map/MapObjects" index="123" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 14.5)
+
+[node name="wall_36" parent="Map/MapObjects" index="124" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 13.5)
+
+[node name="wall_122" parent="Map/MapObjects" index="125" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 12.5)
+
+[node name="wall_123" parent="Map/MapObjects" index="126" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 11.5)
+
+[node name="wall_124" parent="Map/MapObjects" index="127" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 10.5)
+
+[node name="wall_125" parent="Map/MapObjects" index="128" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 9.5)
+
+[node name="wall_126" parent="Map/MapObjects" index="129" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 8.5)
+
+[node name="wall_127" parent="Map/MapObjects" index="130" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 7.5)
+
+[node name="wall_128" parent="Map/MapObjects" index="131" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 6.5)
+
+[node name="wall_129" parent="Map/MapObjects" index="132" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 5.5)
+
+[node name="wall_130" parent="Map/MapObjects" index="133" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 4.5)
+
+[node name="wall_131" parent="Map/MapObjects" index="134" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 3.5)
+
+[node name="wall_132" parent="Map/MapObjects" index="135" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 2.5)
+
+[node name="wall_133" parent="Map/MapObjects" index="136" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 1.5)
+
+[node name="wall_134" parent="Map/MapObjects" index="137" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 0.5)
+
+[node name="wall_135" parent="Map/MapObjects" index="138" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -0.5)
+
+[node name="wall_173" parent="Map/MapObjects" index="139" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -0.5)
+
+[node name="wall_193" parent="Map/MapObjects" index="140" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+
+[node name="wall_174" parent="Map/MapObjects" index="141" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, -0.5)
+
+[node name="wall_175" parent="Map/MapObjects" index="142" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, -0.5)
+
+[node name="wall_176" parent="Map/MapObjects" index="143" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, -0.5)
+
+[node name="wall_177" parent="Map/MapObjects" index="144" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -0.5)
+
+[node name="wall_178" parent="Map/MapObjects" index="145" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, -0.5)
+
+[node name="wall_179" parent="Map/MapObjects" index="146" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, -0.5)
+
+[node name="wall_180" parent="Map/MapObjects" index="147" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -0.5)
+
+[node name="wall_181" parent="Map/MapObjects" index="148" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, -0.5)
+
+[node name="wall_182" parent="Map/MapObjects" index="149" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, -0.5)
+
+[node name="wall_183" parent="Map/MapObjects" index="150" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, -0.5)
+
+[node name="wall_184" parent="Map/MapObjects" index="151" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, -0.5)
+
+[node name="wall_185" parent="Map/MapObjects" index="152" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, -0.5)
+
+[node name="wall_186" parent="Map/MapObjects" index="153" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, -0.5)
+
+[node name="wall_187" parent="Map/MapObjects" index="154" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, -0.5)
+
+[node name="wall_188" parent="Map/MapObjects" index="155" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, -0.5)
+
+[node name="wall_189" parent="Map/MapObjects" index="156" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, -0.5)
+
+[node name="wall_190" parent="Map/MapObjects" index="157" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, -0.5)
+
+[node name="wall_191" parent="Map/MapObjects" index="158" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, -0.5)
+
+[node name="wall_192" parent="Map/MapObjects" index="159" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, -0.5)
+
+[node name="wall_137" parent="Map/MapObjects" index="160" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 19.5)
+
+[node name="wall_138" parent="Map/MapObjects" index="161" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 20.5)
+
+[node name="wall_159" parent="Map/MapObjects" index="162" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 20.5)
+
+[node name="wall_160" parent="Map/MapObjects" index="163" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 20.5)
+
+[node name="wall_161" parent="Map/MapObjects" index="164" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 20.5)
+
+[node name="wall_162" parent="Map/MapObjects" index="165" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 20.5)
+
+[node name="wall_163" parent="Map/MapObjects" index="166" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 20.5)
+
+[node name="wall_164" parent="Map/MapObjects" index="167" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 20.5)
+
+[node name="wall_165" parent="Map/MapObjects" index="168" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 20.5)
+
+[node name="wall_166" parent="Map/MapObjects" index="169" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 20.5)
+
+[node name="wall_167" parent="Map/MapObjects" index="170" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 20.5)
+
+[node name="wall_168" parent="Map/MapObjects" index="171" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 20.5)
+
+[node name="wall_169" parent="Map/MapObjects" index="172" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 20.5)
+
+[node name="wall_170" parent="Map/MapObjects" index="173" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 20.5)
+
+[node name="wall_171" parent="Map/MapObjects" index="174" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 20.5)
+
+[node name="wall_172" parent="Map/MapObjects" index="175" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 20.5)
+
+[node name="wall_139" parent="Map/MapObjects" index="176" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 18.5)
+
+[node name="wall_140" parent="Map/MapObjects" index="177" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 17.5)
+
+[node name="wall_141" parent="Map/MapObjects" index="178" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 16.5)
+
+[node name="wall_142" parent="Map/MapObjects" index="179" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 15.5)
+
+[node name="wall_143" parent="Map/MapObjects" index="180" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 14.5)
+
+[node name="wall_144" parent="Map/MapObjects" index="181" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 13.5)
+
+[node name="wall_145" parent="Map/MapObjects" index="182" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 12.5)
+
+[node name="wall_146" parent="Map/MapObjects" index="183" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 11.5)
+
+[node name="wall_147" parent="Map/MapObjects" index="184" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 10.5)
+
+[node name="wall_148" parent="Map/MapObjects" index="185" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 9.5)
+
+[node name="wall_149" parent="Map/MapObjects" index="186" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 8.5)
+
+[node name="wall_150" parent="Map/MapObjects" index="187" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 7.5)
+
+[node name="wall_151" parent="Map/MapObjects" index="188" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 6.5)
+
+[node name="wall_152" parent="Map/MapObjects" index="189" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 5.5)
+
+[node name="wall_153" parent="Map/MapObjects" index="190" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 4.5)
+
+[node name="wall_154" parent="Map/MapObjects" index="191" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 3.5)
+
+[node name="wall_155" parent="Map/MapObjects" index="192" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 2.5)
+
+[node name="wall_156" parent="Map/MapObjects" index="193" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 1.5)
+
+[node name="wall_157" parent="Map/MapObjects" index="194" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 0.5)
+
+[node name="wall_158" parent="Map/MapObjects" index="195" instance=ExtResource("4_4b2qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, -0.5)
+
+[node name="arrow" parent="Map" index="6" instance=ExtResource("4_spirc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 19.5)
