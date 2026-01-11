@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://3e4178cerbh1"]
+
+[ext_resource type="PackedScene" uid="uid://c45t6xkiltfyb" path="res://scenes/MainMap.tscn" id="1_5orey"]
+[ext_resource type="PackedScene" uid="uid://cwvrlqcohsv5t" path="res://art/environment/counter.tscn" id="2_lbpqm"]
+[ext_resource type="Script" uid="uid://bcbdtatgjmub2" path="res://scripts/map_object.gd" id="3_spirc"]
+[ext_resource type="PackedScene" uid="uid://n1i1j6kv82pf" path="res://art/environment/arrow.tscn" id="4_spirc"]
+
+[node name="MainMap" instance=ExtResource("1_5orey")]
+
+[node name="MapEditorTool" parent="." index="1"]
+mapSizeX = 20
+mapSizeY = 20
+endPoint = 393
+
+[node name="EndPoint" parent="Map" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 19)
+
+[node name="Floor" parent="Map" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="FloorMesh" parent="Map/Floor" index="1"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="counter" parent="Map/MapObjects" index="4" instance=ExtResource("2_lbpqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5188465, 0.5, 17.897697)
+script = ExtResource("3_spirc")
+gridPositions = Array[int]([354, 374, 394])
+
+[node name="arrow" parent="Map" index="6" instance=ExtResource("4_spirc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 19.5)
