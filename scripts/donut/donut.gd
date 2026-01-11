@@ -1,21 +1,30 @@
-extends Node3D
-class_name Donut
+class_name Donut extends Mover
 
-@export var donut_type: DonutType
-
-var max_health: int
-var current_health: int
-var speed: float
+var max_health: int = 1
+var current_health: int 
 var camo: bool = false
-var resistances: Array[int] = []
+var resistance: Global.ResistanceType = Global.ResistanceType.NONE
+var cost = 0;
+
 
 func _ready() -> void:
-	if donut_type == null:
-		push_error("Donut has no DonutType assigned!")
-		return
+	pass
 
-	max_health = donut_type.health
+func AssignData(donutData : DonutType):
+	max_health = donutData.health
 	current_health = max_health
-	speed = donut_type.speed
-	camo = donut_type.camo
-	resistances = donut_type.resistances.duplicate()
+	speed = donutData.speed
+	camo = donutData.camo
+	resistance = donutData.resistance_type
+	cost = donutData.cost
+	
+func DoDamage(damage):
+	current_health-=damage
+	if(current_health <= 0):
+		OnDie()
+		return true
+	return false
+	
+func OnMoveGridCell():
+	if(player != null):
+		player.DonutMove(self)

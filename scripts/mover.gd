@@ -14,6 +14,8 @@ var alreadyTravelledPaths = []
 @export var speed : float = 3
 
 
+var player : Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -144,12 +146,12 @@ func _physics_process(delta: float) -> void:
 			lastGridPosition = roundPos
 		
 		if(roundPos[0] == targetGridPosition[0] && roundPos[1] == targetGridPosition[1]):
-			if(currentPath.endConnectionPos != null):
+			if(currentPath.endConnectionPos != null && roundPos[0] == currentPath.endConnectionPos[0] && roundPos[1] == currentPath.endConnectionPos[1]):
 				Reset()
 				OnFinish()
 			elif(deadEnd):
 				deadEnd = false
-				OnDie()
+				#OnDie()
 			else:
 				GetTarget()
 
@@ -161,5 +163,7 @@ func OnFinish():
 func OnStart():
 	pass			
 func OnDie():
+	if(get_parent() != null):
+		get_parent().remove_child(self)
 	queue_free()
 	pass			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://badnnpq4wqsrl"]
+[gd_scene format=3 uid="uid://badnnpq4wqsrl"]
 
 [node name="ui_send_wave" type="Control"]
 layout_mode = 3
@@ -21,8 +21,3 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-
-[node name="btn_send_wave" type="Button" parent="MarginContainer_SendWave"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SEND WAVE"

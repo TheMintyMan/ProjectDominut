@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://qhxeklit67ga"]
+
+[ext_resource type="Script" uid="uid://c5i5cggks4015" path="res://scripts/fruitveg/fruit_veg_shooter.gd" id="1_3l1p4"]
+[ext_resource type="PackedScene" uid="uid://du623mt1fbupy" path="res://scripts/fruitveg/fruit_veg_projectile.tscn" id="2_oruhs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twgoi"]
+albedo_color = Color(1, 0.654902, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_56tmu"]
+
+[node name="FruitVegShooter" type="Node3D"]
+script = ExtResource("1_3l1p4")
+projectilePrefab = ExtResource("2_oruhs")
+weakness = 1
+attackDistance = 10
+
+[node name="StartPointMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+material_override = SubResource("StandardMaterial3D_twgoi")
+mesh = SubResource("BoxMesh_56tmu")
+skeleton = NodePath("../../Floor/FloorMesh")

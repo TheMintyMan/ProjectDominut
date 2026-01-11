@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn65p6chhg1h3"]
+
+[ext_resource type="Script" uid="uid://bvmckwkehwles" path="res://scripts/donut/donut.gd" id="1_eif47"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q51qt"]
+
+[node name="Donut" type="Node3D"]
+script = ExtResource("1_eif47")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.79036546, 0, 0, 0, 0.79036546, 0, 0, 0, 0.79036546, 0.5, 1, 0.5)
+mesh = SubResource("BoxMesh_q51qt")
+skeleton = NodePath("../../..")

@@ -25,10 +25,6 @@ func SetEnd(endX, endY):
 		endPosX = startPosX
 		endPosY = endY	
 		
-	if(startPosY == 29):
-		endConnectionPos = [startPosX, startPosY]
-	elif(endPosY == 29):
-		endConnectionPos = [endPosX, endPosY]
 	
 	UpdateMesh()
 

@@ -109,15 +109,16 @@ func GetAllChildren(node = null):
 	
 	
 func CreateLabel(name, colour, origin):
-	var label_3d = Label3D.new() 
-	label_3d.text = name
-	label_3d.font_size = 32
-	
-	label_3d.modulate = colour
-	label_3d.transform.origin = origin
-	label_3d.billboard = true
-	
-	labelParent.add_child(label_3d)
+	if(labelParent != null):
+		var label_3d = Label3D.new() 
+		label_3d.text = name
+		label_3d.font_size = 32
+		
+		label_3d.modulate = colour
+		label_3d.transform.origin = origin
+		label_3d.billboard = true
+		
+		labelParent.add_child(label_3d)
 func ClearLabels():
 	if(labelParent == null):
 		return
