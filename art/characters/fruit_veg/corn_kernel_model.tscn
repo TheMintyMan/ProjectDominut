@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyqw2rs2cu6"]
+
+[ext_resource type="PackedScene" uid="uid://b3h1qxvndbqlv" path="res://art/characters/fruit_veg/models/CornKernel_Model.fbx" id="1_5r32s"]
+
+[node name="CornKernel_Model" instance=ExtResource("1_5r32s")]
