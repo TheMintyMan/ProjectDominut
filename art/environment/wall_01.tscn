@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://7bv4t2ma7u10"]
+[gd_scene load_steps=3 format=3 uid="uid://7bv4t2ma7u10"]
 
 [ext_resource type="PackedScene" uid="uid://cvdg15qp4k5fg" path="res://art/environment/models/wall_01.glb" id="1_prl1e"]
+[ext_resource type="Material" uid="uid://c6ho0pu14ccw3" path="res://art/materials/Floor_material.tres" id="2_qyrfj"]
 
 [node name="wall_01" instance=ExtResource("1_prl1e")]
+
+[node name="wall_tile_01" parent="." index="0"]
+material_override = ExtResource("2_qyrfj")

@@ -1,8 +1,26 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c6ho0pu14ccw3"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c6ho0pu14ccw3"]
 
 [ext_resource type="Texture2D" uid="uid://bgj5guqn8g4e8" path="res://art/environment/Textures/Supermarket_Floor_basecolor.png" id="1_ar0j3"]
+[ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="1_dvws1"]
 [ext_resource type="Texture2D" uid="uid://du8vpbch63ttt" path="res://art/environment/Textures/Supermarket_Floor_roughness.png" id="2_hxrwn"]
+[ext_resource type="Texture2D" uid="uid://cqemjdqicjwx2" path="res://art/materials/shader/color_gradient.tres" id="2_uksis"]
+[ext_resource type="Texture2D" uid="uid://bssqi5h0wj08y" path="res://art/materials/shader/fresnel_gradient.tres" id="3_wphf5"]
 
 [resource]
-albedo_texture = ExtResource("1_ar0j3")
-roughness_texture = ExtResource("2_hxrwn")
+render_priority = 0
+shader = ExtResource("1_dvws1")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("1_ar0j3")
+shader_parameter/albedo_texture_size = Vector2i(1024, 1024)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/texture_roughness = ExtResource("2_hxrwn")
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("2_uksis")
+shader_parameter/fresnel_gradient = ExtResource("3_wphf5")

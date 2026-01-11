@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://r07avtnxuoiu"]
+[gd_scene load_steps=7 format=3 uid="uid://2wfgwbp3myij"]
 
 [ext_resource type="PackedScene" uid="uid://cgdcktao3p1vw" path="res://art/characters/fruit_veg/models/Grape_Model.fbx" id="1_7xmkp"]
+[ext_resource type="Material" uid="uid://c5bjh2clbxqpn" path="res://art/materials/mat_purple_grape.tres" id="2_f4ptr"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="3_fe6x3"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="4_wdg4i"]
+[ext_resource type="Material" uid="uid://cxrukrsdmdttr" path="res://art/materials/mat_black_shiny.tres" id="5_6ngar"]
+[ext_resource type="Material" uid="uid://dvjtmhk561aeh" path="res://art/materials/mat_black_matte.tres" id="6_ee5bo"]
 
 [node name="Grape_Model" instance=ExtResource("1_7xmkp")]
+
+[node name="GrapeBody" parent="Grape" index="0"]
+material_override = ExtResource("2_f4ptr")
+
+[node name="Slingshot" parent="Grape" index="1"]
+material_override = ExtResource("3_fe6x3")
+
+[node name="GrapePile" parent="Grape" index="2"]
+material_override = ExtResource("2_f4ptr")
+
+[node name="Eye2" parent="Grape" index="3"]
+surface_material_override/0 = ExtResource("4_wdg4i")
+surface_material_override/1 = ExtResource("5_6ngar")
+
+[node name="Eyebrows" parent="Grape" index="4"]
+material_override = ExtResource("6_ee5bo")

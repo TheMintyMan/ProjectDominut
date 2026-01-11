@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkiy8ik3nop0i"]
+[gd_scene load_steps=7 format=3 uid="uid://bkiy8ik3nop0i"]
 
 [ext_resource type="PackedScene" uid="uid://k154pa5ihvkm" path="res://art/characters/fruit_veg/models/CarrotCannon_Model.fbx" id="1_bbbgx"]
-[ext_resource type="Material" uid="uid://bhwhfigwplrgq" path="res://art/characters/fruit_veg/textures/Veggie_material.tres" id="2_mg4kp"]
+[ext_resource type="Material" uid="uid://butp0jrtgrvdd" path="res://art/materials/mat_orange_carrot.tres" id="2_bmr13"]
+[ext_resource type="Material" uid="uid://dvjtmhk561aeh" path="res://art/materials/mat_black_matte.tres" id="3_m6043"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="4_n27pf"]
+[ext_resource type="Material" uid="uid://cxrukrsdmdttr" path="res://art/materials/mat_black_shiny.tres" id="5_3xrn2"]
+[ext_resource type="Material" uid="uid://b760hpqlvfvqk" path="res://art/materials/mat_lettuce.tres" id="6_fb1ih"]
 
 [node name="CarrotCannon_Model" instance=ExtResource("1_bbbgx")]
 
+[node name="CarrotMainBody" parent="CarrotCannon" index="0"]
+material_override = ExtResource("2_bmr13")
+
+[node name="Wheels" parent="CarrotCannon" index="1"]
+material_override = ExtResource("3_m6043")
+
+[node name="Eyebrows" parent="CarrotCannon" index="2"]
+material_override = ExtResource("3_m6043")
+
+[node name="Eyes" parent="CarrotCannon" index="3"]
+surface_material_override/0 = ExtResource("4_n27pf")
+surface_material_override/1 = ExtResource("5_3xrn2")
+
 [node name="CarrotLeaf" parent="CarrotCannon" index="4"]
-material_override = ExtResource("2_mg4kp")
+material_override = ExtResource("6_fb1ih")
