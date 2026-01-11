@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfie5yu2smyan"
-path="res://.godot/imported/UncheckedCircle.png-24a2d2429ae1b7fe942200c53ee07040.ctex"
+uid="uid://b6lex186yaymj"
+path="res://.godot/imported/DonutButton.png-ca9ac7f63159d6de7824c7c7dc522d39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/UI_Sprites/UncheckedCircle.png"
-dest_files=["res://.godot/imported/UncheckedCircle.png-24a2d2429ae1b7fe942200c53ee07040.ctex"]
+source_file="res://art/ui/UI_Sprites/DonutButton.png"
+dest_files=["res://.godot/imported/DonutButton.png-ca9ac7f63159d6de7824c7c7dc522d39.ctex"]
 
 [params]
 

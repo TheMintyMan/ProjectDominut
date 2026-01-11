@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cymynvjmdygl2"
-path="res://.godot/imported/OvenButton.png-8f5cde2eb3067523e25b621973b0cb6e.ctex"
+uid="uid://bv8buhuisla4d"
+path="res://.godot/imported/PresedButton.png-88445969a9338b75f82f77e2b253fac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/UI_Sprites/Buttons/OvenButton.png"
-dest_files=["res://.godot/imported/OvenButton.png-8f5cde2eb3067523e25b621973b0cb6e.ctex"]
+source_file="res://art/ui/UI_Sprites/PresedButton.png"
+dest_files=["res://.godot/imported/PresedButton.png-88445969a9338b75f82f77e2b253fac4.ctex"]
 
 [params]
 

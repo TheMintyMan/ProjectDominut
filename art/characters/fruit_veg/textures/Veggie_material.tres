@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bhwhfigwplrgq"]
 
-[ext_resource type="Texture2D" uid="uid://dhvoscgti3mto" path="res://art/characters/fruit_veg/models/Lettuce_Stage1_Model_alpha_0.png" id="1_vopjk"]
+[ext_resource type="Texture2D" uid="uid://dfui4mwpdg54" path="res://art/characters/fruit_veg/textures/Veggie_BaseColor.png" id="1_vopjk"]
 
 [resource]
 transparency = 3

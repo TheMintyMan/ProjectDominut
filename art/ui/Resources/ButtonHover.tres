@@ -1,8 +1,0 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dxuxhllmyh3ig"]
-
-[ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/Buttons/HoverButton.png" id="1_w8n7k"]
-
-[resource]
-content_margin_left = 10.0
-content_margin_right = 10.0
-texture = ExtResource("1_w8n7k")

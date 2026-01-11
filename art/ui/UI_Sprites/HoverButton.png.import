@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pxxcx3s356xq"
-path="res://.godot/imported/CheckButtonOff.png-d4be20386f8b8d7e26ba0d536ebde008.ctex"
+uid="uid://dkne2jfffg2qk"
+path="res://.godot/imported/HoverButton.png-30d79707a27c5ffdef1a8a7ec3f61c41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/ui/UI_Sprites/CheckButtonOff.png"
-dest_files=["res://.godot/imported/CheckButtonOff.png-d4be20386f8b8d7e26ba0d536ebde008.ctex"]
+source_file="res://art/ui/UI_Sprites/HoverButton.png"
+dest_files=["res://.godot/imported/HoverButton.png-30d79707a27c5ffdef1a8a7ec3f61c41.ctex"]
 
 [params]
 

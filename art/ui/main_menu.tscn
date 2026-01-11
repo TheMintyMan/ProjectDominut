@@ -4,9 +4,9 @@
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
 [ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
-[ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/Buttons/BaseButton.png" id="5_0ty7k"]
-[ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/Buttons/PresedButton.png" id="6_dunp4"]
-[ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/Buttons/HoverButton.png" id="6_mp0qs"]
+[ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/BaseButton.png" id="5_0ty7k"]
+[ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/PresedButton.png" id="6_dunp4"]
+[ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/HoverButton.png" id="6_mp0qs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mp0qs"]
 texture = ExtResource("5_0ty7k")
