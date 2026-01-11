@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmvdiab568plo"]
+[gd_scene load_steps=11 format=3 uid="uid://dmvdiab568plo"]
 
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="1_fhbv5"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/map/donut_path.tscn" id="2_pqap4"]
 [ext_resource type="PackedScene" uid="uid://cn65p6chhg1h3" path="res://scripts/donut/donut.tscn" id="3_2c7ny"]
 [ext_resource type="PackedScene" uid="uid://cm6jjiilf68k" path="res://scripts/selection_cube.tscn" id="3_pqap4"]
-[ext_resource type="PackedScene" uid="uid://c2dchotmrfaxw" path="res://art/ui/ui_persistent.tscn" id="5_xfidv"]
+[ext_resource type="PackedScene" path="res://art/ui/ui_persistent.tscn" id="5_xfidv"]
 [ext_resource type="Script" uid="uid://p7lb2oafl5pt" path="res://art/ui/player_ui.gd" id="6_o8o0x"]
 [ext_resource type="PackedScene" uid="uid://hw56ta54n74n" path="res://art/ui/ui_donut_upgrade.tscn" id="7_o8o0x"]
 [ext_resource type="Script" uid="uid://p3tr8jax1df" path="res://scripts/donut_production/donut_upgrader.gd" id="8_0pev8"]
+[ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="9_nxd4c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8o0x"]
 
 [node name="Player" type="Node3D"]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
@@ -72,6 +75,10 @@ speed_values = Dictionary[int, float]({
 2: 7.0,
 3: 9.0
 })
+
+[node name="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade" index="0"]
+theme = ExtResource("9_nxd4c")
+theme_override_styles/panel = SubResource("StyleBoxTexture_o8o0x")
 
 [node name="btn_buy_donuts" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
 text = "BUY BULK"

@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://biot7ci7ievw"]
+[gd_scene load_steps=6 format=3 uid="uid://biot7ci7ievw"]
 
 [ext_resource type="PackedScene" uid="uid://c21682c3ci0rk" path="res://art/characters/fruit_veg/models/Lettuce_Stage1_Model.fbx" id="1_xmtg8"]
-[ext_resource type="Material" uid="uid://bhwhfigwplrgq" path="res://art/characters/fruit_veg/textures/Veggie_material.tres" id="2_lvn33"]
+[ext_resource type="Material" uid="uid://b760hpqlvfvqk" path="res://art/materials/mat_lettuce.tres" id="2_lvn33"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="3_kquy1"]
+[ext_resource type="Material" uid="uid://cxrukrsdmdttr" path="res://art/materials/mat_black_shiny.tres" id="4_liiqd"]
+[ext_resource type="Material" uid="uid://dvjtmhk561aeh" path="res://art/materials/mat_black_matte.tres" id="5_p8f25"]
 
 [node name="Lettuce_Stage1_Model" instance=ExtResource("1_xmtg8")]
 
 [node name="LettuceLeaves" parent="Lettuce2" index="0"]
 material_override = ExtResource("2_lvn33")
+
+[node name="Eye1" parent="Lettuce2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.08744, 92.85535, 0)
+surface_material_override/0 = ExtResource("3_kquy1")
+surface_material_override/1 = ExtResource("4_liiqd")
+
+[node name="Eyebrows" parent="Lettuce2" index="2"]
+material_override = ExtResource("5_p8f25")

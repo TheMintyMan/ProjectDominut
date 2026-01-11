@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://e5n8stx8im6t"]
+
+[ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/Buttons/PresedButton.png" id="1_fjnig"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_right = 10.0
+texture = ExtResource("1_fjnig")

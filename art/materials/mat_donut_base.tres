@@ -1,7 +1,27 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://c0csbsnej2vf3"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c0csbsnej2vf3"]
+
+[ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="1_lql7w"]
+[ext_resource type="Texture2D" uid="uid://cqemjdqicjwx2" path="res://art/materials/shader/color_gradient.tres" id="2_cdjh5"]
+[ext_resource type="Texture2D" uid="uid://bssqi5h0wj08y" path="res://art/materials/shader/fresnel_gradient.tres" id="3_y05nu"]
 
 [resource]
-transparency = 1
-cull_mode = 2
-depth_draw_mode = 1
-albedo_color = Color(0.87, 0.71572, 0.5394, 1)
+=======
+render_priority = 0
+shader = ExtResource("1_lql7w")
+shader_parameter/transparency = 1
+shader_parameter/cull_mode = 2
+shader_parameter/depth_draw_mode = 1
+shader_parameter/albedo = Color(0.87, 0.71572, 0.5394, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("2_cdjh5")
+shader_parameter/fresnel_gradient = ExtResource("3_y05nu")
+>>>>>>> b609fde802af34048674ca06f1bb1efd94e64d9f

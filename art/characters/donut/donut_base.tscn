@@ -94,6 +94,9 @@ material_override = ExtResource("2_23pqs")
 [node name="donut_base_l_leg" parent="donut_rig/Skeleton3D" index="13"]
 material_override = ExtResource("2_23pqs")
 
+[node name="donut_base_r_arm" parent="donut_rig/Skeleton3D" index="14"]
+material_override = ExtResource("2_23pqs")
+
 [node name="donut_base_r_feet" parent="donut_rig/Skeleton3D" index="15"]
 material_override = ExtResource("2_23pqs")
 
