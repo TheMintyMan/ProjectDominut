@@ -1,16 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmvdiab568plo"]
+[gd_scene load_steps=9 format=3 uid="uid://dmvdiab568plo"]
 
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="1_fhbv5"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/map/donut_path.tscn" id="2_pqap4"]
 [ext_resource type="PackedScene" uid="uid://cn65p6chhg1h3" path="res://scripts/donut/donut.tscn" id="3_2c7ny"]
 [ext_resource type="PackedScene" uid="uid://cm6jjiilf68k" path="res://scripts/selection_cube.tscn" id="3_pqap4"]
-[ext_resource type="PackedScene" path="res://art/ui/ui_persistent.tscn" id="5_xfidv"]
+[ext_resource type="PackedScene" uid="uid://c2dchotmrfaxw" path="res://art/ui/ui_persistent.tscn" id="5_xfidv"]
 [ext_resource type="Script" uid="uid://p7lb2oafl5pt" path="res://art/ui/player_ui.gd" id="6_o8o0x"]
 [ext_resource type="PackedScene" uid="uid://hw56ta54n74n" path="res://art/ui/ui_donut_upgrade.tscn" id="7_o8o0x"]
 [ext_resource type="Script" uid="uid://p3tr8jax1df" path="res://scripts/donut_production/donut_upgrader.gd" id="8_0pev8"]
-[ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="9_nxd4c"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8o0x"]
 
 [node name="Player" type="Node3D"]
 transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
@@ -40,7 +37,8 @@ donutCoinsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_donut_coi
 remainingDonutsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_remaining_donuts")
 
 [node name="ui_donut_upgrade" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_o8o0x")]
-offset_left = 928.0
+offset_top = 1.0
+offset_bottom = 1.0
 script = ExtResource("8_0pev8")
 player = NodePath("../../..")
 camo_cost = 2000
@@ -76,22 +74,9 @@ speed_values = Dictionary[int, float]({
 3: 9.0
 })
 
-[node name="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade" index="0"]
-theme = ExtResource("9_nxd4c")
-theme_override_styles/panel = SubResource("StyleBoxTexture_o8o0x")
-
 [node name="btn_buy_donuts" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
 text = "BUY BULK"
 
-[node name="btn_send_wave" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
-text = "Start Round"
-
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="item_selected" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
-[connection signal="toggled" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/btn_send_wave" to="." method="StartRound"]
