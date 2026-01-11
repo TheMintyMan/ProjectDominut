@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectDominut"
-run/main_scene="uid://c45t6xkiltfyb"
+run/main_scene="uid://gf475yqk5h2j"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
