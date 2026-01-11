@@ -1,39 +1,65 @@
 class_name Player extends Node3D
 
 @export var map : Map
-@export var selectionCube : Node3D
 @export var donutPathPrefab : PackedScene
+var selectionCube : Node3D
+@export var selectionCubePrefab : PackedScene
 
 var paths : Array[DonutPath] = []
 var currentPath : DonutPath = null
 var startPath : DonutPath = null
-
 var clickHeld = false
 
 const RAY_LENGTH = 10000.0
 @onready var cam = $Camera3D
 @onready var ray = $RayCast3D
 
+var round : int = 1
+var donutSpawnTime : float = 0.2
+var donutSpawnTimer : float = 0
+var hasRoundStarted : bool = false
+var readyDonuts : Array[DonutType] = []
+var spawnedDonuts : Array[Donut] = []
+
+@export var money : int = 1000
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # CHANGE THIS FOR DONUTSSS
 @export var donutPrefab : PackedScene
 func StartRound():
-	if(startPath != null):
-		for path in paths:
-			if(path.endConnectionPos != null):	
-				var donut = donutPrefab.instantiate()
-				map.add_child(donut)
-				donut.Start(startPath, map.CalculateXYFromGridPos(map.startPoint))
-				print("Start")
-				return
-				
+	print("Start")
+	if(!hasRoundStarted):
+		if(startPath != null):
+			for path in paths:
+				if(path.endConnectionPos != null):	
+					hasRoundStarted = true	
+					spawnedDonuts.clear()
+					return			
+		hasRoundStarted = false	
 	print("Cant start")
 
+func NextRound():
+	round+=1
+	donutSpawnTimer = 0
+	hasRoundStarted = false
+
+func CanAfford(cost : int):
+	if(hasRoundStarted):
+		return false
+	return cost <= money
+
+func SpendMoney(cost : int):
+	money=max(money-cost, 0)
+
+	
+		
+func AddReadyDonut(donutData : DonutType):
+	print("buy")
+	readyDonuts.append(donutData)	
 
 func DoesPathInterceptStart(path):
 	var point = map.CalculateXYFromGridPos(map.startPoint)
@@ -71,10 +97,41 @@ func CalculatePathIntersections():
 				p1.intersectingPaths.append(p2)
 				print("intersect")
 
-	
+func DonutMove(donut : Donut):
+	money+=round*(donut.cost/10)	
+
+func RemainingDonuts():
+	var count : int = 0
+	# If all donuts are dead
+	for donut in spawnedDonuts:
+		if(donut != null):
+			count+=1
+	return count
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(hasRoundStarted):
+		if(len(readyDonuts) > 0):
+			donutSpawnTimer +=delta
+			if(donutSpawnTimer >= donutSpawnTime):
+				donutSpawnTimer = 0
+				var donut : Donut = donutPrefab.instantiate()
+				donut.AssignData(readyDonuts[0])
+				readyDonuts.remove_at(0)
+				map.add_child(donut)
+				spawnedDonuts.append(donut)
+				donut.Start(startPath, map.CalculateXYFromGridPos(map.startPoint))
+				donut.player = self
+				return		
+		elif(RemainingDonuts() <= 0):
+			NextRound()
+
+	
+	if(selectionCube == null):
+		selectionCube = selectionCubePrefab.instantiate()
+		map.add_child(selectionCube)
+		
+		
 	var mousepos = get_viewport().get_mouse_position()
 	ray.global_position = cam.project_ray_origin(mousepos)
 	ray.target_position = ray.global_position + cam.project_ray_normal(mousepos) * RAY_LENGTH
@@ -84,8 +141,8 @@ func _process(delta: float) -> void:
 		var collision_object = ray.get_collider()
 		var point = ray.get_collision_point()
 		point = Vector3(int(point.x), 1, int(point.z))
-		selectionCube.transform.origin = Vector3(point.x+0.5, point.y, point.z+0.5)		
 		
+		selectionCube.position = Vector3(point.x+0.5, point.y, point.z+0.5)		
 		# Path creation
 		if(Input.is_action_pressed("LeftClick")):
 			# First click
@@ -93,13 +150,16 @@ func _process(delta: float) -> void:
 				currentPath = donutPathPrefab.instantiate()
 				map.add_child(currentPath)
 				currentPath.SetStart(point.x, point.z)
+				currentPath.visible = false
 				paths.append(currentPath)
 			# Hold
 			else:
+				currentPath.visible = true
 				currentPath.SetEnd(point.x, point.z)
 			clickHeld = true
 		# Let go
 		elif(clickHeld):
+			currentPath.visible = true
 			# If path length is invalid or intersects any map objects, it's invalid
 			if(currentPath.GetLength() <1 || currentPath.AreAnyPointsOnPath(map.GetOccupiedPoints())):
 				DeletePath(currentPath)
@@ -123,7 +183,7 @@ func _process(delta: float) -> void:
 						break
 			
 			var endConnection = map.CalculateXYFromGridPos(map.endPoint)
-			if(currentPath.IsPointOnPath(endConnection[0], endConnection[0])):
+			if(currentPath.IsPointOnPath(endConnection[0], endConnection[1])):
 				currentPath.endConnectionPos = endConnection
 				
 			CalculatePathIntersections()

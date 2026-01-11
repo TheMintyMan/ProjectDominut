@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6jjiilf68k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhbv5"]
+transparency = 1
+albedo_color = Color(1, 0.60784316, 0, 0.49019608)
+emission_enabled = true
+emission = Color(1, 0.58431375, 0.05490196, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqap4"]
+
+[node name="SelectionCube" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_fhbv5")
+mesh = SubResource("BoxMesh_pqap4")
+skeleton = NodePath("../Floor/FloorMesh")

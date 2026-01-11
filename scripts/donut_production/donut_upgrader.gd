@@ -1,49 +1,73 @@
-extends Resource
-class_name DonutUpgrader
+class_name DonutUpgrader extends Control
 
-@export var health_cost: int = 1
-@export var speed_cost: int = 1
-@export var camo_cost: int = 1
-@export var resistance_cost: int = 1
+@export var player : Player = null
 
-var health_level: int = 0
-var speed_level: int = 0
-var camo_level: int = 0
+@export var base_donut_cost: int = 100
+@export var camo_cost: int
+@export var health_cost: Dictionary[int, int] = {}
+@export var speed_cost: Dictionary[int, int] = {}
+@export var resistance_cost: Dictionary[Global.ResistanceType, int] = {}
 
-var resistance_levels: Dictionary = {}
+@export var health_values: Dictionary[int, int] = {}
+@export var speed_values: Dictionary[int, float] = {}
+
+var health_level : int = 0
+var max_health_level : int = 0
+var speed_level : int = 0
+var max_speed_level : int = 0
+var camo_level : bool = false
+var resistance_level : Global.ResistanceType = Global.ResistanceType.NONE
+
+
+
+func _ready() -> void:
+	for key in health_values.keys():
+		max_health_level = max(max_health_level, key)
+	for key in speed_values.keys():
+		max_speed_level = max(max_health_level, key)
+
+
+
+func SetResistance(index : int):
+	resistance_level = Global.ResistanceType.values()[index]
+
+func SetCamo(state : bool):
+	camo_level = state
+
+
+func AddHealthLevel():
+	health_level=min(health_level+1, max_health_level)
+func RemoveHealthLevel():
+	health_level=max(health_level-1, 0)
+
+func AddSpeedLevel():
+	speed_level=min(speed_level+1, max_speed_level)
+func RemoveSpeedLevel():
+	speed_level=max(speed_level-1, 0)
 
 func get_total_cost() -> int:
-	var cost := health_cost * health_level + speed_cost * speed_level + camo_cost * camo_level
-	for r_type in resistance_levels.keys():
-		cost += resistance_cost * resistance_levels[r_type]
+	var cost = base_donut_cost + health_cost[health_level] + speed_cost[speed_level] + (camo_cost * int(camo_level)) + resistance_cost[resistance_level]
 	return cost
 
-func apply_to(donut):
-	add_health(donut, health_cost * health_level)
-	add_speed(donut, speed_cost * speed_level)
-	if camo_level > 0:
-		add_camo(donut)
 
-	for r_type in resistance_levels.keys():
-		var level = resistance_levels[r_type]
-		for i in range(level):
-			toggle_resistance(donut, r_type)
+func CreateDonutData():
+	var totalCost = get_total_cost()
+	if(player.CanAfford(totalCost)):
+		var donutData = DonutType.new()
+		donutData.health = health_values[health_level]
+		donutData.speed = speed_values[speed_level]
+		donutData.camo = camo_level
+		donutData.resistance_type = resistance_level
+		donutData.cost = totalCost
+		player.AddReadyDonut(donutData)
+		player.SpendMoney(totalCost)
+		return true
+	return false
 
-func add_health(donut, amount: int):
-	if "max_health" in donut:
-		donut.max_health += amount
-
-func add_speed(donut, amount: float):
-	if "speed" in donut:
-		donut.speed += amount
-
-func add_camo(donut):
-	if "camo" in donut:
-		donut.camo = true
-
-func toggle_resistance(donut, type: int):
-	if "resistances" in donut:
-		if type in donut.resistances:
-			donut.resistances.erase(type)
-		else:
-			donut.resistances.append(type)
+func CreateAllDonutData():
+	if(player.money == 0):
+		return
+	var total = int(player.money/get_total_cost())
+	for i in range(total):
+		if(!CreateDonutData()):
+			return

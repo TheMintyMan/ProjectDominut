@@ -1,4 +1,4 @@
-extends Node3D
+class_name FruitVegManager extends Node3D
 
 @export var map : Map
 @export var FruitVegUnitTypes : Array[PackedScene] = []
@@ -24,16 +24,18 @@ func Spawn():
 				if(!PointIsFruitVeg(point)):
 					gridPoints.append(point)
 		
-		var rand = randi_range(0, len(gridPoints)-1)
-		var randPos = map.CalculateXYFromGridPos(gridPoints[rand])  
-		
-		var newFruitVegUnit : FruitVegUnit = FruitVegUnitTypes[randi_range(0, len(FruitVegUnitTypes)-1)].instantiate()
-		newFruitVegUnit.position.x = randPos[0]
-		newFruitVegUnit.position.z = randPos[1]
-		newFruitVegUnit.spawnable = false
-		newFruitVegUnit.gridPositions.append(gridPoints[rand])
-		map.add_child(newFruitVegUnit)
-		fruitVegUnits.append(newFruitVegUnit)
+		if(len(gridPoints) > 0):
+			var rand = randi_range(0, len(gridPoints)-1)
+			var randPos = map.CalculateXYFromGridPos(gridPoints[rand])  
+			
+			var newFruitVegUnit : FruitVegUnit = FruitVegUnitTypes[randi_range(0, len(FruitVegUnitTypes)-1)].instantiate()
+			newFruitVegUnit.position.x = randPos[0]
+			newFruitVegUnit.position.z = randPos[1]
+			newFruitVegUnit.spawnable = false
+			newFruitVegUnit.gridPositions.append(gridPoints[rand])
+			newFruitVegUnit.manager = self
+			map.add_child(newFruitVegUnit)
+			fruitVegUnits.append(newFruitVegUnit)
 
 func OnKill(donut : Donut):
 	money+=1
