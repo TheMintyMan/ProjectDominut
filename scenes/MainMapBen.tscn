@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2inb7ux2pijv"]
+[gd_scene load_steps=17 format=3 uid="uid://2inb7ux2pijv"]
 
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_8xte0"]
 [ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_0axaf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cvfl6hs5jplyl" path="res://scripts/fruitveg/fruit_veg_area.tscn" id="4_0axaf"]
 [ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map/map.gd" id="4_nghdb"]
 [ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="5_3a54n"]
+[ext_resource type="PackedScene" uid="uid://c251f73llbn38" path="res://scripts/fruitveg/fruit_veg_placer.tscn" id="5_yxl6f"]
 [ext_resource type="PackedScene" uid="uid://dmvdiab568plo" path="res://scripts/player.tscn" id="6_t86ox"]
 [ext_resource type="PackedScene" uid="uid://8bplnduhxju" path="res://scripts/map/map_object.tscn" id="7_fjyoo"]
 
@@ -47,10 +48,12 @@ endPoint = 885
 startPointIndicator = NodePath("../Map/StartPoint")
 endPointIndicator = NodePath("../Map/EndPoint")
 
-[node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map")]
+[node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map", "player")]
 script = ExtResource("2_0axaf")
 map = NodePath("../Map")
-FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yxl6f"), ExtResource("4_0axaf")])
+player = NodePath("../Map/Floor/Player")
+FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yxl6f"), ExtResource("4_0axaf"), ExtResource("5_yxl6f")])
+money = null
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("4_nghdb")
@@ -88,6 +91,15 @@ skeleton = NodePath("")
 
 [node name="Player" parent="Map/Floor" node_paths=PackedStringArray("map") instance=ExtResource("6_t86ox")]
 map = NodePath("../..")
+
+[node name="btn_buy_donuts2" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="0"]
+icon = null
+
+[node name="btn_buy_donuts" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
+icon = null
+
+[node name="btn_send_wave" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
+icon = null
 
 [node name="MapObjects" type="Node3D" parent="Map"]
 
@@ -138,3 +150,7 @@ material_override = SubResource("StandardMaterial3D_5usn2")
 transparency = 1.0
 mesh = SubResource("BoxMesh_5usn2")
 skeleton = NodePath("")
+
+[editable path="Map/Floor/Player"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade"]

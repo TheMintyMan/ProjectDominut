@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b23cp3m7s6bg0"]
+
+[ext_resource type="Script" uid="uid://83aaf7rs08me" path="res://scripts/fruitveg/fruit_veg_placed_object.gd" id="1_pbxwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbxwh"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j545n"]
+radius = 0.1
+height = 0.2
+radial_segments = 94
+
+[node name="FruitVegPlacedObject" type="Node3D"]
+script = ExtResource("1_pbxwh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_pbxwh")
+mesh = SubResource("CapsuleMesh_j545n")

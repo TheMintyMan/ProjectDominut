@@ -11,7 +11,7 @@ albedo_color = Color(1, 1, 0, 1)
 [node name="FruitVegArea" type="Node3D"]
 script = ExtResource("1_17rid")
 projectilePrefab = ExtResource("2_bncci")
-weakness = 1
+weakness = 2
 attackDistance = 3
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="."]

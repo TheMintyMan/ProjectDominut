@@ -6,6 +6,8 @@ class_name FruitVegUnit extends MapObject
 @export var attackDistance = 4
 var manager : FruitVegManager = null
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawnable = false
@@ -14,10 +16,17 @@ func _ready() -> void:
 var attackTimer = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	attackTimer+=delta
-	if(attackTimer >= attackTime):
-		AttemptAttack()
+	if(manager.player.hasRoundStarted):
+		attackTimer+=delta
+		if(attackTimer >= attackTime):
+			AttemptAttack()
+			attackTimer = 0
+		pass
+	else:
 		attackTimer = 0
+		RoundEnd()
+
+func RoundEnd():
 	pass
 
 func AttemptAttack():

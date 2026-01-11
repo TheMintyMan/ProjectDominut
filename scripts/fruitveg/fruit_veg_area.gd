@@ -10,7 +10,9 @@ func AttemptAttack():
 			var dist = position.distance_squared_to(child.position)
 			if(dist <= attackDistance*attackDistance ):
 				inRangeCount+=1
-				HitDonut(child)
+				var kill = HitDonut(child)
+				if(kill):
+					manager.OnKill(child)
 	
 	if(inRangeCount > 0):
 		CreateProjectile(20, Vector2(0,1), 0.2)

@@ -1,6 +1,7 @@
 class_name FruitVegManager extends Node3D
 
 @export var map : Map
+@export var player : Player
 @export var FruitVegUnitTypes : Array[PackedScene] = []
 
 @export var money = 0
