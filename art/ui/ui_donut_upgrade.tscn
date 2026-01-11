@@ -1,24 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://hw56ta54n74n"]
+[gd_scene load_steps=30 format=3 uid="uid://hw56ta54n74n"]
 
 [ext_resource type="Texture2D" uid="uid://b8f4u37iydrg3" path="res://art/ui/UI_Sprites/CookingBG_UI.png" id="1_cjet6"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_o0ku6"]
-[ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/BaseButton.png" id="2_xcikl"]
+[ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/Buttons/BaseButton.png" id="2_xcikl"]
+[ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="3_fendo"]
+[ext_resource type="StyleBox" uid="uid://dphhloi1cn5p" path="res://art/ui/Resources/ButtonNormal.tres" id="4_lugcq"]
+[ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/Buttons/PresedButton.png" id="4_npgop"]
+[ext_resource type="StyleBox" uid="uid://e5n8stx8im6t" path="res://art/ui/Resources/ButtonPressed.tres" id="5_ga1ty"]
+[ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/Buttons/HoverButton.png" id="5_pnw6k"]
+[ext_resource type="StyleBox" uid="uid://dxuxhllmyh3ig" path="res://art/ui/Resources/ButtonHover.tres" id="6_1xcfw"]
+[ext_resource type="Texture2D" uid="uid://c5ucjc5s52633" path="res://art/ui/UI_Sprites/Arrow.png" id="9_lugcq"]
+[ext_resource type="Texture2D" uid="uid://brmlwerh6pfg6" path="res://art/ui/UI_Sprites/IconBG.png" id="10_ga1ty"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0ku6"]
 texture = ExtResource("1_cjet6")
-expand_margin_top = 25.0
-expand_margin_bottom = 25.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xcikl"]
-content_margin_left = 10.0
-content_margin_top = 10.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lugcq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ga1ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_coafi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a724q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yap7k"]
+content_margin_left = 15.0
+content_margin_top = 5.0
 content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0ku6"]
 content_margin_bottom = 5.0
-bg_color = Color(0.2296665, 0.18843096, 0.0039142813, 1)
+texture = ExtResource("2_xcikl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lugcq"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("2_xcikl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a724q"]
+content_margin_left = 15.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+texture = ExtResource("5_pnw6k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6dko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6gpf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2hw5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a5r16"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0is5q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6gpf"]
+texture = ExtResource("10_ga1ty")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga1ty"]
+content_margin_left = 5.0
+texture = ExtResource("2_xcikl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xcfw"]
+texture = ExtResource("4_npgop")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_coafi"]
+texture = ExtResource("5_pnw6k")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yap7k"]
 
 [node name="ui_donut_upgrade" type="Control"]
 layout_mode = 3
@@ -94,15 +143,28 @@ text = " 0"
 [node name="btn_remove_health" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("3_fendo")
+theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = ExtResource("4_lugcq")
+theme_override_styles/pressed = ExtResource("5_ga1ty")
+theme_override_styles/hover = ExtResource("6_1xcfw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lugcq")
 text = "-"
 
 [node name="btn_add_health" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = ExtResource("4_lugcq")
+theme_override_styles/pressed = ExtResource("5_ga1ty")
+theme_override_styles/hover = ExtResource("6_1xcfw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ga1ty")
 text = "+"
 
 [node name="HBox_SPEED" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
@@ -128,13 +190,25 @@ text = " 0"
 [node name="btn_remove_speed" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = ExtResource("4_lugcq")
+theme_override_styles/pressed = ExtResource("5_ga1ty")
+theme_override_styles/hover = ExtResource("6_1xcfw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_coafi")
 text = "-"
 
 [node name="btn_add_speed" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = ExtResource("4_lugcq")
+theme_override_styles/pressed = ExtResource("5_ga1ty")
+theme_override_styles/hover = ExtResource("6_1xcfw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a724q")
 text = "+"
 
 [node name="HBox_RESISTANCE" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
@@ -152,8 +226,16 @@ horizontal_alignment = 1
 
 [node name="_optn_resistance" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
+theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_yap7k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lugcq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a724q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i6dko")
+theme_override_icons/arrow = ExtResource("9_lugcq")
 selected = 0
 item_count = 5
 popup/item_0/text = "NONE"
@@ -182,6 +264,11 @@ horizontal_alignment = 2
 
 [node name="chck_camo" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
+theme = ExtResource("3_fendo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i6gpf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2hw5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_a5r16")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0is5q")
 
 [node name="HBox_CAMOUFLAGE2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -217,20 +304,18 @@ layout_mode = 2
 
 [node name="btn_buy_donuts2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
 text = "BUY"
-icon = ExtResource("2_xcikl")
-flat = true
 icon_alignment = 1
 
 [node name="btn_buy_donuts" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
 text = "BUY"
-icon = ExtResource("2_xcikl")
-flat = true
 icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
@@ -296,23 +381,21 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView"]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_xcikl")
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_o0ku6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_i6gpf")
 
 [node name="btn_send_wave" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ga1ty")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1xcfw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_coafi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yap7k")
 text = "Send Wave"
-icon = ExtResource("2_xcikl")
-flat = true
 icon_alignment = 1
 
 [node name="openclose_container" type="MarginContainer" parent="."]
