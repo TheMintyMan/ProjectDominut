@@ -59,6 +59,8 @@ func CreateDonutData():
 		donutData.camo = camo_level
 		donutData.resistance_type = resistance_level
 		donutData.cost = totalCost
+		donutData.health_level = health_level
+		donutData.speed_level = speed_level
 		player.AddReadyDonut(donutData)
 		player.SpendMoney(totalCost)
 		return true

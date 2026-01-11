@@ -1,13 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn65p6chhg1h3"]
+[gd_scene load_steps=4 format=3 uid="uid://cn65p6chhg1h3"]
 
 [ext_resource type="Script" uid="uid://bvmckwkehwles" path="res://scripts/donut/donut.gd" id="1_eif47"]
+[ext_resource type="PackedScene" uid="uid://biuxwwb1lupqw" path="res://art/characters/donut/donut_base.tscn" id="2_q51qt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q51qt"]
 
-[node name="Donut" type="Node3D"]
+[node name="Donut" type="Node3D" node_paths=PackedStringArray("donutMesh")]
 script = ExtResource("1_eif47")
+donutMesh = NodePath("donut_base")
+speed = null
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.79036546, 0, 0, 0, 0.79036546, 0, 0, 0, 0.79036546, 0.5, 1, 0.5)
+visible = false
 mesh = SubResource("BoxMesh_q51qt")
 skeleton = NodePath("../../..")
+
+[node name="donut_base" parent="." instance=ExtResource("2_q51qt")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.5, 0.5, 0.5)

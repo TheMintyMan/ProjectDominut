@@ -36,16 +36,25 @@ func StartRound():
 		if(startPath != null):
 			for path in paths:
 				if(path.endConnectionPos != null):	
-					hasRoundStarted = true	
-					spawnedDonuts.clear()
+					RoundStarted()
 					return			
 		hasRoundStarted = false	
 	print("Cant start")
+
+func RoundStarted():
+	hasRoundStarted = true	
+	spawnedDonuts.clear()
+	
+	for path in paths:
+		path.visible = false
 
 func NextRound():
 	round+=1
 	donutSpawnTimer = 0
 	hasRoundStarted = false
+	
+	for path in paths:
+		path.visible = true
 
 func CanAfford(cost : int):
 	if(hasRoundStarted):

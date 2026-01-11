@@ -140,6 +140,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			position.z = min(position.z+dirY*delta*speed, targetGridPosition[1])	
 		
+		
 		var roundPos : Array[int] = [int(position.x), int(position.z)]
 		if(lastGridPosition != roundPos):
 			OnMoveGridCell()

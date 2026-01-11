@@ -5,3 +5,6 @@ var health: int = 10
 var resistance_type: Global.ResistanceType = Global.ResistanceType.NONE
 var camo: bool = false
 var cost : int = 0
+
+var speed_level: int = 0
+var health_level: int = 0
