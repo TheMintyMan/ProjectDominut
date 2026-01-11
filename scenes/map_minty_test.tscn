@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj56jpjec347f"]
+[gd_scene load_steps=6 format=3 uid="uid://cj56jpjec347f"]
 
 [ext_resource type="PackedScene" uid="uid://biuxwwb1lupqw" path="res://art/characters/donut/donut_base.tscn" id="1_rp0p1"]
+[ext_resource type="PackedScene" uid="uid://cgb1hhrf8qysp" path="res://art/characters/donut/minty_projectile_spawner.tscn" id="2_rdxlb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rp0p1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +21,12 @@ tonemap_mode = 2
 environment = SubResource("Environment_glvs1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.8873491, 0, 0.4610983, 0, 1, 0, -0.4610983, 0, 0.8873491, 0.52040035, 0.4500581, 0.8538197)
+transform = Transform3D(0.8873491, 0, 0.4610983, 0, 1, 0, -0.4610983, 0, 0.8873491, 1.1347315, 0.7418816, 1.8325329)
 
 [node name="donut_base" parent="." instance=ExtResource("1_rp0p1")]
+
+[node name="projectile_spawner" parent="." instance=ExtResource("2_rdxlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025391579, 0.44112587, 5.22464)
+
+[node name="projectile_spawner2" parent="." instance=ExtResource("2_rdxlb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0025391579, 0.44112587, 9.548222)

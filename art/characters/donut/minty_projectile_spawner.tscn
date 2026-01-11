@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgb1hhrf8qysp"]
+
+[ext_resource type="Script" uid="uid://djc6hqqv5bpk5" path="res://art/characters/donut/minty_projectile_spawner.gd" id="1_mh6vj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mh6vj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_nuej7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q15ai"]
+
+[node name="projectile_spawner" type="AnimatableBody3D"]
+script = ExtResource("1_mh6vj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("SphereShape3D_mh6vj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("SphereMesh_nuej7")
+
+[node name="HitArea3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("SphereShape3D_q15ai")
+
+[connection signal="body_entered" from="HitArea3D" to="." method="_on_hit_area_3d_body_entered"]

@@ -1,34 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://biuxwwb1lupqw"]
+[gd_scene load_steps=6 format=3 uid="uid://biuxwwb1lupqw"]
 
 [ext_resource type="PackedScene" uid="uid://q2excrco7n7h" path="res://art/characters/donut/models/donut_base.glb" id="1_vjvo5"]
 [ext_resource type="Material" uid="uid://c0csbsnej2vf3" path="res://art/materials/mat_donut_base.tres" id="2_23pqs"]
 [ext_resource type="Script" uid="uid://bvkuchgsovb2s" path="res://art/characters/donut/minty_test_donut.gd" id="2_u7ddq"]
+[ext_resource type="Script" uid="uid://dm8bj5nsk287m" path="res://art/characters/donut/minty_donut_area_3d.gd" id="3_u7ddq"]
 
-[node name="donut_base" node_paths=PackedStringArray("icing_mesh") instance=ExtResource("1_vjvo5")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2fjpr"]
+size = Vector3(1, 1, 0.30316162)
+
+[node name="donut_base" node_paths=PackedStringArray("base_donut_mesh", "eye_r_donut_mesh", "eye_l_donut_mesh", "sprinkle_mesh_01", "icing_mesh_01") groups=["Donut"] instance=ExtResource("1_vjvo5")]
 script = ExtResource("2_u7ddq")
-icing_mesh = NodePath("donut_rig/Skeleton3D/donut_icing_01")
+base_donut_mesh = [NodePath("donut_rig/Skeleton3D/donut_base_body"), NodePath("donut_rig/Skeleton3D/donut_base_body_damage_01"), NodePath("donut_rig/Skeleton3D/donut_base_body_damage_02")]
+eye_r_donut_mesh = [NodePath("donut_rig/Skeleton3D/donut_base_body_eye_r"), NodePath("donut_rig/Skeleton3D/donut_base_body_eye_r_damage_01"), NodePath("donut_rig/Skeleton3D/donut_base_body_eye_r_damage_02")]
+eye_l_donut_mesh = [NodePath("donut_rig/Skeleton3D/donut_base_body_eye_l"), NodePath("donut_rig/Skeleton3D/donut_base_body_eye_l_damage_01"), NodePath("donut_rig/Skeleton3D/donut_base_body_eye_l_damage_02")]
+sprinkle_mesh_01 = [NodePath("donut_rig/Skeleton3D/donut_sprinkles_01"), NodePath("donut_rig/Skeleton3D/donut_sprinkles_01_damage_01"), NodePath("donut_rig/Skeleton3D/donut_sprinkles_01_damage_02")]
+icing_mesh_01 = [NodePath("donut_rig/Skeleton3D/donut_icing_01"), NodePath("donut_rig/Skeleton3D/donut_icing_01_damage_01"), NodePath("donut_rig/Skeleton3D/donut_icing_01_damage_02")]
+
+[node name="DonutArea3D" type="AnimatableBody3D" parent="." index="0" groups=["Donut"]]
+script = ExtResource("3_u7ddq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DonutArea3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45806113, 0.03286743)
+shape = SubResource("BoxShape3D_2fjpr")
+
+[node name="donut_rig" parent="." index="1" groups=["Donut"]]
 
 [node name="Skeleton3D" parent="donut_rig" index="0"]
-bones/0/position = Vector3(0, 0.13371305, 0)
-bones/0/rotation = Quaternion(0, 0.005964565, 0, 0.9999823)
-bones/1/rotation = Quaternion(0, -0.0030859262, 0, 0.9999953)
-bones/4/rotation = Quaternion(-0.032562323, -0.027082141, -0.99614346, 0.07684064)
-bones/5/rotation = Quaternion(0.14523266, -1.1449609e-07, -7.57353e-08, 0.9893975)
-bones/6/rotation = Quaternion(0.054898653, -0.027721792, 0.9930792, 0.10005677)
-bones/7/rotation = Quaternion(0.131948, 1.1309618e-07, 9.561484e-08, 0.9912567)
-bones/8/rotation = Quaternion(-0.0058268756, -0.062756605, 0.99801123, -0.0011684593)
-bones/10/rotation = Quaternion(-0.00597039, 0.016431566, 0.9998469, 0.0008718075)
-bones/12/position = Vector3(-0.15000015, 0.032419637, 0.007488148)
-bones/12/rotation = Quaternion(1.5946989e-07, 0.61150354, 0.79124177, 1.2548873e-07)
-bones/13/position = Vector3(0.15000013, 0.0015243838, -0.02645848)
-bones/13/rotation = Quaternion(-1.7398489e-07, 0.6935363, 0.7204218, -1.6733492e-07)
-bones/14/position = Vector3(0.15000005, 0.0015245028, -0.026458476)
-bones/14/rotation = Quaternion(-8.582953e-08, -0.019010957, 0.9998193, -3.9355177e-07)
-bones/16/position = Vector3(-0.15000008, 0.032419752, 0.007488178)
-bones/16/rotation = Quaternion(1.2114968e-07, -0.1270941, 0.99189067, 3.4402547e-07)
-
-[node name="donut_base_body" parent="donut_rig/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("2_23pqs")
+bones/0/position = Vector3(0, 0.10902791, 0)
+bones/0/rotation = Quaternion(0, -0.053338923, 0, 0.99857646)
+bones/1/rotation = Quaternion(0, 0.027621051, 0, 0.9996185)
+bones/4/rotation = Quaternion(-0.016223276, 0.17273901, -0.9805193, 0.092087395)
+bones/5/rotation = Quaternion(0.044027876, -1.0731828e-07, -9.487095e-08, 0.99903035)
+bones/6/rotation = Quaternion(0.027944148, 0.21930271, 0.9674343, 0.12327346)
+bones/7/rotation = Quaternion(0.24552399, 1.2405344e-07, 8.680098e-08, 0.9693905)
+bones/8/rotation = Quaternion(0.052798305, 0.22399496, 0.9730568, -0.014107527)
+bones/10/rotation = Quaternion(0.048641548, -0.33507523, 0.94070196, 0.020938853)
+bones/12/position = Vector3(-0.15000017, 0.026705109, -0.1321909)
+bones/12/rotation = Quaternion(1.933144e-07, 0.5852966, 0.8108194, 1.395456e-07)
+bones/13/position = Vector3(0.15000013, -1.1821604e-07, 0.09819499)
+bones/13/rotation = Quaternion(-1.5735405e-07, 0.7512738, 0.65999067, -1.7911762e-07)
+bones/14/position = Vector3(0.15000005, -7.702657e-14, 0.09819497)
+bones/14/rotation = Quaternion(-5.2744888e-08, 0.064546876, 0.9979147, -3.9636672e-07)
+bones/16/position = Vector3(-0.1500001, 0.026705222, -0.13219085)
+bones/16/rotation = Quaternion(1.3975148e-07, -0.1594687, 0.987203, 3.7464397e-07)
 
 [node name="donut_base_eyebrow_l" parent="donut_rig/Skeleton3D" index="9"]
 material_override = ExtResource("2_23pqs")
@@ -51,5 +65,6 @@ material_override = ExtResource("2_23pqs")
 [node name="donut_base_r_leg" parent="donut_rig/Skeleton3D" index="16"]
 material_override = ExtResource("2_23pqs")
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="2"]
 deterministic = true
+autoplay = "action_walk"
