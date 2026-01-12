@@ -8,28 +8,33 @@ var intersectionDirection = null
 var currentIntersection = null
 var intersectionIgnored = []
 var deadEnd = false
-
 var alreadyTravelledPaths = []
-
 @export var speed : float = 3
-
-
 var player : Player
+var active = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func Reset():
+	active = false
 	targetGridPosition = [0,0]
 	startGridPosition = [0,0]
+	lastGridPosition = [0,0]
 	intersectionDirection = null
+	currentIntersection = null
 	currentPath = null
+	intersectionIgnored = []
+	deadEnd = false
 	alreadyTravelledPaths = []
+	player = null
+
 	
 func Start(startPath, startPos):
 	Reset()
-	
+	active = true
 	currentPath = startPath
 	var start = currentPath.ClosestPointOnPath(startPos[0],startPos[1])
 	startGridPosition[0] = start[0]
@@ -125,46 +130,62 @@ func GetTarget():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if(currentPath != null):
+	Move(delta)
+
+func Move(delta : float):
+	if(currentPath != null):	
+		var travelDist = delta*speed
+		# If travel distance is more than one cell, split movement into multiple parts
+		if(travelDist > 1):
+			var n = int(travelDist)
+			var rem = travelDist-n
+			for i in range(n):
+				# Rerun move with a split delta to result in a less than 1 travelDist
+				Move(1.0/speed)
+			Move(rem/speed)
+			return
+		
 		var posDiffX = targetGridPosition[0]-position.x
 		var posDiffY = targetGridPosition[1]-position.z	
 		var dirX = sign(posDiffX)
 		var dirY = sign(posDiffY)
 		
+		# Will be at the next cell
+		var distToTarget = position.distance_squared_to(Vector3(targetGridPosition[0],position.y, targetGridPosition[1]))
+		if(distToTarget <= travelDist):
+			
+			if(currentPath.endConnectionPos != null):
+				OnMoveGridCell()
+				OnFinish()	
+				return
+			elif(deadEnd):
+				deadEnd = false
+				OnDie()
+			else:
+				GetTarget()
+					
 		if(dirX < 0):
-			position.x = max(position.x+dirX*delta*speed, targetGridPosition[0])
+			position.x = max(position.x+dirX*travelDist, targetGridPosition[0])
 		else:
-			position.x = min(position.x+dirX*delta*speed, targetGridPosition[0])
+			position.x = min(position.x+dirX*travelDist, targetGridPosition[0])
 		if(dirY < 0):
-			position.z = max(position.z+dirY*delta*speed, targetGridPosition[1])
+			position.z = max(position.z+dirY*travelDist, targetGridPosition[1])
 		else:
-			position.z = min(position.z+dirY*delta*speed, targetGridPosition[1])	
+			position.z = min(position.z+dirY*travelDist, targetGridPosition[1])	
 		
 		
 		var roundPos : Array[int] = [int(position.x), int(position.z)]
 		if(lastGridPosition != roundPos):
 			OnMoveGridCell()
 			lastGridPosition = roundPos
-		
-		if(roundPos[0] == targetGridPosition[0] && roundPos[1] == targetGridPosition[1]):
-			if(currentPath.endConnectionPos != null && roundPos[0] == currentPath.endConnectionPos[0] && roundPos[1] == currentPath.endConnectionPos[1]):
-				Reset()
-				OnFinish()
-			elif(deadEnd):
-				deadEnd = false
-				#OnDie()
-			else:
-				GetTarget()
+
 
 
 func OnMoveGridCell():
 	pass
 func OnFinish():
-	queue_free()
+	pass
 func OnStart():
 	pass			
 func OnDie():
-	if(get_parent() != null):
-		get_parent().remove_child(self)
-	queue_free()
 	pass			

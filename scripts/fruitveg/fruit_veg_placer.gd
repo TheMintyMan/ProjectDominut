@@ -14,8 +14,6 @@ func AttemptAttack():
 				var distX = global_position.x-point[0]
 				var distY = global_position.z-point[1]
 				var dist = distX**2 + distY**2
-				#print(str(distX) + " " + str(distY))
-				print(attackDistance*attackDistance)
 				if(dist <= attackDistance*attackDistance):
 					pathPoints.append(point)
 	

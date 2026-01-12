@@ -41,7 +41,7 @@ floorMesh = NodePath("../Map/Floor/FloorMesh")
 floorCollider = NodePath("../Map/Floor/FloorCollision")
 mapSizeX = 30
 mapSizeY = 25
-endPoint = 885
+endPoint = 747
 startPointIndicator = NodePath("../Map/StartPoint")
 endPointIndicator = NodePath("../Map/EndPoint")
 
@@ -50,7 +50,7 @@ script = ExtResource("2_0axaf")
 map = NodePath("../Map")
 player = NodePath("../Map/Floor/Player")
 FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yxl6f"), ExtResource("4_0axaf"), ExtResource("5_yxl6f")])
-money = null
+maxFruitVegs = 10
 
 [node name="Map" type="Node3D" parent="."]
 script = ExtResource("4_nghdb")
@@ -64,7 +64,7 @@ mesh = SubResource("BoxMesh_0cxyw")
 skeleton = NodePath("../../Floor/FloorMesh")
 
 [node name="EndPoint" type="Node3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 24)
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="Map/EndPoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
@@ -96,504 +96,1850 @@ transform = Transform3D(0.025, 0, 0, 0, 0.49227536, 0.8704398, 0, -0.029014654, 
 [node name="MapObjects" type="Node3D" parent="Map"]
 
 [node name="wall_08" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [186]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_09" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [187]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_10" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [188]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_11" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 5.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [189]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_131" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [684]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_132" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [685]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_15" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [165]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_16" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [166]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_17" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [167]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_28" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [168]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_29" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [169]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_31" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [285]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_32" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [286]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_33" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [287]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_34" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [288]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_158" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [425]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_164" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [424]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_189" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [423]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_159" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [426]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_160" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [427]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_161" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [428]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_68" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 7.5)
 script = ExtResource("10_3a54n")
+gridPositions = [235]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_69" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0.5, 7.5)
 script = ExtResource("10_3a54n")
+gridPositions = [236]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_70" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 7.5)
 script = ExtResource("10_3a54n")
+gridPositions = [237]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_05" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 4.5)
 script = ExtResource("10_3a54n")
+gridPositions = [123]
 
 [node name="wall_06" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [153]
 
 [node name="wall_07" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [183]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_14" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 7.5)
 script = ExtResource("10_3a54n")
+gridPositions = [213]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_18" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 0.5)
 script = ExtResource("10_3a54n")
+gridPositions = [12]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_19" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 1.5)
 script = ExtResource("10_3a54n")
+gridPositions = [42]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_20" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 2.5)
 script = ExtResource("10_3a54n")
+gridPositions = [72]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_21" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 3.5)
 script = ExtResource("10_3a54n")
+gridPositions = [102]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_22" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 4.5)
 script = ExtResource("10_3a54n")
+gridPositions = [132]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_23" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 8.5)
 script = ExtResource("10_3a54n")
+gridPositions = [243]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_25" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [273]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_35" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [282]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_36" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 10.5)
 script = ExtResource("10_3a54n")
+gridPositions = [312]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_56" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 11.5)
 script = ExtResource("10_3a54n")
+gridPositions = [342]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_65" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 12.5)
 script = ExtResource("10_3a54n")
+gridPositions = [372]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_66" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 13.5)
 script = ExtResource("10_3a54n")
+gridPositions = [402]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_91" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [663]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_93" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [725]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_94" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [724]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_95" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [726]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_99" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [671]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_101" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [731]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_112" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [732]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_113" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [733]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_120" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [734]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_121" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [735]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_102" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [730]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_103" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [729]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_104" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [728]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_105" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [727]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_151" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [721]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_152" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [720]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_154" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [722]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_155" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [723]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_107" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 22.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [677]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_109" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [736]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_110" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [737]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_111" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [738]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_130" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [739]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_190" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [740]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_115" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 22.5)
 script = ExtResource("10_3a54n")
+gridPositions = [681]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_96" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 21.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [633]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_118" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [641]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_119" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 21.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [647]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_135" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [651]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_97" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 20.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 20.5)
 script = ExtResource("10_3a54n")
+gridPositions = [603]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_136" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 20.5)
 script = ExtResource("10_3a54n")
+gridPositions = [611]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_138" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 20.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 20.5)
 script = ExtResource("10_3a54n")
+gridPositions = [617]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_100" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 19.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 19.5)
 script = ExtResource("10_3a54n")
+gridPositions = [573]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_191" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 19.5)
 script = ExtResource("10_3a54n")
+gridPositions = [581]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_192" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 19.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 19.5)
 script = ExtResource("10_3a54n")
+gridPositions = [587]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_116" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 23.5)
 script = ExtResource("10_3a54n")
+gridPositions = [711]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_117" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 24.5)
 script = ExtResource("10_3a54n")
+gridPositions = [741]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_50" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 4.5)
 script = ExtResource("10_3a54n")
+gridPositions = [142]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_51" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
+gridPositions = [172]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_52" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 6.5)
 script = ExtResource("10_3a54n")
+gridPositions = [202]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_53" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 7.5)
 script = ExtResource("10_3a54n")
+gridPositions = [232]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_54" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 8.5)
 script = ExtResource("10_3a54n")
+gridPositions = [262]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_55" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 9.5)
 script = ExtResource("10_3a54n")
+gridPositions = [292]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_140" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 13.5)
 script = ExtResource("10_3a54n")
+gridPositions = [415]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_141" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [445]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_142" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [475]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_143" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [505]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_144" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 17.5)
 script = ExtResource("10_3a54n")
+gridPositions = [535]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_145" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [442]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_157" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 13.4995365)
 script = ExtResource("10_3a54n")
+gridPositions = [412]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_146" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [472]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_147" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [502]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_148" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 17.5)
 script = ExtResource("10_3a54n")
+gridPositions = [532]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_149" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 18.499537)
 script = ExtResource("10_3a54n")
+gridPositions = [562]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_37" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [435]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_38" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [465]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_39" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [495]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_40" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [436]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_41" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [466]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_42" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [496]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_43" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [437]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_44" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [467]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_45" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [497]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_46" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [438]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_47" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [468]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_48" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 16.5)
 script = ExtResource("10_3a54n")
+gridPositions = [498]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_153" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 20.5)
 script = ExtResource("10_3a54n")
+gridPositions = [628]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_156" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 20.5)
 script = ExtResource("10_3a54n")
+gridPositions = [629]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_124" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [658]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_127" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 21.5)
 script = ExtResource("10_3a54n")
+gridPositions = [659]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_72" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 13.5)
 script = ExtResource("10_3a54n")
+gridPositions = [418]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_73" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [448]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_74" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [478]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_75" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 13.5)
 script = ExtResource("10_3a54n")
+gridPositions = [419]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_76" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 14.5)
 script = ExtResource("10_3a54n")
+gridPositions = [449]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_77" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 15.5)
 script = ExtResource("10_3a54n")
+gridPositions = [479]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_49" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 0.5)
 script = ExtResource("10_3a54n")
+gridPositions = [27]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_57" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 1.5)
 script = ExtResource("10_3a54n")
+gridPositions = [57]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_58" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 2.5)
 script = ExtResource("10_3a54n")
+gridPositions = [87]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_59" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 0.5)
 script = ExtResource("10_3a54n")
+gridPositions = [28]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_60" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 1.5)
 script = ExtResource("10_3a54n")
+gridPositions = [58]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_61" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 2.5)
 script = ExtResource("10_3a54n")
+gridPositions = [88]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_62" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 0.5)
 script = ExtResource("10_3a54n")
+gridPositions = [29]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_63" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 1.5)
 script = ExtResource("10_3a54n")
+gridPositions = [59]
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
 
 [node name="wall_64" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 2.5)
 script = ExtResource("10_3a54n")
+gridPositions = [89]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_162" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [455]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_165" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [454]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_193" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.99997354, 0.0020394523, -0.0069854767, -0.0020760654, 0.99998415, -0.0052388343, 0.0069746827, 0.005253196, 0.99996185, 3.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [453]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_163" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [456]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_166" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [457]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_167" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [458]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_12" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [216]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_13" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [217]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_24" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [218]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_26" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [219]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_168" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 23.5)
+script = ExtResource("10_3a54n")
+gridPositions = [690]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_169" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+gridPositions = [660]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_170" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+gridPositions = [630]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_171" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+gridPositions = [600]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_172" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+gridPositions = [570]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_173" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 18.5)
+script = ExtResource("10_3a54n")
+gridPositions = [540]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_174" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 17.5)
+script = ExtResource("10_3a54n")
+gridPositions = [510]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_175" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+gridPositions = [480]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_176" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+gridPositions = [450]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_177" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+gridPositions = [420]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_178" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 13.5)
+script = ExtResource("10_3a54n")
+gridPositions = [390]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_179" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 12.5)
+script = ExtResource("10_3a54n")
+gridPositions = [360]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_180" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 11.5)
+script = ExtResource("10_3a54n")
+gridPositions = [330]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_181" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [300]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_182" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+gridPositions = [270]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_183" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 8.5)
+script = ExtResource("10_3a54n")
+gridPositions = [240]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_184" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(0.9999737, -0.0004972856, -0.0072333007, 0.00047449264, 0.99999493, -0.0031547148, 0.0072348323, 0.0031512026, 0.9999689, 0.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [210]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_185" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+gridPositions = [180]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_27" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [11]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_30" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [10]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_67" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [9]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_71" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [8]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_78" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [7]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_79" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [6]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_80" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [18]
+useCenterPositionForGrid = true
+
+[node name="wall_81" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [17]
+useCenterPositionForGrid = true
+
+[node name="wall_82" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [16]
+useCenterPositionForGrid = true
+
+[node name="wall_83" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [15]
+useCenterPositionForGrid = true
+
+[node name="wall_84" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [14]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_85" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [13]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_86" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [24]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_87" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [23]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_88" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [22]
+useCenterPositionForGrid = true
+
+[node name="wall_89" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [21]
+useCenterPositionForGrid = true
+
+[node name="wall_90" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [20]
+useCenterPositionForGrid = true
+
+[node name="wall_92" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [19]
+useCenterPositionForGrid = true
+
+[node name="wall_98" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [26]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_106" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+gridPositions = [25]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_108" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+gridPositions = [119]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_114" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [149]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_122" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+gridPositions = [179]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_123" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+gridPositions = [209]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_125" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+gridPositions = [239]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_126" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 8.5)
+script = ExtResource("10_3a54n")
+gridPositions = [269]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_128" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+gridPositions = [299]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_129" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [329]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_133" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 11.5)
+script = ExtResource("10_3a54n")
+gridPositions = [359]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_134" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 12.5)
+script = ExtResource("10_3a54n")
+gridPositions = [389]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_137" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+gridPositions = [509]
+useCenterPositionForGrid = true
+
+[node name="wall_139" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 17.5)
+script = ExtResource("10_3a54n")
+gridPositions = [539]
+useCenterPositionForGrid = true
+
+[node name="wall_150" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 18.5)
+script = ExtResource("10_3a54n")
+gridPositions = [569]
+useCenterPositionForGrid = true
+
+[node name="wall_186" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+gridPositions = [599]
+useCenterPositionForGrid = true
+
+[node name="wall_187" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+gridPositions = [742]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_188" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+gridPositions = [743]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_194" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+gridPositions = [744]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_195" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+gridPositions = [745]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_196" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+gridPositions = [749]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_197" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 23.5)
+script = ExtResource("10_3a54n")
+gridPositions = [719]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_198" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+gridPositions = [689]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_199" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+gridPositions = [637]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_200" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+gridPositions = [607]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_201" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+gridPositions = [577]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_202" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 18.5)
+script = ExtResource("10_3a54n")
+gridPositions = [547]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_203" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+gridPositions = [96]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_204" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+gridPositions = [97]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_205" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+gridPositions = [98]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_206" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+gridPositions = [99]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_207" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [306]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_208" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [307]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_209" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [308]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_210" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [309]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_211" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+gridPositions = [644]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_212" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+gridPositions = [614]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_213" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+gridPositions = [584]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_214" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 18.5)
+script = ExtResource("10_3a54n")
+gridPositions = [554]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_215" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+gridPositions = [432]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_216" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+gridPositions = [205]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_217" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+gridPositions = [206]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_218" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+gridPositions = [207]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_219" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [315]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_220" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [316]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_221" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [317]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_222" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+gridPositions = [318]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_223" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [135]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_224" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [136]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_225" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [137]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_226" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [138]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_227" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+gridPositions = [139]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_228" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [45]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_229" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [46]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_230" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [47]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_231" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [48]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_232" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [49]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_233" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [50]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_234" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [51]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_235" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+gridPositions = [52]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_236" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 18.5)
+script = ExtResource("10_3a54n")
+gridPositions = [568]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_237" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+gridPositions = [598]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_238" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+gridPositions = [508]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[node name="wall_239" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 17.5)
+script = ExtResource("10_3a54n")
+gridPositions = [538]
+spawnable = true
+disableWhenSpawnedOn = true
+useCenterPositionForGrid = true
+
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
+[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

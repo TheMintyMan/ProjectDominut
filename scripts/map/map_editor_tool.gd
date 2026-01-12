@@ -95,7 +95,10 @@ func on_resource_changed():
 					if child is MapObject:
 						for pos in child.gridPositions:
 							if(pos == id):
-								colour = Color(1, 0, 0)
+								if(child.spawnable):
+									colour = Color(0.5, 0, 1)
+								else:
+									colour = Color(1, 0, 0)
 								height = 2
 								break
 				

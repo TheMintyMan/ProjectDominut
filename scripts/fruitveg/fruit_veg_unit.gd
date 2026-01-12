@@ -6,7 +6,7 @@ class_name FruitVegUnit extends MapObject
 @export var attackDistance = 4
 var manager : FruitVegManager = null
 
-
+@export var mesh : Node3D 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +25,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		attackTimer = 0
 		RoundEnd()
+
+func LookAt(x, y):
+	if(mesh != null):
+		var posDiffX = x-global_position.x
+		var posDiffY = y-global_position.z	
+		var dirX = sign(posDiffX)
+		var dirY = sign(posDiffY)
+		
+		mesh.look_at(global_position - Vector3(float(dirX), 0, float(dirY)).normalized(), Vector3.UP)
+
 
 func RoundEnd():
 	pass

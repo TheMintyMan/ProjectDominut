@@ -110,12 +110,7 @@ func DonutMove(donut : Donut):
 	money+=(sqrt(donut.cost))	
 
 func RemainingDonuts():
-	var count : int = 0
-	# If all donuts are dead
-	for donut in spawnedDonuts:
-		if(donut != null):
-			count+=1
-	return count
+	return len(spawnedDonuts)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -124,7 +119,7 @@ func _process(delta: float) -> void:
 			donutSpawnTimer +=delta
 			if(donutSpawnTimer >= donutSpawnTime):
 				donutSpawnTimer = 0
-				var donut : Donut = donutPrefab.instantiate()
+				var donut : Donut = Donut.CreateDonutInstance(donutPrefab)
 				donut.AssignData(readyDonuts[0])
 				readyDonuts.remove_at(0)
 				map.add_child(donut)

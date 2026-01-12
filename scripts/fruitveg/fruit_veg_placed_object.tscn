@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b23cp3m7s6bg0"]
+[gd_scene load_steps=6 format=3 uid="uid://b23cp3m7s6bg0"]
 
 [ext_resource type="Script" uid="uid://83aaf7rs08me" path="res://scripts/fruitveg/fruit_veg_placed_object.gd" id="1_pbxwh"]
+[ext_resource type="PackedScene" uid="uid://bouo18lbw58ug" path="res://art/characters/fruit_veg/grape_bullet.tscn" id="2_ni4lv"]
+[ext_resource type="Material" uid="uid://c5bjh2clbxqpn" path="res://art/materials/mat_purple_grape.tres" id="3_4grps"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbxwh"]
 albedo_color = Color(0, 1, 0, 1)
@@ -15,5 +17,14 @@ script = ExtResource("1_pbxwh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_pbxwh")
 mesh = SubResource("CapsuleMesh_j545n")
+
+[node name="GrapeBullet" parent="." instance=ExtResource("2_ni4lv")]
+transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 0.4020701, 0)
+
+[node name="GrapeBullet" parent="GrapeBullet" index="0"]
+material_override = ExtResource("3_4grps")
+
+[editable path="GrapeBullet"]

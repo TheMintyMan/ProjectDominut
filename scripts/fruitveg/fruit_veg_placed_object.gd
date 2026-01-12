@@ -25,18 +25,17 @@ func _physics_process(delta: float) -> void:
 			global_position.x += diffX*delta
 			global_position.z += diffY*delta
 		
-		for child in shotFrom.manager.map.GetAllChildren():
-			if child is Donut:
-				var projectileToDonut = global_position.distance_squared_to(child.global_position)
-				
-				if(projectileToDonut <= 0.9):
-					print(shotFrom)
-					var kill = shotFrom.HitDonut(child)
-					if(kill):
-						shotFrom.manager.OnKill(child)
-					shotFrom = null
-					queue_free()
-					return
+		for child in shotFrom.manager.GetAllDonuts():
+			var projectileToDonut = global_position.distance_squared_to(child.global_position)
+			
+			if(projectileToDonut <= 0.9):
+				print(shotFrom)
+				var kill = shotFrom.HitDonut(child)
+				if(kill):
+					shotFrom.manager.OnKill(child)
+				shotFrom = null
+				queue_free()
+				return
 					
 	else:
 		queue_free()
@@ -46,5 +45,5 @@ func _physics_process(delta: float) -> void:
 func Shoot(fruitVegUnit, pos):
 	shotFrom = fruitVegUnit
 	global_position = shotFrom.global_position
-	targetPos[0] = pos[0] + 0.5
-	targetPos[1] = pos[1] + 0.5
+	targetPos[0] = pos[0] + 0.5 + randf_range(-0.3, 0.3)
+	targetPos[1] = pos[1] + 0.5 + randf_range(-0.3, 0.3)

@@ -5,14 +5,13 @@ class_name FruitVegArea extends FruitVegUnit
 func AttemptAttack():
 	super()
 	var inRangeCount : int = 0
-	for child in manager.map.GetAllChildren():
-		if child is Donut && child != null:
-			var dist = position.distance_squared_to(child.position)
-			if(dist <= attackDistance*attackDistance ):
-				inRangeCount+=1
-				var kill = HitDonut(child)
-				if(kill):
-					manager.OnKill(child)
+	for child in manager.GetAllDonuts():
+		var dist = position.distance_squared_to(child.position)
+		if(dist <= attackDistance*attackDistance ):
+			inRangeCount+=1
+			var kill = HitDonut(child)
+			if(kill):
+				manager.OnKill(child)
 	
 	if(inRangeCount > 0):
 		CreateProjectile(20, Vector2(0,1), 0.2)

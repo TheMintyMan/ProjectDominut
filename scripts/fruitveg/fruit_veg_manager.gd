@@ -8,7 +8,8 @@ class_name FruitVegManager extends Node3D
 @export var maxFruitVegs = 4
 var fruitVegUnits : Array[FruitVegUnit] = []
 
-
+func GetAllDonuts():
+	return player.spawnedDonuts
 
 func PointIsFruitVeg(point):
 	for fv in fruitVegUnits:
@@ -19,11 +20,13 @@ func PointIsFruitVeg(point):
 func Spawn():
 	if(len(fruitVegUnits) < maxFruitVegs):
 		var mapObjects = map.GetSpawnableMapObjects()
-		var gridPoints = []
+		var gridPoints : Array[int] = []
+		var pointObjectMap : Dictionary[int, MapObject] = {}
 		for mapObject in mapObjects:
 			for point in mapObject.gridPositions:
 				if(!PointIsFruitVeg(point)):
 					gridPoints.append(point)
+					pointObjectMap[point] = mapObject
 		
 		if(len(gridPoints) > 0):
 			var rand = randi_range(0, len(gridPoints)-1)
@@ -35,6 +38,9 @@ func Spawn():
 			newFruitVegUnit.spawnable = false
 			newFruitVegUnit.gridPositions.append(gridPoints[rand])
 			newFruitVegUnit.manager = self
+			
+			pointObjectMap[gridPoints[rand]].OnSpawnedOn()
+			
 			map.add_child(newFruitVegUnit)
 			fruitVegUnits.append(newFruitVegUnit)
 
@@ -47,5 +53,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	Spawn()
+	if(player.hasRoundStarted):
+		Spawn()
 	pass

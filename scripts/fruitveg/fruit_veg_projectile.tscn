@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://du623mt1fbupy"]
+[gd_scene load_steps=6 format=3 uid="uid://du623mt1fbupy"]
 
 [ext_resource type="Script" uid="uid://djl15ajbyp4p6" path="res://scripts/fruitveg/fruit_veg_projectile.gd" id="1_x30yr"]
+[ext_resource type="PackedScene" uid="uid://b6fw2lp70rxgk" path="res://art/characters/fruit_veg/carrot_bullet_model.tscn" id="2_j545n"]
+[ext_resource type="Material" uid="uid://butp0jrtgrvdd" path="res://art/materials/mat_orange_carrot.tres" id="3_pakwd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p0np"]
 albedo_color = Color(1, 0.6627451, 0.17254902, 1)
@@ -13,5 +15,14 @@ height = 0.4
 script = ExtResource("1_x30yr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 material_override = SubResource("StandardMaterial3D_4p0np")
 mesh = SubResource("CapsuleMesh_j545n")
+
+[node name="CarrotBullet_Model" parent="." instance=ExtResource("2_j545n")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="CarrotBody1" parent="CarrotBullet_Model/CarrotBullet" index="0"]
+material_override = ExtResource("3_pakwd")
+
+[editable path="CarrotBullet_Model"]

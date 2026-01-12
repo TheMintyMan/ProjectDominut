@@ -1,21 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvfl6hs5jplyl"]
+[gd_scene load_steps=6 format=3 uid="uid://cvfl6hs5jplyl"]
 
 [ext_resource type="Script" uid="uid://bsxp2ibp4br25" path="res://scripts/fruitveg/fruit_veg_area.gd" id="1_17rid"]
 [ext_resource type="PackedScene" uid="uid://x31nkyri5dxc" path="res://scripts/fruitveg/fruit_veg_area_projectile.tscn" id="2_bncci"]
+[ext_resource type="PackedScene" uid="uid://wxd7henebmgt" path="res://art/characters/fruit_veg/corn_turret_model.tscn" id="3_2a57x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bncci"]
 albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_56tmu"]
 
-[node name="FruitVegArea" type="Node3D"]
+[node name="FruitVegArea" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_17rid")
 projectilePrefab = ExtResource("2_bncci")
 weakness = 2
 attackDistance = 3
+mesh = NodePath("CornTurret_Model")
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+visible = false
 material_override = SubResource("StandardMaterial3D_bncci")
 mesh = SubResource("BoxMesh_56tmu")
 skeleton = NodePath("../../Floor/FloorMesh")
+
+[node name="CornTurret_Model" parent="." instance=ExtResource("3_2a57x")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.5, 0.5, 0.5)
+
+[editable path="CornTurret_Model"]

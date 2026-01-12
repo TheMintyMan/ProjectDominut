@@ -8,16 +8,44 @@ var cost = 0;
 
 @export var donutMesh : DonutMesh 
 
+static var instancePoolInactive : Array[Donut]
+
+static func CreateDonutInstance(instancePrefab):
+	if(len(instancePoolInactive) <= 0):
+		return instancePrefab.instantiate()
+	var instance = instancePoolInactive[0]
+	instancePoolInactive.remove_at(0)
+	return instance
+
+func OnDie():
+	super()
+	Destroy();
+func OnFinish():
+	super()
+	Destroy();
+
+func Destroy():
+	#if(get_parent() != null):
+	#	get_parent().remove_child(self)
+	if(active):
+		player.spawnedDonuts.erase(self)
+		instancePoolInactive.append(self)
+		visible = false
+		Reset()
+
+
 func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	var posDiffX = targetGridPosition[0]-position.x
-	var posDiffY = targetGridPosition[1]-position.z	
-	var dirX = sign(posDiffX)
-	var dirY = sign(posDiffY)
-	
-	donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
+	if(active):
+		visible = true
+		var posDiffX = targetGridPosition[0]-position.x
+		var posDiffY = targetGridPosition[1]-position.z	
+		var dirX = sign(posDiffX)
+		var dirY = sign(posDiffY)
+		
+		donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
 		
 
 func AssignData(donutData: DonutType):
@@ -29,6 +57,7 @@ func AssignData(donutData: DonutType):
 	cost = donutData.cost
 	
 	donutMesh.SetData(donutData)
+	donutMesh.set_health_damage(1)
 	
 func DoDamage(damage):
 	current_health-=damage
