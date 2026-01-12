@@ -8,7 +8,7 @@ class_name DonutMesh extends Node3D
 @export var has_sprinkles: bool = true
 @export var has_icing: bool = true
 
-var health_percent: float = 100
+var health_percent: float = 1
 
 @export var icing_colours: Dictionary[int, Color] = {}
 @export var sprinkles_colours: Dictionary[int, Color] = {}
@@ -22,8 +22,7 @@ func _ready() -> void:
 	set_mesh(base_donut_mesh)
 	set_mesh(eye_r_donut_mesh)
 	set_mesh(eye_l_donut_mesh)
-	print("health percent set to ", health_percent)
-	
+
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,12 +31,13 @@ func _process(_delta: float) -> void:
 	
 func set_mesh(mesh_list: Array[MeshInstance3D]):
 	for i in range(mesh_list.size()):
+		mesh_list[i].visible = false
 		if health_percent <= 0.33:
 			mesh_list[i].visible = i == 2
 		elif health_percent <= 0.66:
-			mesh_list[1].visible = i == 1
+			mesh_list[i].visible = i == 1
 		else:
-			mesh_list[0].visible =  i == 0
+			mesh_list[i].visible =  i == 0
 			
 
 func set_health_damage(damage_percent: float):

@@ -51,7 +51,11 @@ grow_horizontal = 1
 grow_vertical = 0
 
 [node name="ui_donut_upgrade" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_o8o0x")]
-offset_left = 928.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
 script = ExtResource("8_0pev8")
 player = NodePath("../../..")
 camo_cost = 2000
@@ -88,16 +92,24 @@ speed_values = Dictionary[int, float]({
 })
 
 [node name="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade" index="0"]
+anchors_preset = 1
+anchor_bottom = 0.0
+offset_bottom = 604.0
+grow_vertical = 1
 theme = ExtResource("9_nxd4c")
 
 [node name="btn_buy_donuts" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
 text = "BUY BULK"
 
+[node name="VBox_DonutView" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="3"]
+custom_minimum_size = Vector2(0, 270)
+size_flags_vertical = 2
+
 [node name="PanelContainer2" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2" index="0"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="btn_send_wave" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
+size_flags_vertical = 2
 text = "Start Round"
 
 [connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]

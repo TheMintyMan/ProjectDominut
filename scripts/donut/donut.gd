@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
 		
 
-func AssignData(donutData : DonutType):
+func AssignData(donutData: DonutType):
 	max_health = donutData.health
 	current_health = max_health
 	speed = donutData.speed

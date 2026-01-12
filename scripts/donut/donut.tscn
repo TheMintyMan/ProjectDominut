@@ -8,7 +8,6 @@
 [node name="Donut" type="Node3D" node_paths=PackedStringArray("donutMesh")]
 script = ExtResource("1_eif47")
 donutMesh = NodePath("donut_base")
-speed = null
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.79036546, 0, 0, 0, 0.79036546, 0, 0, 0, 0.79036546, 0.5, 1, 0.5)
