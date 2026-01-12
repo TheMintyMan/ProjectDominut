@@ -3,6 +3,8 @@ class_name MapObject extends Node3D
 @export var gridPositions : Array[int]
 @export var spawnable = false
 var gridPositionsTest : Array[int]
+@export var useCenterPositionForGrid = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

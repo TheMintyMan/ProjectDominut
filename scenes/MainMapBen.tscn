@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2inb7ux2pijv"]
+[gd_scene load_steps=16 format=3 uid="uid://2inb7ux2pijv"]
 
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_8xte0"]
 [ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_0axaf"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="5_3a54n"]
 [ext_resource type="PackedScene" uid="uid://c251f73llbn38" path="res://scripts/fruitveg/fruit_veg_placer.tscn" id="5_yxl6f"]
 [ext_resource type="PackedScene" uid="uid://dmvdiab568plo" path="res://scripts/player.tscn" id="6_t86ox"]
-[ext_resource type="PackedScene" uid="uid://8bplnduhxju" path="res://scripts/map/map_object.tscn" id="7_fjyoo"]
+[ext_resource type="PackedScene" uid="uid://cvdg15qp4k5fg" path="res://art/environment/models/wall_01.glb" id="9_nghdb"]
+[ext_resource type="Script" uid="uid://bcbdtatgjmub2" path="res://scripts/map/map_object.gd" id="10_3a54n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jvd7"]
 transparency = 1
@@ -17,17 +18,13 @@ albedo_color = Color(1, 0, 1, 0.49411765)
 [sub_resource type="BoxMesh" id="BoxMesh_0cxyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cxyw"]
-size = Vector3(30, 1, 30)
+size = Vector3(30, 1, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wgqo"]
 albedo_texture = ExtResource("5_3a54n")
-uv1_scale = Vector3(90, 60, 0)
+uv1_scale = Vector3(90, 50, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2wgqo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5usn2"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5usn2"]
 
 [node name="MainMap" type="Node3D"]
 
@@ -43,7 +40,7 @@ floor = NodePath("../Map/Floor")
 floorMesh = NodePath("../Map/Floor/FloorMesh")
 floorCollider = NodePath("../Map/Floor/FloorCollision")
 mapSizeX = 30
-mapSizeY = 30
+mapSizeY = 25
 endPoint = 885
 startPointIndicator = NodePath("../Map/StartPoint")
 endPointIndicator = NodePath("../Map/EndPoint")
@@ -78,13 +75,13 @@ skeleton = NodePath("../../Floor/FloorMesh")
 [node name="LabelParent" type="Node3D" parent="Map"]
 
 [node name="Floor" type="StaticBody3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 12.5)
 
 [node name="FloorCollision" type="CollisionShape3D" parent="Map/Floor"]
 shape = SubResource("BoxShape3D_0cxyw")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Map/Floor"]
-transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2wgqo")
 mesh = SubResource("BoxMesh_2wgqo")
 skeleton = NodePath("")
@@ -96,72 +93,507 @@ money = 1000000
 [node name="Camera3D" parent="Map/Floor/Player" index="1"]
 transform = Transform3D(0.025, 0, 0, 0, 0.49227536, 0.8704398, 0, -0.029014654, 0.016409159, 0, 21.859045, 0.46946728)
 
-[node name="btn_buy_donuts2" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="0"]
-icon = null
-
-[node name="btn_buy_donuts" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
-icon = null
-
-[node name="btn_send_wave" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
-icon = null
-
 [node name="MapObjects" type="Node3D" parent="Map"]
 
-[node name="MapObject3" parent="Map/MapObjects" instance=ExtResource("7_fjyoo")]
-transform = Transform3D(-5.9187217, 0, -8.742282e-08, 0, 1, 0, 5.174311e-07, 0, -1.0000005, 17.307106, 0.33862317, 10.914314)
-gridPositions = Array[int]([284, 285, 286, 287, 288, 289, 290, 291, 314, 315, 316, 317, 318, 319, 320, 321, 344, 345, 346, 347, 348, 349, 350, 351])
-spawnable = true
+[node name="wall_08" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject3"]
-transform = Transform3D(1.3149004, 0, 0, 0, 1, 0, 1.1368684e-13, 0, 2.0990808, -0.116755724, 0.5689151, 0.3936243)
-material_override = SubResource("StandardMaterial3D_5usn2")
-transparency = 1.0
-mesh = SubResource("BoxMesh_5usn2")
-skeleton = NodePath("")
+[node name="wall_09" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[node name="MapObject4" parent="Map/MapObjects" instance=ExtResource("7_fjyoo")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.052944, 0.9600425, 15.447187)
-gridPositions = Array[int]([462, 463, 464, 465])
-spawnable = true
+[node name="wall_10" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject4"]
-transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_5usn2")
-transparency = 1.0
-mesh = SubResource("BoxMesh_5usn2")
-skeleton = NodePath("")
+[node name="wall_11" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[node name="MapObject2" parent="Map/MapObjects" instance=ExtResource("7_fjyoo")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.0657425, 0.38810325, 8.445295)
-gridPositions = Array[int]([247, 248, 249, 250])
-spawnable = true
+[node name="wall_131" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject2"]
-transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0.5689151, -0.10380268)
-material_override = SubResource("StandardMaterial3D_5usn2")
-transparency = 1.0
-mesh = SubResource("BoxMesh_5usn2")
-skeleton = NodePath("")
+[node name="wall_132" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
 
-[node name="MapObject" parent="Map/MapObjects" instance=ExtResource("7_fjyoo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5328712, 0.8742516, 5.0747256)
-gridPositions = Array[int]([94, 124, 154, 184])
-spawnable = true
+[node name="wall_15" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/MapObjects/MapObject"]
-transform = Transform3D(0.7232326, 0, 0, 0, 1, 0, 0, 0, 3.2748256, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_5usn2")
-transparency = 1.0
-mesh = SubResource("BoxMesh_5usn2")
-skeleton = NodePath("")
+[node name="wall_16" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
 
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
-[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
+[node name="wall_17" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_28" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_29" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_31" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_32" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_33" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_34" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_158" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_164" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_189" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_159" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_160" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_161" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_68" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_69" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_70" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_05" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_06" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_07" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_14" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_18" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_19" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_20" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 2.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_21" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 3.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_22" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_23" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 8.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_25" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_35" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_36" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 10.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_56" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 11.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_65" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 12.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_66" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 13.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_91" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_93" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_94" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_95" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_99" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_101" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_112" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_113" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_120" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_121" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_102" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_103" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_104" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_105" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_151" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_152" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_154" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_155" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_107" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_109" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_110" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_111" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_130" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_190" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_115" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 22.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_96" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_118" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_119" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_135" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_97" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_136" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_138" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_100" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_191" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_192" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 19.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_116" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 23.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_117" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, 0.5, 24.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_50" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 4.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_51" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 5.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_52" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 6.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_53" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 7.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_54" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 8.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_55" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 9.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_140" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 13.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_141" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_142" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_143" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_144" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0.5, 17.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_145" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 14)
+script = ExtResource("10_3a54n")
+
+[node name="wall_157" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 13)
+script = ExtResource("10_3a54n")
+
+[node name="wall_146" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 15)
+script = ExtResource("10_3a54n")
+
+[node name="wall_147" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 16)
+script = ExtResource("10_3a54n")
+
+[node name="wall_148" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 17)
+script = ExtResource("10_3a54n")
+
+[node name="wall_149" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5, 0.5, 18)
+script = ExtResource("10_3a54n")
+
+[node name="wall_37" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_38" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_39" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_40" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_41" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_42" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_43" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_44" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_45" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_46" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_47" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_48" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.5, 16.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_153" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_156" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 20.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_124" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_127" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 21.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_72" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 13.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_73" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_74" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_75" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 13.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_76" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 14.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_77" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 15.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_49" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_57" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_58" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5, 0.5, 2.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_59" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_60" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_61" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5, 0.5, 2.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_62" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 0.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_63" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 1.5)
+script = ExtResource("10_3a54n")
+
+[node name="wall_64" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.5, 2.5)
+script = ExtResource("10_3a54n")
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

@@ -46,10 +46,17 @@ func CalculateXYFromGridPos(pos):
 	var x = int(pos % mapSizeX)
 	var y = int(pos / mapSizeX)
 	return [x,y]
+	
+func CalculateGridPosFromXY(x, y):
+	return y*mapSizeX + x
 
 func on_resource_changed():
 	if(!Engine.is_editor_hint()):
 		return
+		
+	for child in GetAllChildren(map):
+		if child is MapObject && child.useCenterPositionForGrid:
+			child.gridPositions = [CalculateGridPosFromXY(int(child.position.x), int(child.position.z))]
 	
 	if(floorMesh != null):
 		floorMesh.scale.x = mapSizeX
@@ -78,7 +85,7 @@ func on_resource_changed():
 
 	for x in range(mapSizeX):
 		for y in range(mapSizeY):	
-			var id = y*mapSizeX + x
+			var id = CalculateGridPosFromXY(x, y)
 			
 			var colour = Color(0, 1, 0)
 			var height = 1
