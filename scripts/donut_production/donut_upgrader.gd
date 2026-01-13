@@ -18,7 +18,7 @@ var max_speed_level : int = 0
 var camo_level : bool = false
 var resistance_level : Global.ResistanceType = Global.ResistanceType.NONE
 
-
+@export var displayDonut : DonutMesh= null
 
 func _ready() -> void:
 	for key in health_values.keys():
@@ -26,42 +26,62 @@ func _ready() -> void:
 	for key in speed_values.keys():
 		max_speed_level = max(max_health_level, key)
 
+func _process(delta: float) -> void:
+	DisplayDonutProcess(delta)
 
 
 func SetResistance(index : int):
 	resistance_level = Global.ResistanceType.values()[index]
+	UpdateDisplayDonut()
 
 func SetCamo(state : bool):
 	camo_level = state
+	UpdateDisplayDonut()
 
 
 func AddHealthLevel():
 	health_level=min(health_level+1, max_health_level)
+	UpdateDisplayDonut()
+	
 func RemoveHealthLevel():
 	health_level=max(health_level-1, 0)
+	UpdateDisplayDonut()
 
 func AddSpeedLevel():
 	speed_level=min(speed_level+1, max_speed_level)
+	UpdateDisplayDonut()
+	
 func RemoveSpeedLevel():
 	speed_level=max(speed_level-1, 0)
+	UpdateDisplayDonut()
 
 func get_total_cost() -> int:
 	var cost = base_donut_cost + health_cost[health_level] + speed_cost[speed_level] + (camo_cost * int(camo_level)) + resistance_cost[resistance_level]
 	return cost
 
+func UpdateDisplayDonut():
+	if(displayDonut != null):
+		displayDonut.SetData(GetDonutData())
+		displayDonut.set_health_damage(1)
+
+func DisplayDonutProcess(delta):
+	displayDonut.rotate(Vector3.UP, delta)
+
+func GetDonutData():
+	var donutData = DonutType.new()
+	donutData.health = health_values[health_level]
+	donutData.speed = speed_values[speed_level]
+	donutData.camo = camo_level
+	donutData.resistance_type = resistance_level
+	donutData.cost = get_total_cost()
+	donutData.health_level = health_level
+	donutData.speed_level = speed_level
+	return donutData
 
 func CreateDonutData():
 	var totalCost = get_total_cost()
 	if(player.CanAfford(totalCost)):
-		var donutData = DonutType.new()
-		donutData.health = health_values[health_level]
-		donutData.speed = speed_values[speed_level]
-		donutData.camo = camo_level
-		donutData.resistance_type = resistance_level
-		donutData.cost = totalCost
-		donutData.health_level = health_level
-		donutData.speed_level = speed_level
-		player.AddReadyDonut(donutData)
+		player.AddReadyDonut(GetDonutData())
 		player.SpendMoney(totalCost)
 		return true
 	return false

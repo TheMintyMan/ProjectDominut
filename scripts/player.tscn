@@ -105,7 +105,7 @@ text = "BUY BULK"
 custom_minimum_size = Vector2(0, 270)
 size_flags_vertical = 2
 
-[node name="PanelContainer2" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2" index="0"]
+[node name="PanelContainer3" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2" index="0"]
 layout_mode = 2
 
 [node name="btn_send_wave" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
