@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://2inb7ux2pijv"]
+[gd_scene load_steps=17 format=3 uid="uid://2inb7ux2pijv"]
 
+[ext_resource type="PackedScene" uid="uid://25eob0chmhac" path="res://scenes/map_lighting.tscn" id="1_3a54n"]
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_8xte0"]
 [ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_0axaf"]
 [ext_resource type="PackedScene" uid="uid://qhxeklit67ga" path="res://scripts/fruitveg/fruit_veg_shooter.tscn" id="3_yxl6f"]
@@ -28,9 +29,7 @@ uv1_scale = Vector3(90, 50, 0)
 
 [node name="MainMap" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+[node name="map_lighting" parent="." instance=ExtResource("1_3a54n")]
 
 [node name="MapEditorTool" type="Node3D" parent="." node_paths=PackedStringArray("map", "labelParent", "floor", "floorMesh", "floorCollider", "startPointIndicator", "endPointIndicator")]
 script = ExtResource("1_8xte0")
@@ -290,12 +289,12 @@ useCenterPositionForGrid = true
 [node name="wall_05" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 4.5)
 script = ExtResource("10_3a54n")
-gridPositions = [123]
+gridPositions = Array[int]([123])
 
 [node name="wall_06" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 5.5)
 script = ExtResource("10_3a54n")
-gridPositions = [153]
+gridPositions = Array[int]([153])
 
 [node name="wall_07" parent="Map/MapObjects" instance=ExtResource("9_nghdb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, 6.5)
@@ -1933,14 +1932,7 @@ spawnable = true
 disableWhenSpawnedOn = true
 useCenterPositionForGrid = true
 
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
-[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
-
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
