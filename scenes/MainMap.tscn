@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c45t6xkiltfyb"]
+[gd_scene load_steps=14 format=3 uid="uid://c45t6xkiltfyb"]
 
-[ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map_editor_tool.gd" id="1_2m761"]
-[ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map.gd" id="2_8fkir"]
-[ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scenes/fruit_veg_manager.gd" id="2_nmjbi"]
+[ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_2m761"]
+[ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map/map.gd" id="2_8fkir"]
+[ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_nmjbi"]
 [ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="3_nmjbi"]
-[ext_resource type="PackedScene" uid="uid://dixtdhkgp6k4d" path="res://scripts/fruit_veg_unit.tscn" id="3_yd4n3"]
-[ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="4_yd4n3"]
-[ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/donut_path.tscn" id="5_wehgl"]
-[ext_resource type="PackedScene" uid="uid://dmnax2fgw7af1" path="res://scripts/test_donut.tscn" id="6_xoo4j"]
+[ext_resource type="PackedScene" uid="uid://dixtdhkgp6k4d" path="res://scripts/fruitveg/fruit_veg_unit.tscn" id="3_yd4n3"]
+[ext_resource type="PackedScene" uid="uid://dmvdiab568plo" path="res://scripts/player.tscn" id="6_2m761"]
 [ext_resource type="PackedScene" uid="uid://25eob0chmhac" path="res://scenes/map_lighting.tscn" id="9_nmjbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jvd7"]
@@ -30,17 +28,6 @@ albedo_texture = ExtResource("3_nmjbi")
 uv1_scale = Vector3(90, 60, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2wgqo"]
-
-[sub_resource type="GDScript" id="GDScript_6jvd7"]
-script/source = "extends Button
-
-@export var player : Player = null
-
-func _on_Button_pressed():
-	print(\"Try\")
-	player.StartRound()
-	
-"
 
 [node name="MainMap" type="Node3D"]
 
@@ -102,34 +89,9 @@ material_override = SubResource("StandardMaterial3D_2wgqo")
 mesh = SubResource("BoxMesh_2wgqo")
 skeleton = NodePath("")
 
-[node name="Player" type="Node3D" parent="Map/Floor" node_paths=PackedStringArray("map", "selectionCube")]
-transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
-script = ExtResource("4_yd4n3")
+[node name="Player" parent="Map/Floor" node_paths=PackedStringArray("map") instance=ExtResource("6_2m761")]
 map = NodePath("../..")
-selectionCube = NodePath("../../SelectionCube")
-donutPathPrefab = ExtResource("5_wehgl")
-donutPrefab = ExtResource("6_xoo4j")
-
-[node name="RayCast3D" type="RayCast3D" parent="Map/Floor/Player"]
-transform = Transform3D(0.025, 0, 0, 0, 1, 0, 0, 0, 0.033333335, -0.5, 0, -0.5)
-
-[node name="Camera3D" type="Camera3D" parent="Map/Floor/Player"]
-transform = Transform3D(0.025, 0, 0, 0, -5.8281856e-08, 1, 0, -0.033333335, -1.9427286e-09, 0, 21.859045, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Map/Floor/Player/Camera3D"]
-follow_viewport_enabled = true
-
-[node name="StartRoundButton" type="Button" parent="Map/Floor/Player/Camera3D/CanvasLayer" node_paths=PackedStringArray("player")]
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 88.0
-offset_bottom = 33.0
-text = "Test"
-script = SubResource("GDScript_6jvd7")
-player = NodePath("../../..")
 
 [node name="MapObjects" type="Node3D" parent="Map"]
 
 [node name="map_lighting" parent="." instance=ExtResource("9_nmjbi")]
-
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/StartRoundButton" to="Map/Floor/Player" method="StartRound"]
