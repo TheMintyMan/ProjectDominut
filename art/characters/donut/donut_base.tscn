@@ -1,26 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://biuxwwb1lupqw"]
+[gd_scene load_steps=4 format=3 uid="uid://biuxwwb1lupqw"]
 
 [ext_resource type="PackedScene" uid="uid://q2excrco7n7h" path="res://art/characters/donut/models/donut_base.glb" id="1_vjvo5"]
 [ext_resource type="Material" uid="uid://c0csbsnej2vf3" path="res://art/materials/mat_donut_base.tres" id="2_23pqs"]
 [ext_resource type="Script" uid="uid://bvkuchgsovb2s" path="res://art/characters/donut/minty_test_donut.gd" id="2_u7ddq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fjpr"]
-transparency = 1
-cull_mode = 2
-depth_draw_mode = 1
-albedo_color = Color(0.87, 0.71572, 0.5394, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7ddq"]
-transparency = 1
-cull_mode = 2
-depth_draw_mode = 1
-albedo_color = Color(0.87, 0.71572, 0.5394, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elo66"]
-transparency = 1
-cull_mode = 2
-depth_draw_mode = 1
-albedo_color = Color(0.87, 0.71572, 0.5394, 1)
 
 [node name="donut_base" node_paths=PackedStringArray("base_donut_mesh", "eye_r_donut_mesh", "eye_l_donut_mesh", "sprinkle_mesh_01", "icing_mesh_01") groups=["Donut"] instance=ExtResource("1_vjvo5")]
 script = ExtResource("2_u7ddq")
@@ -71,13 +53,13 @@ bones/16/position = Vector3(-0.1500001, 0.026705222, -0.13219085)
 bones/16/rotation = Quaternion(1.3975148e-07, -0.1594687, 0.987203, 3.7464397e-07)
 
 [node name="donut_base_body" parent="donut_rig/Skeleton3D" index="0"]
-material_override = SubResource("StandardMaterial3D_2fjpr")
+material_override = ExtResource("2_23pqs")
 
 [node name="donut_base_body_damage_01" parent="donut_rig/Skeleton3D" index="1"]
-material_override = SubResource("StandardMaterial3D_2fjpr")
+material_override = ExtResource("2_23pqs")
 
 [node name="donut_base_body_damage_02" parent="donut_rig/Skeleton3D" index="2"]
-material_override = SubResource("StandardMaterial3D_2fjpr")
+material_override = ExtResource("2_23pqs")
 
 [node name="donut_base_eyebrow_l" parent="donut_rig/Skeleton3D" index="9"]
 material_override = ExtResource("2_23pqs")
@@ -104,22 +86,25 @@ material_override = ExtResource("2_23pqs")
 material_override = ExtResource("2_23pqs")
 
 [node name="donut_icing_01" parent="donut_rig/Skeleton3D" index="17"]
-material_override = SubResource("StandardMaterial3D_u7ddq")
+material_override = ExtResource("2_23pqs")
+surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_icing_01_damage_01" parent="donut_rig/Skeleton3D" index="18"]
-material_override = SubResource("StandardMaterial3D_u7ddq")
+material_override = ExtResource("2_23pqs")
+surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_icing_01_damage_02" parent="donut_rig/Skeleton3D" index="19"]
-material_override = SubResource("StandardMaterial3D_u7ddq")
+material_override = ExtResource("2_23pqs")
+surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_sprinkles_01" parent="donut_rig/Skeleton3D" index="20"]
-material_override = SubResource("StandardMaterial3D_elo66")
+material_override = ExtResource("2_23pqs")
 
 [node name="donut_sprinkles_01_damage_01" parent="donut_rig/Skeleton3D" index="21"]
-material_override = SubResource("StandardMaterial3D_elo66")
+material_override = ExtResource("2_23pqs")
 
 [node name="donut_sprinkles_01_damage_02" parent="donut_rig/Skeleton3D" index="22"]
-material_override = SubResource("StandardMaterial3D_elo66")
+material_override = ExtResource("2_23pqs")
 
 [node name="AnimationPlayer" parent="." index="1"]
 deterministic = true

@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4eviot51xxem"]
+[gd_scene load_steps=3 format=3 uid="uid://c4eviot51xxem"]
 
-[ext_resource type="PackedScene" uid="uid://cn4h875jrqdpn" path="res://art/environment/models/floor_tile_01.glb" id="1_jg7b5"]
+[ext_resource type="PackedScene" uid="uid://cn4h875jrqdpn" path="res://art/environment/models/floor_tile_01.glb" id="1_28ofb"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="2_5cuat"]
 
-[node name="floor_tile_01" instance=ExtResource("1_jg7b5")]
+[node name="floor_tile_01" instance=ExtResource("1_28ofb")]
+
+[node name="floor_tile_01" parent="." index="0"]
+material_override = ExtResource("2_5cuat")

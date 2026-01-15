@@ -1,15 +1,24 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://c0csbsnej2vf3"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://c0csbsnej2vf3"]
 
 [ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="1_lql7w"]
 [ext_resource type="Texture2D" uid="uid://cqemjdqicjwx2" path="res://art/materials/shader/color_gradient.tres" id="2_cdjh5"]
 [ext_resource type="Texture2D" uid="uid://bssqi5h0wj08y" path="res://art/materials/shader/fresnel_gradient.tres" id="3_y05nu"]
+
+[sub_resource type="Gradient" id="Gradient_cdjh5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y05nu"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ev3c0"]
+noise = SubResource("FastNoiseLite_y05nu")
+color_ramp = SubResource("Gradient_cdjh5")
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_lql7w")
 shader_parameter/albedo = Color(0.87, 0.71572, 0.5394, 1)
 shader_parameter/albedo_texture_size = Vector2i(0, 0)
-shader_parameter/point_size = 1.0
+shader_parameter/point_size = 0.10000000149012
+shader_parameter/alpha = 1.0
 shader_parameter/roughness = 1.0
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/specular = 0.5
@@ -20,3 +29,6 @@ shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/color_gradient = ExtResource("2_cdjh5")
 shader_parameter/fresnel_gradient = ExtResource("3_y05nu")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ev3c0")
+shader_parameter/noise_amount = 0.1
+shader_parameter/light_threshold = 0.5

@@ -54,24 +54,24 @@ func set_health_damage(damage_percent: float):
 	
 func SetData(donutData : DonutType):
 	for icing in icing_mesh_01:
-		var mat : Material = icing.material_override.duplicate()
-		mat.albedo_color = icing_colours[donutData.health_level]
+		var mat = icing.material_override.duplicate()
+		mat.set_shader_parameter("albedo", icing_colours[donutData.health_level]) 
 		if(donutData.camo):
-			mat.albedo_color.a = 0.5
+			mat.albedo.a = 0.5
 		icing.material_override = mat
 	
 	for sprinkles in sprinkle_mesh_01:
-		var mat : Material = sprinkles.material_override.duplicate()
-		mat.albedo_color = sprinkles_colours[donutData.speed_level]
+		var mat : ShaderMaterial = sprinkles.material_override.duplicate()
+		mat.set_shader_parameter("albedo", sprinkles_colours[donutData.speed_level])
 		if(donutData.camo):
-			mat.albedo_color.a = 0.5
+			mat.albedo.a = 0.5
 		sprinkles.material_override = mat
 		
 	for baseDonut in base_donut_mesh:
-		var mat : Material = baseDonut.material_override.duplicate()
-		mat.albedo_color = donut_colour[donutData.resistance_type]
+		var mat : ShaderMaterial = baseDonut.material_override.duplicate()
+		mat.set_shader_parameter("albedo", donut_colour[donutData.resistance_type]) 
 		if(donutData.camo):
-			mat.albedo_color.a = 0.5
+			mat.albedo.a = 0.5
 		baseDonut.material_override = mat
 		
 		
