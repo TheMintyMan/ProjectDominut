@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8tmo8mtcynuy"]
+[gd_scene load_steps=27 format=3 uid="uid://b8tmo8mtcynuy"]
 
 [ext_resource type="PackedScene" uid="uid://cn4h875jrqdpn" path="res://art/environment/models/floor_tile_01.glb" id="1_sdt66"]
 [ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="4_70m73"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://2wfgwbp3myij" path="res://art/characters/fruit_veg/grape_model.tscn" id="19_wslcn"]
 [ext_resource type="PackedScene" uid="uid://duiolpecg3pjg" path="res://art/environment/models/WetFloorSign.fbx" id="20_wslcn"]
 [ext_resource type="PackedScene" uid="uid://dhpyqccyph82k" path="res://art/environment/models/MopBucket.fbx" id="21_haovf"]
+[ext_resource type="PackedScene" uid="uid://bp3xjkpvqgx2u" path="res://art/environment/models/ENTRY DOOR.fbx" id="22_haovf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sdt66"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -262,3 +263,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1987828, 0, -0.06531739)
 
 [node name="MopBucket" parent="." instance=ExtResource("21_haovf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77349746, 1.1920929e-07, -0.08346225)
+
+[node name="ENTRY DOOR" parent="." instance=ExtResource("22_haovf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.336779, 0, -0.13281298)
+
+[node name="ENTRY DOOR2" parent="." instance=ExtResource("22_haovf")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -4.336779, 0, -1.180388)
