@@ -11,8 +11,9 @@ albedo_color = Color(1, 0.6627451, 0.17254902, 1)
 radius = 0.2
 height = 0.4
 
-[node name="FruitVegProjectile" type="Node3D"]
+[node name="FruitVegProjectile" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_x30yr")
+mesh = NodePath("CarrotBullet_Model")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -20,7 +21,7 @@ material_override = SubResource("StandardMaterial3D_4p0np")
 mesh = SubResource("CapsuleMesh_j545n")
 
 [node name="CarrotBullet_Model" parent="." instance=ExtResource("2_j545n")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="CarrotBody1" parent="CarrotBullet_Model/CarrotBullet" index="0"]
 material_override = ExtResource("3_pakwd")

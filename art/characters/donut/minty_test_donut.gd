@@ -36,7 +36,6 @@ func set_mesh(mesh_list: Array[MeshInstance3D], all_invis: bool):
 		mesh_list[i].visible = i == index
 
 func set_health_damage(damage_percent: float):
-	print ("health percent set to ", health_percent)
 	health_percent = damage_percent
 	
 	set_mesh(base_donut_mesh, false)
