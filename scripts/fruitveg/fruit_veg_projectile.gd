@@ -3,6 +3,7 @@ class_name FruitVegProjectile extends Node3D
 var speed : float = 10
 var shotFrom : FruitVegUnit = null
 var target : Donut = null
+@export var mesh : Node3D 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +12,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if(shotFrom != null && target != null):
+	if(shotFrom != null && target != null):	
+		var meshDir = target.global_position-mesh.global_position
+		mesh.look_at(mesh.global_position - meshDir, Vector3.UP)
+	
 		var dir = (target.global_position-shotFrom.global_position).normalized()
 		global_position+=dir*delta*speed
 		global_position.y = 1

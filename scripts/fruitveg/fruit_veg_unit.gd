@@ -30,10 +30,10 @@ func LookAt(x, y):
 	if(mesh != null):
 		var posDiffX = x-global_position.x
 		var posDiffY = y-global_position.z	
-		var dirX = sign(posDiffX)
-		var dirY = sign(posDiffY)
+		#var dirX = sign(posDiffX)
+		#var dirY = sign(posDiffY)
 		
-		mesh.look_at(global_position - Vector3(float(dirX), 0, float(dirY)).normalized(), Vector3.UP)
+		mesh.look_at(mesh.global_position - Vector3(posDiffX, 0, posDiffY), Vector3.UP)
 
 
 func RoundEnd():
