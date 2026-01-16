@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci8oyqwb6okne"]
+
+[ext_resource type="PackedScene" uid="uid://dhpyqccyph82k" path="res://art/environment/models/MopBucket.fbx" id="1_ok455"]
+[ext_resource type="Material" uid="uid://c7puwcihbeqwy" path="res://art/materials/mat_cyan.tres" id="2_3kgsm"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="3_au0xm"]
+[ext_resource type="Material" uid="uid://m5ve7uuad87i" path="res://art/materials/mat_blue.tres" id="4_mawa2"]
+
+[node name="MopBucket" instance=ExtResource("1_ok455")]
+
+[node name="Cylinder_001" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_3kgsm")
+
+[node name="Mob" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_au0xm")
+
+[node name="Mop Bucket" parent="." index="2"]
+surface_material_override/0 = ExtResource("4_mawa2")

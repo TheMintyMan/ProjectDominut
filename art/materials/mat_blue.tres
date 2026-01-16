@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://m5ve7uuad87i"]
+
+[ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="1_tvxuq"]
+[ext_resource type="Texture2D" uid="uid://cqemjdqicjwx2" path="res://art/materials/shader/color_gradient.tres" id="2_htak8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tvxuq")
+shader_parameter/world_space_texture = 0
+shader_parameter/albedo = Color(0.3137255, 0.45882353, 0.5882353, 1)
+shader_parameter/alpha = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.5
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/color_gradient = ExtResource("2_htak8")
+shader_parameter/light_noise_strength = 0.25
+shader_parameter/light_noise_scale = 4.0

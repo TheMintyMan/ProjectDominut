@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0uphkaht4juy"]
+
+[ext_resource type="PackedScene" uid="uid://duiolpecg3pjg" path="res://art/environment/models/WetFloorSign.fbx" id="1_1kkoj"]
+[ext_resource type="Material" uid="uid://xxfj1s2yatdv" path="res://art/materials/mat_WetFloorSign.tres" id="2_axrim"]
+
+[node name="WetFloorSign" instance=ExtResource("1_1kkoj")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_axrim")

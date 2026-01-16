@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy3kba5hdiy5e"
-path.s3tc="res://.godot/imported/wet floor sign 512.png-0b44f74749a21b2c047cb3b88e09f079.s3tc.ctex"
+uid="uid://b0he3ht0kq8m2"
+path.s3tc="res://.godot/imported/Supermarket_Wall_roughness.png-c07dfa2dbef226c329cdfd336620aaf3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/environment/Textures/wet floor sign 512.png"
-dest_files=["res://.godot/imported/wet floor sign 512.png-0b44f74749a21b2c047cb3b88e09f079.s3tc.ctex"]
+source_file="res://art/environment/Textures/Supermarket_Wall_roughness.png"
+dest_files=["res://.godot/imported/Supermarket_Wall_roughness.png-c07dfa2dbef226c329cdfd336620aaf3.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b8tmo8mtcynuy"]
+[gd_scene load_steps=29 format=3 uid="uid://b8tmo8mtcynuy"]
 
 [ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="4_70m73"]
 [ext_resource type="PackedScene" uid="uid://dscbqifv2y2mm" path="res://art/environment/models/shelf.glb" id="5_lyjw5"]
@@ -9,19 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://dywudnr120bvq" path="res://art/characters/donut/donut_carrot.tscn" id="12_lyjw5"]
 [ext_resource type="PackedScene" uid="uid://bdp7rylsqiabr" path="res://art/environment/veg_tray_end.tscn" id="12_v7mqq"]
 [ext_resource type="PackedScene" uid="uid://b5mmcfi2gkm36" path="res://art/characters/fruit_veg/models/VegeCrate.fbx" id="13_v7mqq"]
-[ext_resource type="PackedScene" uid="uid://4b5mu8luabhx" path="res://art/environment/models/Pillar_Model.fbx" id="15_7cqth"]
-[ext_resource type="PackedScene" uid="uid://b8gwni5eyeshf" path="res://art/environment/models/VegetableDisplayCase_Model.fbx" id="16_jj4qy"]
-[ext_resource type="Material" uid="uid://c6ho0pu14ccw3" path="res://art/materials/Floor_material.tres" id="16_qrghl"]
-[ext_resource type="PackedScene" uid="uid://cggnxthj67sao" path="res://art/environment/models/Wall_Model.fbx" id="17_jj4qy"]
+[ext_resource type="Material" uid="uid://c6ho0pu14ccw3" path="res://art/materials/mat_floor.tres" id="16_qrghl"]
 [ext_resource type="PackedScene" uid="uid://wxd7henebmgt" path="res://art/characters/fruit_veg/corn_turret_model.tscn" id="17_l3fny"]
 [ext_resource type="PackedScene" uid="uid://biot7ci7ievw" path="res://art/characters/fruit_veg/lettuce_stage_1_model.tscn" id="17_qrghl"]
 [ext_resource type="PackedScene" uid="uid://7bv4t2ma7u10" path="res://art/environment/wall_01.tscn" id="19_l3fny"]
 [ext_resource type="PackedScene" uid="uid://bkiy8ik3nop0i" path="res://art/characters/fruit_veg/carrot_cannon_model.tscn" id="19_ma26s"]
 [ext_resource type="PackedScene" uid="uid://2wfgwbp3myij" path="res://art/characters/fruit_veg/grape_model.tscn" id="19_wslcn"]
-[ext_resource type="PackedScene" uid="uid://duiolpecg3pjg" path="res://art/environment/models/WetFloorSign.fbx" id="20_wslcn"]
-[ext_resource type="PackedScene" uid="uid://dhpyqccyph82k" path="res://art/environment/models/MopBucket.fbx" id="21_haovf"]
 [ext_resource type="PackedScene" uid="uid://c4eviot51xxem" path="res://art/environment/floor_tile_01.tscn" id="22_1806x"]
 [ext_resource type="PackedScene" uid="uid://bp3xjkpvqgx2u" path="res://art/environment/models/ENTRY DOOR.fbx" id="22_haovf"]
+[ext_resource type="PackedScene" uid="uid://b6fw2lp70rxgk" path="res://art/characters/fruit_veg/carrot_bullet_model.tscn" id="22_y8508"]
+[ext_resource type="PackedScene" uid="uid://boyqw2rs2cu6" path="res://art/characters/fruit_veg/corn_kernel_model.tscn" id="23_u00vb"]
+[ext_resource type="PackedScene" uid="uid://0uphkaht4juy" path="res://art/environment/wet_floor_sign.tscn" id="23_y8508"]
+[ext_resource type="PackedScene" uid="uid://ci8oyqwb6okne" path="res://art/environment/mop_bucket.tscn" id="24_njevo"]
+[ext_resource type="PackedScene" uid="uid://dpvey3gwbhtuy" path="res://art/environment/pillar_model.tscn" id="24_u00vb"]
+[ext_resource type="PackedScene" uid="uid://uqyr3umqd3dq" path="res://art/environment/wall.tscn" id="24_y8508"]
+[ext_resource type="PackedScene" uid="uid://bouo18lbw58ug" path="res://art/characters/fruit_veg/grape_bullet.tscn" id="25_njevo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sdt66"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -78,27 +80,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
 [node name="VegeCrate" parent="." instance=ExtResource("13_v7mqq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 1)
 
-[node name="Pillar_Model" parent="." instance=ExtResource("15_7cqth")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9590545, 0, -2.6810796)
-
-[node name="Pillar_Model2" parent="." instance=ExtResource("15_7cqth")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0098186, 0, -2.6810796)
-
-[node name="VegetableDisplayCase_Model" parent="." instance=ExtResource("16_jj4qy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9210616, 0, -1.4888129)
-
-[node name="Wall_Model" parent="." instance=ExtResource("17_jj4qy")]
-transform = Transform3D(7.860453, 0, 0, 0, 1, 0, 0, 0, 1, 0.1339562, -0.16921496, -2.5040655)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.1761103, 0, 0, 0, 1.9838784, 0, 0, 0, 3.4012253, 9.571491, 0.012320042, -0.8647008)
+transform = Transform3D(4.1761103, 0, 0, 0, 1.9838784, 0, 0, 0, 3.4012253, -1.2639532, 0.012320042, -0.8647008)
 material_override = ExtResource("16_qrghl")
 mesh = SubResource("PlaneMesh_l3fny")
 skeleton = NodePath("../OmniLight3D")
 surface_material_override/0 = ExtResource("16_qrghl")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5034986, 1.3633468, 3.3317153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.030496, 1.3633468, 3.3317153)
 light_color = Color(1, 0.17833334, 0.14999998, 1)
 light_energy = 0.741
 light_indirect_energy = 0.0
@@ -118,7 +108,7 @@ light_specular = 0.0
 omni_range = 2.429
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0490074, 1.5684962, -0.14657497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02363646, 1.5684962, -2.3046143)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11507, 2.3678675, 0.21893549)
@@ -140,12 +130,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.90014404, -0.23051284, 0.36960065, 0, 0.84850097, 0.5291938, -0.43559247, -0.47635064, 0.763773, 1.5945973, 2.7462025, 3.825343)
-
-[node name="WetFloorSign" parent="." instance=ExtResource("20_wslcn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1987828, 0, -0.06531739)
-
-[node name="MopBucket" parent="." instance=ExtResource("21_haovf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77349746, 1.1920929e-07, -0.08346225)
 
 [node name="ENTRY DOOR" parent="." instance=ExtResource("22_haovf")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.336779, 0, -0.13281298)
@@ -475,3 +459,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
 
 [node name="floor_tile_108" parent="." instance=ExtResource("22_1806x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3)
+
+[node name="GrapeBullet" parent="." instance=ExtResource("25_njevo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2537503, 0, 0.8913412)
+
+[node name="CarrotBullet_Model" parent="." instance=ExtResource("22_y8508")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.036358, 0, 1.1181781)
+
+[node name="CornKernel_Model" parent="." instance=ExtResource("23_u00vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7666004, 0, 0.825078)
+
+[node name="Wall" parent="." instance=ExtResource("24_y8508")]
+transform = Transform3D(3.4578266, 0, 0, 0, 1, 0, 0, 0, 1, 2.0025573, 0, -3)
+
+[node name="Pillar_Model" parent="." instance=ExtResource("24_u00vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6379457, 0, -3.0273547)
+
+[node name="WetFloorSign2" parent="." instance=ExtResource("23_y8508")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2446995, 0, -0.04709506)
+
+[node name="MopBucket2" parent="." instance=ExtResource("24_njevo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7033479, 0, -0.029646158)

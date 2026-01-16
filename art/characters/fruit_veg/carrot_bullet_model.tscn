@@ -1,5 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6fw2lp70rxgk"]
+[gd_scene load_steps=4 format=3 uid="uid://b6fw2lp70rxgk"]
 
 [ext_resource type="PackedScene" uid="uid://bldua1yjp25kb" path="res://art/characters/fruit_veg/models/CarrotBullet_Model.fbx" id="1_q2uus"]
+[ext_resource type="Material" uid="uid://butp0jrtgrvdd" path="res://art/materials/mat_orange_carrot.tres" id="2_ogrq6"]
+[ext_resource type="Material" uid="uid://b760hpqlvfvqk" path="res://art/materials/mat_lettuce.tres" id="3_ogrq6"]
 
 [node name="CarrotBullet_Model" instance=ExtResource("1_q2uus")]
+
+[node name="CarrotBody1" parent="CarrotBullet" index="0"]
+material_override = ExtResource("2_ogrq6")
+
+[node name="CarrotLeaf1" parent="CarrotBullet" index="1"]
+material_override = ExtResource("3_ogrq6")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://oaq2a7ino6i3"]
+
+[ext_resource type="PackedScene" uid="uid://b8gwni5eyeshf" path="res://art/environment/models/VegetableDisplayCase_Model.fbx" id="1_po2dr"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="2_ihxxb"]
+
+[node name="VegetableDisplayCase_Model" instance=ExtResource("1_po2dr")]
+
+[node name="VegetableDisplayCase" parent="." index="0"]
+material_override = ExtResource("2_ihxxb")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wxd7henebmgt"]
+[gd_scene load_steps=7 format=3 uid="uid://wxd7henebmgt"]
 
 [ext_resource type="PackedScene" uid="uid://c2hb5de6vshev" path="res://art/characters/fruit_veg/models/CornTurret_Model.fbx" id="1_74eia"]
 [ext_resource type="Material" uid="uid://y56vld5tuev8" path="res://art/materials/mat_green.tres" id="2_xtyrl"]
 [ext_resource type="Material" uid="uid://dvjtmhk561aeh" path="res://art/materials/mat_black_matte.tres" id="3_sa883"]
 [ext_resource type="Material" uid="uid://c05xlf70xkp7b" path="res://art/materials/mat_yellow.tres" id="4_jin71"]
 [ext_resource type="Material" uid="uid://26ph3xq6mc3v" path="res://art/materials/mat_grey.tres" id="5_bt5bt"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="6_sa883"]
 
 [node name="CornTurret_Model" instance=ExtResource("1_74eia")]
 
@@ -13,4 +14,4 @@ surface_material_override/0 = ExtResource("2_xtyrl")
 surface_material_override/1 = ExtResource("3_sa883")
 surface_material_override/2 = ExtResource("4_jin71")
 surface_material_override/3 = ExtResource("5_bt5bt")
-surface_material_override/4 = ExtResource("3_sa883")
+surface_material_override/4 = ExtResource("6_sa883")

@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bouo18lbw58ug"]
+[gd_scene load_steps=3 format=3 uid="uid://bouo18lbw58ug"]
 
 [ext_resource type="PackedScene" uid="uid://b3dilcqvw4tgn" path="res://art/characters/fruit_veg/models/GrapeBullet.fbx" id="1_kox5d"]
+[ext_resource type="Material" uid="uid://c5bjh2clbxqpn" path="res://art/materials/mat_purple_grape.tres" id="2_gkfhe"]
 
 [node name="GrapeBullet" instance=ExtResource("1_kox5d")]
+
+[node name="GrapeBullet" parent="." index="0"]
+material_override = ExtResource("2_gkfhe")

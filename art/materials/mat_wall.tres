@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://sdpg2rr61e08"]
+
+[ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="1_iet0y"]
+[ext_resource type="Texture2D" uid="uid://bykstaqul7gau" path="res://art/environment/Textures/Supermarket_Wall_basecolor.png" id="2_ifm2s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_iet0y")
+shader_parameter/world_space_texture = 0
+shader_parameter/albedo = Color(0.28118706, 0.2811868, 0.28118694, 1)
+shader_parameter/texture_albedo = ExtResource("2_ifm2s")
+shader_parameter/alpha = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 1.0
+shader_parameter/specular = 0.50000002375
+shader_parameter/uv1_scale = Vector3(3.5, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/light_noise_strength = 0.25
+shader_parameter/light_noise_scale = 4.0

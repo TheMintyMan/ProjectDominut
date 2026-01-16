@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://uqyr3umqd3dq"]
+
+[ext_resource type="PackedScene" uid="uid://dfuj57ttdkh6c" path="res://art/environment/models/Wall.fbx" id="1_mp85c"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="2_mp85c"]
+[ext_resource type="Material" uid="uid://sdpg2rr61e08" path="res://art/materials/mat_wall.tres" id="3_ad4js"]
+
+[node name="Wall" instance=ExtResource("1_mp85c")]
+
+[node name="Wall" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_mp85c")
+surface_material_override/1 = ExtResource("3_ad4js")
