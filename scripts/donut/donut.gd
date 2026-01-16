@@ -40,13 +40,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(active):
 		visible = true
-		var posDiffX = targetGridPosition[0]-position.x
-		var posDiffY = targetGridPosition[1]-position.z	
+		var posDiffX = targetGridPosition[0]-global_position.x
+		var posDiffY = targetGridPosition[1]-global_position.z	
 		var dirX = sign(posDiffX)
 		var dirY = sign(posDiffY)
 		
-		#donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
-		
+		donutMesh.look_at(donutMesh.global_position - Vector3(dirX, 0, dirY), Vector3.UP)
 
 func AssignData(donutData: DonutType):
 	max_health = donutData.health

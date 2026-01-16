@@ -24,6 +24,7 @@ func AttemptAttack():
 		manager.map.add_child(placedObject)
 		#print("Shoot")
 		placedObject.Shoot(self, randPoint)
+		LookAt(randPoint[0], randPoint[1])
 		spawnedObjects.append(placedObject)
 
 func RoundEnd():

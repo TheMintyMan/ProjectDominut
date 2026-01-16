@@ -67,8 +67,13 @@ func UpdateDisplayDonut():
 		displayDonut.SetData(GetDonutData())
 		displayDonut.set_health_damage(1)
 
+var displayHealth = 1
 func DisplayDonutProcess(delta):
 	displayDonut.rotate(Vector3.UP, delta)
+	displayHealth-=delta/4
+	if(displayHealth < 0):
+		displayHealth = 1
+	displayDonut.set_health_damage(displayHealth)
 
 func GetDonutData():
 	var donutData = DonutType.new()
