@@ -108,7 +108,7 @@ light_specular = 0.0
 omni_range = 2.429
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02363646, 1.5684962, -2.3046143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02363646, 1.2837539, -2.3046143)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11507, 2.3678675, 0.21893549)

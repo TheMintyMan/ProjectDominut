@@ -8,13 +8,13 @@
 
 [node name="Lettuce_Stage1_Model" instance=ExtResource("1_xmtg8")]
 
-[node name="LettuceLeaves" parent="Lettuce2" index="0"]
-material_override = ExtResource("2_lvn33")
-
-[node name="Eye1" parent="Lettuce2" index="1"]
+[node name="Eye1" parent="Lettuce2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.08744, 92.85535, 0)
 surface_material_override/0 = ExtResource("3_kquy1")
 surface_material_override/1 = ExtResource("4_liiqd")
 
-[node name="Eyebrows" parent="Lettuce2" index="2"]
+[node name="Eyebrows" parent="Lettuce2" index="1"]
 material_override = ExtResource("5_p8f25")
+
+[node name="LettuceLeaves" parent="Lettuce2" index="2"]
+material_override = ExtResource("2_lvn33")

@@ -7,7 +7,7 @@
 render_priority = 0
 shader = ExtResource("1_p012e")
 shader_parameter/world_space_texture = 0
-shader_parameter/albedo = Color(0.1882353, 0.4627451, 0.5176471, 1)
+shader_parameter/albedo = Color(0.23513627, 0.4812283, 0.24407768, 1)
 shader_parameter/alpha = 1.0
 shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
 shader_parameter/metallic = 0.0
