@@ -86,46 +86,38 @@ func GetTarget():
 	
 	if(currentIntersection != null):
 		# At intersection
-		if(int(position.x) == currentIntersection[1][0] && int(position.z) == currentIntersection[1][1]):
-			var goIntersection = randi_range(0, 1)
-			var count = GetNonIgnoredPathsCount(currentPath.intersectingPaths) <= 1
-			var atEnd = currentPath.IsAtEnd(targetGridPosition[0], targetGridPosition[1])
-			#var goesToEnd = currentIntersection[0].endConnectionPos != null
-			if(count || atEnd || goIntersection == 0):		
-				CascadeIgnore(currentIntersection[0])	
-				currentPath = currentIntersection[0]
-				
-				#currentPath.visible = false
-				currentIntersection = null
-				intersectionDirection = null
-				intersectionIgnored = []
-				startGridPosition = [int(position.x), int(position.z)]
-				GetTarget()	
-			else:
-				#AddAlreadyTravelled(currentIntersection[0])
-				intersectionIgnored.append(currentIntersection[0])
-				currentIntersection = null
-				GetTarget()
-		# Move towards intersection
+		var goIntersection = randi_range(0, 1)
+		var count = GetNonIgnoredPathsCount(currentPath.intersectingPaths) <= 1
+		var atEnd = currentPath.IsAtEnd(targetGridPosition[0], targetGridPosition[1])
+		#var goesToEnd = currentIntersection[0].endConnectionPos != null
+		if(count || atEnd || goIntersection == 0):		
+			CascadeIgnore(currentIntersection[0])	
+			currentPath = currentIntersection[0]
+			
+			intersectionIgnored = []
+			startGridPosition = [targetGridPosition[0], targetGridPosition[1]]
 		else:
-			targetGridPosition[0] = currentIntersection[1][0] 
-			targetGridPosition[1] = currentIntersection[1][1]
-	else:	
-		var closestIntersection = currentPath.ClosestIntersection(position.x,position.z, alreadyTravelledPaths+intersectionIgnored)								
-		if(currentPath.endConnectionPos == null && closestIntersection != null):
-			if(intersectionDirection == null):
-				intersectionDirection = randi_range(0, 1)
-			currentIntersection = closestIntersection[intersectionDirection]
-			GetTarget()				
-		# No intersections
-		else:
-			var end = currentPath.GetOppositeEnd(startGridPosition[0],startGridPosition[1])
-			if(currentPath.endConnectionPos != null):
-				end = currentPath.endConnectionPos
-				
-			targetGridPosition[0] = end[0] 
-			targetGridPosition[1] = end[1] 
-			deadEnd = true
+			intersectionIgnored.append(currentIntersection[0])
+		
+		intersectionDirection = null
+		currentIntersection = null
+
+	var closestIntersection = currentPath.ClosestIntersection(position.x,position.z, alreadyTravelledPaths+intersectionIgnored)								
+	if(currentPath.endConnectionPos == null && closestIntersection != null):
+		if(intersectionDirection == null):
+			intersectionDirection = randi_range(0, 1)
+		currentIntersection = closestIntersection[intersectionDirection]
+		targetGridPosition[0] = currentIntersection[1][0] 
+		targetGridPosition[1] = currentIntersection[1][1]		
+	# No intersections
+	else:
+		var end = currentPath.GetOppositeEnd(startGridPosition[0],startGridPosition[1])
+		if(currentPath.endConnectionPos != null):
+			end = currentPath.endConnectionPos
+			
+		targetGridPosition[0] = end[0] 
+		targetGridPosition[1] = end[1] 
+		deadEnd = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -135,8 +127,11 @@ func _physics_process(delta: float) -> void:
 func Move(delta : float):
 	if(currentPath != null):	
 		var travelDist = delta*speed
+	
+		
 		# If travel distance is more than one cell, split movement into multiple parts
 		if(travelDist > 1):
+			print("Fast")
 			var n = int(travelDist)
 			var rem = travelDist-n
 			for i in range(n):
@@ -144,16 +139,20 @@ func Move(delta : float):
 				Move(1.0/speed)
 			Move(rem/speed)
 			return
-		
-		var posDiffX = targetGridPosition[0]-position.x
-		var posDiffY = targetGridPosition[1]-position.z	
-		var dirX = sign(posDiffX)
-		var dirY = sign(posDiffY)
-		
+
 		# Will be at the next cell
 		var distToTarget = position.distance_squared_to(Vector3(targetGridPosition[0],position.y, targetGridPosition[1]))
-		if(distToTarget <= travelDist):
-			
+		#if(travelDist*travelDist > distToTarget):
+		#	var sqrt = sqrt(distToTarget)
+		#	var rem = travelDist - sqrt
+		#	Move(sqrt/speed)
+		#	Move(rem/speed)
+		#	return
+
+		if(distToTarget <= travelDist*travelDist):
+			position.x = targetGridPosition[0]
+			position.z = targetGridPosition[1]
+			print("distToTargetFinsih")	
 			if(currentPath.endConnectionPos != null):
 				OnMoveGridCell()
 				OnFinish()	
@@ -163,16 +162,14 @@ func Move(delta : float):
 				OnDie()
 			else:
 				GetTarget()
+				
 					
-		if(dirX < 0):
-			position.x = max(position.x+dirX*travelDist, targetGridPosition[0])
-		else:
-			position.x = min(position.x+dirX*travelDist, targetGridPosition[0])
-		if(dirY < 0):
-			position.z = max(position.z+dirY*travelDist, targetGridPosition[1])
-		else:
-			position.z = min(position.z+dirY*travelDist, targetGridPosition[1])	
-		
+		var posDiffX = targetGridPosition[0]-position.x
+		var posDiffY = targetGridPosition[1]-position.z	
+		var dirX = sign(posDiffX)
+		var dirY = sign(posDiffY)
+		position.x+=dirX*travelDist
+		position.z+=dirY*travelDist
 		
 		var roundPos : Array[int] = [int(position.x), int(position.z)]
 		if(lastGridPosition != roundPos):

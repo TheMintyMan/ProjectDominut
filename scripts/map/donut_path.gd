@@ -9,6 +9,9 @@ var intersectingPaths : Array[DonutPath] = []
 			
 var endConnectionPos = null
 
+@export var validColour : Color
+@export var invalidColour : Color
+
 		
 func SetStart(startX, startY):
 	startPosX = startX
@@ -42,6 +45,44 @@ func GetOppositeEnd(x, y):
 func IsAtEnd(x, y):
 	return (startPosX == int(x) && startPosY == int(y)) || (endPosX == int(x) && endPosY == int(y))
 
+func CalculateValidity(validPointsStart=[], validPointsEnd=[], ignore = [], colour = false):
+	ignore.append(self)
+	
+	if(AreAnyPointsOnPath(validPointsStart) || AreAnyPointsOnPath(validPointsEnd)):
+		return true
+	
+	var numOfIntersecting = len(intersectingPaths)
+	if(numOfIntersecting <= 1):
+		#material_override.albedo_color = Color(255, 255, 0)
+		return false
+	else:	
+		var hitsEnd = validPointsEnd == []
+		var hitsStart = validPointsStart == []
+		for path in intersectingPaths:	
+			if path not in ignore:
+				if(!hitsStart && path.CalculateValidity(validPointsStart, [], ignore.duplicate(), colour)): 
+					hitsStart = true
+				elif(!hitsEnd && path.CalculateValidity([], validPointsEnd, ignore.duplicate(), colour)):
+					hitsEnd = true
+		if(false && colour):
+			if(hitsStart && hitsEnd):
+				material_override.albedo_color = Color(255, 0, 0)
+			elif(hitsStart):
+				material_override.albedo_color = Color(0, 255, 0)
+			elif(hitsEnd):
+				material_override.albedo_color = Color(0, 0, 255)
+			else:
+				material_override.albedo_color = Color(255, 255, 255)	
+		return hitsStart && hitsEnd
+				
+	return true
+	
+func SetValid(state):
+	if(state):
+		material_override.albedo_color = validColour
+	else:
+		material_override.albedo_color = invalidColour	
+
 
 func UpdateMesh():
 	var diffX = endPosX-startPosX
@@ -67,8 +108,11 @@ func ClosestPointOnPath(x, y):
 	
 	return shortestPoint
 		
-
-
+func IsPointAtStartPos(x, y):
+	return startPosX == x && startPosY == y;
+func IsPointAtEndPos(x, y):
+	return endPosX == x && endPosY == y;
+	
 func IsPointOnPath(x, y, offset=0):
 	var startX = startPosX
 	var startY = startPosY
@@ -156,6 +200,7 @@ func Extend(otherPath):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	material_override = material_override.duplicate()
 	UpdateMesh()
 	pass # Replace with function body.
 

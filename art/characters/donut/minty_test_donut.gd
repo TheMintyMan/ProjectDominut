@@ -17,12 +17,6 @@ var health_percent: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_mesh(sprinkle_mesh_01, true)
-	set_mesh(icing_mesh_01, true)
-	set_mesh(base_donut_mesh, false)
-	set_mesh(eye_r_donut_mesh, false)
-	set_mesh(eye_l_donut_mesh, false)
-
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,6 +47,13 @@ func set_health_damage(damage_percent: float):
 	if has_icing: set_mesh(icing_mesh_01, false)
 	
 func SetData(donutData : DonutType):
+	set_mesh(icing_mesh_01, donutData.health_level <= 0)
+	set_mesh(sprinkle_mesh_01, donutData.speed_level <= 0)
+	#set_mesh(base_donut_mesh, false)
+	#set_mesh(eye_r_donut_mesh, false)
+	#set_mesh(eye_l_donut_mesh, false)
+
+			
 	for icing in icing_mesh_01:
 		var mat = icing.material_override.duplicate()
 		mat.set_shader_parameter("albedo", icing_colours[donutData.health_level]) 

@@ -44,6 +44,7 @@ func StartRound():
 func RoundStarted():
 	hasRoundStarted = true	
 	spawnedDonuts.clear()
+	CalculatePathsValidity()
 	
 	for path in paths:
 		path.visible = false
@@ -76,9 +77,12 @@ func DoesPathInterceptStart(path):
 		return true
 	return false
 
-func DeletePath(path):
+func DeletePath(path : DonutPath):
 	if(startPath == path):
 		startPath = null
+		
+	for p in path.intersectingPaths:
+		p.intersectingPaths.erase(path)
 	paths.erase(path)
 	path.queue_free()
 
@@ -95,7 +99,6 @@ func GetPathAt(x, y, offset=0):
 	return null
 	
 func CalculatePathIntersections():
-	print("try")
 	# Clear intersections
 	for path in paths:
 		path.intersectingPaths.clear()
@@ -104,7 +107,14 @@ func CalculatePathIntersections():
 		for p2 in paths:
 			if(p1 != p2 && p1.InsersectsPath(p2)):
 				p1.intersectingPaths.append(p2)
-				print("intersect")
+				
+func CalculatePathsValidity():
+	for path in paths:
+		var valid = path.CalculateValidity([map.GetStartPointXY()], [map.GetEndPointXY()])
+		path.SetValid(valid)
+		
+	if(len(paths) >= 2):
+		paths[1].CalculateValidity([map.GetStartPointXY()], [map.GetEndPointXY()], [], true)
 
 func DonutMove(donut : Donut):
 	money+=(sqrt(donut.cost))	
@@ -126,7 +136,7 @@ func _process(delta: float) -> void:
 				spawnedDonuts.append(donut)
 				donut.Start(startPath, map.CalculateXYFromGridPos(map.startPoint))
 				donut.player = self
-				return		
+			return		
 		elif(RemainingDonuts() <= 0):
 			NextRound()
 
@@ -164,8 +174,16 @@ func _process(delta: float) -> void:
 		# Let go
 		elif(clickHeld):
 			currentPath.visible = true
+			var mapStart = map.GetStartPointXY()
+			var mapEnd = map.GetEndPointXY()
+			var isStartOnPathButNotEnd = currentPath.IsPointOnPath(mapStart[0], mapStart[1]) && !(currentPath.IsPointAtStartPos(mapStart[0],mapStart[1]) || currentPath.IsPointAtEndPos(mapStart[0],mapStart[1]))
+			var isEndOnPathButNotEnd = currentPath.IsPointOnPath(mapEnd[0], mapEnd[1]) && !(currentPath.IsPointAtStartPos(mapEnd[0],mapEnd[1]) || currentPath.IsPointAtEndPos(mapEnd[0],mapEnd[1]))
 			# If path length is invalid or intersects any map objects, it's invalid
-			if(currentPath.GetLength() <1 || currentPath.AreAnyPointsOnPath(map.GetOccupiedPoints())):
+			if(currentPath.GetLength() < 1 
+			|| currentPath.startPosX < 0 || currentPath.startPosY < 0 || currentPath.endPosX >= map.mapSizeX || currentPath.endPosY >= map.mapSizeX 
+			|| isStartOnPathButNotEnd 
+			|| isEndOnPathButNotEnd 
+			|| currentPath.AreAnyPointsOnPath(map.GetOccupiedPoints())):
 				DeletePath(currentPath)
 			# If it's connected to the start
 			elif(DoesPathInterceptStart(currentPath)):
@@ -191,10 +209,12 @@ func _process(delta: float) -> void:
 				currentPath.endConnectionPos = endConnection
 				
 			CalculatePathIntersections()
+			CalculatePathsValidity()
 			clickHeld = false
 			currentPath = null
 			
 		elif(Input.is_action_pressed("RightClick")):	
-			DeletePathPoint(point.x, point.z)		
+			DeletePathPoint(point.x, point.z)	
+			CalculatePathsValidity()	
 	else:
 		selectionCube.visible = false

@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		var dirX = sign(posDiffX)
 		var dirY = sign(posDiffY)
 		
-		donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
+		#donutMesh.look_at(global_position - Vector3(dirX, 0, dirY).normalized(), Vector3.UP)
 		
 
 func AssignData(donutData: DonutType):

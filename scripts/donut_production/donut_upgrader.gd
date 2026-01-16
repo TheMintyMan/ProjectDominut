@@ -25,6 +25,8 @@ func _ready() -> void:
 		max_health_level = max(max_health_level, key)
 	for key in speed_values.keys():
 		max_speed_level = max(max_health_level, key)
+		
+	UpdateDisplayDonut()
 
 func _process(delta: float) -> void:
 	DisplayDonutProcess(delta)
@@ -61,14 +63,7 @@ func get_total_cost() -> int:
 
 func UpdateDisplayDonut():
 	if(displayDonut != null):
-		if health_level <= 0:
-			displayDonut.set_mesh(displayDonut.icing_mesh_01, true)
-		else:
-			displayDonut.set_mesh(displayDonut.icing_mesh_01, false)
-		if speed_level <= 0:
-			displayDonut.set_mesh(displayDonut.sprinkle_mesh_01, true)
-		else:
-			displayDonut.set_mesh(displayDonut.sprinkle_mesh_01, false)
+
 		displayDonut.SetData(GetDonutData())
 		displayDonut.set_health_damage(1)
 
