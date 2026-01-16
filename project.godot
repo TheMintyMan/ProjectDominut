@@ -13,7 +13,9 @@ config_version=5
 config/name="ProjectDominut"
 run/main_scene="uid://2inb7ux2pijv"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dwayn2j7stlah"
+config/macos_native_icon="uid://dwayn2j7stlah"
+config/windows_native_icon="uid://dwayn2j7stlah"
 
 [autoload]
 
