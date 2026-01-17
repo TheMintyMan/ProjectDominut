@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b8tmo8mtcynuy"]
+[gd_scene load_steps=35 format=3 uid="uid://b8tmo8mtcynuy"]
 
 [ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="4_70m73"]
 [ext_resource type="PackedScene" uid="uid://dscbqifv2y2mm" path="res://art/environment/models/shelf.glb" id="5_lyjw5"]
@@ -24,6 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://dpvey3gwbhtuy" path="res://art/environment/pillar_model.tscn" id="24_u00vb"]
 [ext_resource type="PackedScene" uid="uid://uqyr3umqd3dq" path="res://art/environment/wall.tscn" id="24_y8508"]
 [ext_resource type="PackedScene" uid="uid://bouo18lbw58ug" path="res://art/characters/fruit_veg/grape_bullet.tscn" id="25_njevo"]
+[ext_resource type="PackedScene" uid="uid://c030nigjo64gf" path="res://art/environment/coolies_sign.tscn" id="25_ruj1x"]
+[ext_resource type="PackedScene" uid="uid://cirfpya1chmsr" path="res://art/environment/bakery_sign.tscn" id="26_rdkob"]
+[ext_resource type="PackedScene" uid="uid://dq8to43vooixn" path="res://art/environment/tall_shelf.tscn" id="27_wiuok"]
+[ext_resource type="PackedScene" uid="uid://q3f5knlygm0a" path="res://art/environment/short_shelf.tscn" id="28_62nb7"]
+[ext_resource type="PackedScene" uid="uid://b6nq0df242bgu" path="res://art/environment/short_shelf_left_end.tscn" id="29_e0hnt"]
+[ext_resource type="PackedScene" uid="uid://dfdj335a5aox8" path="res://art/environment/short_shelf_right_end.tscn" id="30_ysxo4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sdt66"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -108,10 +114,10 @@ light_specular = 0.0
 omni_range = 2.429
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02363646, 1.2837539, -2.3046143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6462946, 1.2837539, -1.0968444)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.11507, 2.3678675, 0.21893549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5467272, 2.3678675, -0.15298986)
 
 [node name="Lettuce_Stage1_Model" parent="." instance=ExtResource("17_qrghl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
@@ -480,3 +486,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2446995, 0, -0.04709506)
 
 [node name="MopBucket2" parent="." instance=ExtResource("24_njevo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7033479, 0, -0.029646158)
+
+[node name="CooliesSign" parent="." instance=ExtResource("25_ruj1x")]
+transform = Transform3D(1.75074, 0, 0, 0, 1.75074, 0, 0, 0, 1.75074, -1.958475, 0.93815136, -2.943985)
+
+[node name="BakerySign" parent="." instance=ExtResource("26_rdkob")]
+transform = Transform3D(1.5801947, 0, 0, 0, 1.5801947, 0, 0, 0, 1.5801947, 2.1537504, 1.1121032, -2.6934304)
+
+[node name="TallShelf" parent="." instance=ExtResource("27_wiuok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0334396, 0, -3.1424985)
+
+[node name="ShortShelf" parent="." instance=ExtResource("28_62nb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+
+[node name="ShortShelf_LeftEnd" parent="." instance=ExtResource("29_e0hnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9508114, 0, -1)
+
+[node name="ShortShelf_RightEnd" parent="." instance=ExtResource("30_ysxo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0532465, 0, -1)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://q3f5knlygm0a"]
+
+[ext_resource type="PackedScene" uid="uid://cuaj1m8d3ppjv" path="res://art/environment/models/ShortShelf.fbx" id="1_1two2"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="2_132t7"]
+
+[node name="ShortShelf" instance=ExtResource("1_1two2")]
+
+[node name="ShortShelf" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_132t7")

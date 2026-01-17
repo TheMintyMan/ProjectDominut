@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://c030nigjo64gf"]
+
+[ext_resource type="PackedScene" uid="uid://cob1rq8rhyqld" path="res://art/environment/models/CooliesSign.fbx" id="1_xrf7t"]
+[ext_resource type="Material" uid="uid://c5bjh2clbxqpn" path="res://art/materials/mat_purple_grape.tres" id="2_ipsga"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="3_eo6co"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="4_fqc4x"]
+
+[node name="CooliesSign" instance=ExtResource("1_xrf7t")]
+
+[node name="CooliesSign" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_ipsga")
+surface_material_override/1 = ExtResource("3_eo6co")
+surface_material_override/2 = ExtResource("4_fqc4x")

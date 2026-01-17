@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://cirfpya1chmsr"]
+
+[ext_resource type="PackedScene" uid="uid://bhn6skogfgqr5" path="res://art/environment/models/BakerySign.fbx" id="1_4ldna"]
+[ext_resource type="Material" uid="uid://butp0jrtgrvdd" path="res://art/materials/mat_orange_carrot.tres" id="2_vkk2n"]
+[ext_resource type="Material" uid="uid://bmy8iwqufajxv" path="res://art/materials/mat_white.tres" id="3_jijdr"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="4_todo3"]
+
+[node name="BakerySign" instance=ExtResource("1_4ldna")]
+
+[node name="BakerySign" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_vkk2n")
+surface_material_override/1 = ExtResource("3_jijdr")
+surface_material_override/2 = ExtResource("4_todo3")

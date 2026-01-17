@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq8to43vooixn"]
+
+[ext_resource type="PackedScene" uid="uid://dq80ctxpod4d0" path="res://art/environment/models/TallShelf.fbx" id="1_3opca"]
+[ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="2_707xw"]
+
+[node name="TallShelf" instance=ExtResource("1_3opca")]
+
+[node name="TallShelf" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_707xw")
