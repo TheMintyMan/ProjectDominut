@@ -61,11 +61,14 @@ func on_resource_changed():
 	if(floorMesh != null):
 		floorMesh.scale.x = mapSizeX
 		floorMesh.scale.z = mapSizeY
-		var material: Material = floorMesh.get_active_material(0)
-		if material:
-			material.uv1_scale = Vector3(mapSizeX*3, mapSizeY*2, 0)
-		else:
-			print("No active material found.")
+		
+		# Needed to comment out the updating of the UV's as the shader does'nt have this uv1_scale parameter
+		
+		#var material: Material = floorMesh.get_active_material(0)
+		#if material:
+			#material.uv1_scale = Vector3(mapSizeX*3, mapSizeY*2, 0)
+		#else:
+			#print("No active material found.")
 	if(floor != null):
 		floor.position.x = mapSizeX/2.0
 		floor.position.z = mapSizeY/2.0

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cp588vg0v404h" path="res://scripts/map/donut_path.gd" id="1_bu66o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekbkb"]
+render_priority = 3
 transparency = 1
 albedo_color = Color(1, 0, 1, 0.49411765)
 

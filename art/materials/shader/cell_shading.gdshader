@@ -4,6 +4,8 @@ shader_type spatial;
 render_mode blend_mix, depth_prepass_alpha, cull_disabled, diffuse_toon, specular_toon, alpha_to_coverage_and_one;
 
 uniform int world_space_texture : hint_range(0,1) = 0;
+uniform vec3 uv1_scale = vec3(1.0);
+uniform vec3 uv1_offset = vec3(0.0);
 
 uniform vec4 albedo : source_color = vec4(1.0, 0.5, 0.7, 1.0);
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
@@ -15,9 +17,6 @@ uniform float metallic : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
 uniform float roughness : hint_range(0.0, 1.0) = 0.5;
 uniform float specular : hint_range(0.0, 1.0) = 0.0;
-
-uniform vec3 uv1_scale = vec3(1.0);
-uniform vec3 uv1_offset = vec3(0.0);
 
 uniform sampler2D color_gradient; // toon ramp
 uniform sampler2D noise_tex : repeat_enable; // noise texture
@@ -37,17 +36,17 @@ void vertex() {
 void fragment() {
 	vec2 tex_uv = (world_space_texture == 1) ? (v_world_pos.xz * uv1_scale.xy + uv1_offset.xy) : UV;
 	vec4 tex_col = texture(texture_albedo, tex_uv);
-	
+
     // Combine texture and base color
     ALBEDO = albedo.rgb * tex_col.rgb;
-    
+
     // Alpha
     ALPHA = alpha * albedo.a * tex_col.a;
-    
+
     // Metallic & roughness
     float metallic_tex = dot(texture(texture_metallic, UV), metallic_texture_channel);
     METALLIC = metallic_tex * metallic;
-    
+
     float roughness_tex = dot(texture(texture_roughness, UV), vec4(1.0,0.0,0.0,0.0));
     ROUGHNESS = roughness_tex * roughness;
 

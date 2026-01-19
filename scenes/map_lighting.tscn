@@ -9,9 +9,10 @@ sky_material = SubResource("ProceduralSkyMaterial_yoty7")
 
 [sub_resource type="Environment" id="Environment_6e1cf"]
 background_mode = 1
-background_color = Color(0.16097495, 0.16395837, 0.17926511, 1)
+background_color = Color(0.22106406, 0.22601184, 0.24579412, 1)
 sky = SubResource("Sky_4r7l0")
 ambient_light_source = 3
+ambient_light_color = Color(0.06053035, 0.06053035, 0.060530342, 1)
 ambient_light_sky_contribution = 0.5
 tonemap_mode = 2
 

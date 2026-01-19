@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://c45t6xkiltfyb"]
+[gd_scene load_steps=13 format=3 uid="uid://c45t6xkiltfyb"]
 
 [ext_resource type="Script" uid="uid://biruiy4mxmbv3" path="res://scripts/map/map_editor_tool.gd" id="1_2m761"]
 [ext_resource type="Script" uid="uid://kj5o8gbtf3vs" path="res://scripts/map/map.gd" id="2_8fkir"]
 [ext_resource type="Script" uid="uid://big3l5dbg0aak" path="res://scripts/fruitveg/fruit_veg_manager.gd" id="2_nmjbi"]
-[ext_resource type="Texture2D" uid="uid://ly62jo6mjrgh" path="res://art/Tile.png" id="3_nmjbi"]
 [ext_resource type="PackedScene" uid="uid://dixtdhkgp6k4d" path="res://scripts/fruitveg/fruit_veg_unit.tscn" id="3_yd4n3"]
+[ext_resource type="Material" uid="uid://c6ho0pu14ccw3" path="res://art/materials/mat_floor.tres" id="5_2m761"]
 [ext_resource type="PackedScene" uid="uid://dmvdiab568plo" path="res://scripts/player.tscn" id="6_2m761"]
 [ext_resource type="PackedScene" uid="uid://25eob0chmhac" path="res://scenes/map_lighting.tscn" id="9_nmjbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jvd7"]
+render_priority = 3
 transparency = 1
+blend_mode = 4
 albedo_color = Color(1, 0, 1, 0.49411765)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0cxyw"]
@@ -22,10 +24,6 @@ emission = Color(1, 0.58431375, 0.05490196, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0cxyw"]
 size = Vector3(30, 1, 30)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wgqo"]
-albedo_texture = ExtResource("3_nmjbi")
-uv1_scale = Vector3(90, 60, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2wgqo"]
 
@@ -44,9 +42,10 @@ endPoint = 885
 startPointIndicator = NodePath("../Map/StartPoint")
 endPointIndicator = NodePath("../Map/EndPoint")
 
-[node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map")]
+[node name="FruitVegManager" type="Node3D" parent="." node_paths=PackedStringArray("map", "player")]
 script = ExtResource("2_nmjbi")
 map = NodePath("../Map")
+player = NodePath("../Map/Floor/Player")
 FruitVegUnitTypes = Array[PackedScene]([ExtResource("3_yd4n3")])
 
 [node name="Map" type="Node3D" parent="."]
@@ -85,13 +84,35 @@ shape = SubResource("BoxShape3D_0cxyw")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Map/Floor"]
 transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_2wgqo")
+material_override = ExtResource("5_2m761")
 mesh = SubResource("BoxMesh_2wgqo")
 skeleton = NodePath("")
 
 [node name="Player" parent="Map/Floor" node_paths=PackedStringArray("map") instance=ExtResource("6_2m761")]
 map = NodePath("../..")
 
+[node name="Camera3D" parent="Map/Floor/Player" index="1"]
+transform = Transform3D(0.025, 0, 0, 0, 0.3002853, 0.9538495, 0, -0.031794984, 0.01000951, 0, 24.220575, 0.32567066)
+
+[node name="donut_base" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+
+[node name="Camera3D" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48822355, 0.91803205, 2.324817)
+
 [node name="MapObjects" type="Node3D" parent="Map"]
 
 [node name="map_lighting" parent="." instance=ExtResource("9_nmjbi")]
+
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
+[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
+
+[editable path="Map/Floor/Player"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
