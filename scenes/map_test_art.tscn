@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b8tmo8mtcynuy"]
+[gd_scene load_steps=37 format=3 uid="uid://b8tmo8mtcynuy"]
 
 [ext_resource type="PackedScene" uid="uid://cemdaox6outwb" path="res://art/environment/models/counter.glb" id="4_70m73"]
 [ext_resource type="PackedScene" uid="uid://dscbqifv2y2mm" path="res://art/environment/models/shelf.glb" id="5_lyjw5"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://q3f5knlygm0a" path="res://art/environment/short_shelf.tscn" id="28_62nb7"]
 [ext_resource type="PackedScene" uid="uid://b6nq0df242bgu" path="res://art/environment/short_shelf_left_end.tscn" id="29_e0hnt"]
 [ext_resource type="PackedScene" uid="uid://dfdj335a5aox8" path="res://art/environment/short_shelf_right_end.tscn" id="30_ysxo4"]
+[ext_resource type="PackedScene" uid="uid://bp2a0m2i4736u" path="res://art/environment/donut_coin.tscn" id="31_wiuok"]
+[ext_resource type="PackedScene" uid="uid://ct3411wi73d6g" path="res://art/environment/coin.tscn" id="32_62nb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sdt66"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -507,3 +509,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9508114, 0, -1)
 
 [node name="ShortShelf_RightEnd" parent="." instance=ExtResource("30_ysxo4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0532465, 0, -1)
+
+[node name="donut coin" parent="." instance=ExtResource("31_wiuok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.928608, 0.34477603, 0.9376911)
+
+[node name="coin" parent="." instance=ExtResource("32_62nb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8121867, 0.34611058, 0.97055197)
