@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp2a0m2i4736u"]
+[gd_scene load_steps=3 format=3 uid="uid://bp2a0m2i4736u"]
 
 [ext_resource type="PackedScene" uid="uid://cobudxneborot" path="res://art/environment/models/donut coin.fbx" id="1_ef3dd"]
+[ext_resource type="Script" uid="uid://b7shcwve0q326" path="res://scripts/coin/coin_script.gd" id="2_eeojp"]
 
 [node name="donut coin" instance=ExtResource("1_ef3dd")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("2_eeojp")
