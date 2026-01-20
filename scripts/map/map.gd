@@ -31,6 +31,15 @@ func CalculateXYFromGridPos(pos):
 	var y = int(pos / mapSizeX)
 	return [x,y]
 
+func CalculateGridPosToWOrld(pos: int) -> Vector3:
+	var x = int(pos % mapSizeX)
+	var y = int(pos / mapSizeX)
+	return Vector3(x, 0, y)
+
+func CalculatePosFromWorld(pos: Node3D) -> int:
+	var newPos: int
+	newPos = mapSizeX * (pos.position.z - 0.5) + (pos.position.x - 0.5)
+	return newPos
 
 func GetOccupiedPoints():
 	var points = []

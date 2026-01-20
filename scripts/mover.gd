@@ -10,6 +10,7 @@ var intersectionIgnored = []
 var deadEnd = false
 var alreadyTravelledPaths = []
 @export var speed : float = 3
+var speed_multiplier: float = 1.0
 var player : Player
 var active = false
 
@@ -126,7 +127,7 @@ func _physics_process(delta: float) -> void:
 
 func Move(delta : float):
 	if(currentPath != null):	
-		var travelDist = delta*speed
+		var travelDist = delta*speed*speed_multiplier
 	
 		
 		# If travel distance is more than one cell, split movement into multiple parts

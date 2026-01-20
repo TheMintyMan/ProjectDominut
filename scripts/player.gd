@@ -64,6 +64,9 @@ func CanAfford(cost : int):
 
 func SpendMoney(cost : int):
 	money=max(money-cost, 0)
+	
+func GetRound() -> int:
+	return round
 
 	
 		
