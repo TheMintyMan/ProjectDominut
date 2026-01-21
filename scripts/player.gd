@@ -14,6 +14,7 @@ const RAY_LENGTH = 10000.0
 @onready var cam = $Camera3D
 @onready var ray = $RayCast3D
 
+@export var money_per_tile: float = 0.5
 var round : int = 1
 var donutSpawnTime : float = 0.2
 var donutSpawnTimer : float = 0
@@ -120,7 +121,10 @@ func CalculatePathsValidity():
 		paths[1].CalculateValidity([map.GetStartPointXY()], [map.GetEndPointXY()], [], true)
 
 func DonutMove(donut : Donut):
-	money+=(sqrt(donut.cost))	
+	money+=(sqrt(donut.cost)) * money_per_tile
+	
+func AddMoney(more_money: int):
+	more_money += money
 
 func RemainingDonuts():
 	return len(spawnedDonuts)

@@ -15,6 +15,7 @@ var already_spawned: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawn_round += 1
 	%MeshInstance3D.visible = false
 	if spawn_round == 1:
 		spawn()
@@ -44,10 +45,17 @@ func die():
 	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+
 func _process(_delta: float) -> void:
 	if (!already_spawned):
-		if (spawn_round == player.GetRound()):
-			if (player):
-				if(player.hasRoundStarted):
-					spawn()
-	pass
+		if(player.hasRoundStarted):
+			already_spawned = true
+
+	if (already_spawned):
+		if (!player.hasRoundStarted):
+			if (spawn_round == player.GetRound()):
+				spawn()
+				already_spawned = false
+				# this is the end of the round.

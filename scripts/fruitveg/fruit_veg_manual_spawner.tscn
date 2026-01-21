@@ -9,6 +9,7 @@ size = Vector3(0.9, 0.9, 0.9)
 
 [node name="fruit_veg_manual_spawner" type="Node3D"]
 script = ExtResource("1_johb3")
+upgrade_rounds = Array[int]([3, 4, 1])
 
 [node name="Area3D" type="Area3D" parent="."]
 

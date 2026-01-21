@@ -24,5 +24,3 @@ func _process(delta: float) -> void:
 	upgradeCostLabel.text = "Upgrade Cost: " + str(donutUpgrader.get_total_cost())
 	donutCoinsLabel.text = "Donut Money: " + str(player.money)
 	remainingDonutsLabel.text = "Remaining Donuts: " + str(player.RemainingDonuts())
-	
-	

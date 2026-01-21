@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmlsv1j21845e"]
+[gd_scene load_steps=26 format=3 uid="uid://bmlsv1j21845e"]
 
 [ext_resource type="PackedScene" uid="uid://c45t6xkiltfyb" path="res://scenes/MainMap.tscn" id="1_3vy4s"]
 [ext_resource type="PackedScene" uid="uid://uqyr3umqd3dq" path="res://art/environment/wall.tscn" id="2_044v0"]
@@ -19,10 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dfdj335a5aox8" path="res://art/environment/short_shelf_right_end.tscn" id="15_sy474"]
 [ext_resource type="PackedScene" uid="uid://cm51vqulmhy6j" path="res://scripts/fruitveg/fruit_veg_manual_spawner.tscn" id="16_ogfun"]
 [ext_resource type="PackedScene" uid="uid://dhpyqccyph82k" path="res://art/environment/models/MopBucket.fbx" id="18_pbw0i"]
+[ext_resource type="PackedScene" uid="uid://ct3411wi73d6g" path="res://art/environment/coin.tscn" id="19_f5jky"]
 [ext_resource type="PackedScene" uid="uid://bp3xjkpvqgx2u" path="res://art/environment/models/ENTRY DOOR.fbx" id="19_qfvdg"]
 [ext_resource type="PackedScene" uid="uid://c030nigjo64gf" path="res://art/environment/coolies_sign.tscn" id="20_epnb6"]
 [ext_resource type="PackedScene" uid="uid://cirfpya1chmsr" path="res://art/environment/bakery_sign.tscn" id="21_rydwr"]
 [ext_resource type="PackedScene" uid="uid://n1i1j6kv82pf" path="res://art/environment/arrow.tscn" id="22_rydwr"]
+[ext_resource type="PackedScene" uid="uid://cy4wwy2o7rvn0" path="res://scripts/tutorial_level_editor.tscn" id="25_8rql5"]
 
 [node name="MainMap" instance=ExtResource("1_3vy4s")]
 
@@ -57,6 +59,7 @@ transform = Transform3D(0.025, 0, 0, 0, 0.36967862, 0.9291597, 0, -0.030971993, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011776447, 0.41803205, 1.3248167)
 
 [node name="DirectionalLight3D" parent="map_lighting" index="0"]
+transform = Transform3D(0.8660254, 0.43301266, 0.25, 1.6897538e-08, -0.50000006, 0.8660254, 0.49999997, -0.75, -0.43301278, 0, 6, 0)
 light_energy = 0.2
 
 [node name="walls" type="Node" parent="." index="4"]
@@ -110,7 +113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 6.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 6.5)
 
 [node name="wall_42" parent="walls" index="16" instance=ExtResource("3_hm13e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 7.5)
 
 [node name="wall_54" parent="walls" index="17" instance=ExtResource("3_hm13e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 11.5)
@@ -255,49 +258,70 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 10.5)
 [node name="WetFloorSign" parent="props" index="0" instance=ExtResource("4_hm13e")]
 transform = Transform3D(2.4148145, 0.258819, -0.56035954, -3.725291e-08, 1.7320508, 1.25, 0.64704746, -0.9659258, 2.0912907, 7.4628925, 0.37894005, 7.6384907)
 
-[node name="counter" parent="." index="6" instance=ExtResource("5_ogcup")]
+[node name="MopBucket" parent="props" index="1" instance=ExtResource("18_pbw0i")]
+transform = Transform3D(-8.392586e-08, 0, 1.92, 0, 1.92, 0, -1.92, 0, -8.392586e-08, 8.5, 0.5, 7.5)
+
+[node name="ENTRY DOOR" parent="props" index="2" instance=ExtResource("19_qfvdg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 8)
+
+[node name="ENTRY DOOR2" parent="props" index="3" instance=ExtResource("19_qfvdg")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0.5, 9)
+
+[node name="TallShelf2" parent="props" index="4" instance=ExtResource("11_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2, 5.5, 0.5, 0)
+
+[node name="CooliesSign" parent="props" index="5" instance=ExtResource("20_epnb6")]
+transform = Transform3D(2.085, 0, 0, 0, 2.085, 0, 0, 0, 2.085, 9.5, 1.5, 0)
+
+[node name="BakerySign" parent="props" index="6" instance=ExtResource("21_rydwr")]
+transform = Transform3D(-7.6057816e-08, 0, 1.74, 0, 1.74, 0, -1.74, 0, -7.6057816e-08, 0, 1.5, 6.5)
+
+[node name="arrow" parent="props" index="7" instance=ExtResource("22_rydwr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 0.5, 8.5)
+
+[node name="counter" parent="props" index="8" instance=ExtResource("5_ogcup")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.5, 0.5, 7.5)
 
-[node name="StickyFloor" parent="." index="7" instance=ExtResource("6_ixssl")]
+[node name="StickyFloor" parent="props" index="9" instance=ExtResource("6_ixssl")]
 transform = Transform3D(2.64, 0, 0, 0, 0.3, 0, 0, 0, 2.8000002, 9.5, 0.5, 9.5)
 
-[node name="Pillar_Model" parent="." index="8" instance=ExtResource("8_h14mi")]
+[node name="Pillar_Model" parent="props" index="10" instance=ExtResource("8_h14mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 0)
 
-[node name="Pillar_Model2" parent="." index="9" instance=ExtResource("8_h14mi")]
+[node name="Pillar_Model2" parent="props" index="11" instance=ExtResource("8_h14mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Pillar_Model3" parent="." index="10" instance=ExtResource("8_h14mi")]
+[node name="Pillar_Model3" parent="props" index="12" instance=ExtResource("8_h14mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 12)
 
-[node name="Pillar_Model4" parent="." index="11" instance=ExtResource("8_h14mi")]
+[node name="Pillar_Model4" parent="props" index="13" instance=ExtResource("8_h14mi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.5, 12)
 
-[node name="ShortShelf" parent="." index="12" instance=ExtResource("9_lkd7a")]
+[node name="ShortShelf" parent="props" index="14" instance=ExtResource("9_lkd7a")]
 transform = Transform3D(-4.8082526e-08, 0, 2.8500001, 0, 1, 0, -1.1, 0, -1.2457747e-07, 3, 0.5, 4.5)
 
-[node name="ShortShelf_LeftEnd" parent="." index="13" instance=ExtResource("10_sy474")]
+[node name="ShortShelf_LeftEnd" parent="props" index="15" instance=ExtResource("10_sy474")]
 transform = Transform3D(-8.8122164e-08, 0, 2.8500001, 0, 1, 0, -2.016, 0, -1.2457747e-07, 3, 0.5, 3)
 
-[node name="TallShelf" parent="." index="14" instance=ExtResource("11_ogfun")]
+[node name="TallShelf" parent="props" index="16" instance=ExtResource("11_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2, 4.5, 0.5, 0)
 
-[node name="VegetableDisplayCase_Model" parent="." index="15" instance=ExtResource("12_pbw0i")]
+[node name="VegetableDisplayCase_Model" parent="props" index="17" instance=ExtResource("12_pbw0i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 1)
 
-[node name="veg_tray" parent="." index="16" instance=ExtResource("13_qfvdg")]
+[node name="veg_tray" parent="props" index="18" instance=ExtResource("13_qfvdg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 8.5)
 
-[node name="veg_tray_end" parent="." index="17" instance=ExtResource("14_xv0nm")]
+[node name="veg_tray_end" parent="props" index="19" instance=ExtResource("14_xv0nm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 8.5)
 
-[node name="veg_tray_end2" parent="." index="18" instance=ExtResource("14_xv0nm")]
+[node name="veg_tray_end2" parent="props" index="20" instance=ExtResource("14_xv0nm")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.5, 0.5, 8.5)
 
-[node name="ShortShelf_RightEnd" parent="." index="19" instance=ExtResource("15_sy474")]
+[node name="ShortShelf_RightEnd" parent="props" index="21" instance=ExtResource("15_sy474")]
 transform = Transform3D(-8.742277e-08, 0, 3, 0, 1, 0, -1.9999999, 0, -1.3113416e-07, 3, 0.5, 6)
 
-[node name="ManualSpawner_Group" type="Node" parent="." index="20"]
+[node name="ManualSpawner_Group" type="Node" parent="." index="6"]
 
 [node name="fruit_veg_manual_spawner" parent="ManualSpawner_Group" index="0" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 6.5)
@@ -305,8 +329,8 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackTime = 5
 default_attackDistance = 2
+spawn_round = 0
 upgrade_rounds = Array[int]([3])
 
 [node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="1" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
@@ -315,7 +339,6 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackTime = 5
 default_attackDistance = 3
 upgrade_rounds = Array[int]([3])
 
@@ -325,38 +348,87 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackTime = 5
 default_attackDistance = 3
+spawn_round = 0
 upgrade_rounds = Array[int]([3])
 
-[node name="MopBucket" parent="." index="21" instance=ExtResource("18_pbw0i")]
-transform = Transform3D(-8.392586e-08, 0, 1.92, 0, 1.92, 0, -1.92, 0, -8.392586e-08, 8.5, 0.5, 7.5)
+[node name="fruit_veg_manual_spawner5" parent="ManualSpawner_Group" index="3" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 4.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("3_f5jky")
+default_attackDistance = 2
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="ENTRY DOOR" parent="." index="22" instance=ExtResource("19_qfvdg")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 8)
+[node name="fruit_veg_manual_spawner6" parent="ManualSpawner_Group" index="4" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 6.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+default_attackTime = 5
+default_attackDistance = 3
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="ENTRY DOOR2" parent="." index="23" instance=ExtResource("19_qfvdg")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21, 0.5, 9)
+[node name="fruit_veg_manual_spawner7" parent="ManualSpawner_Group" index="5" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 0.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="TallShelf2" parent="." index="24" instance=ExtResource("11_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.2, 5.5, 0.5, 0)
+[node name="fruit_veg_manual_spawner8" parent="ManualSpawner_Group" index="6" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 3.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="CooliesSign" parent="." index="25" instance=ExtResource("20_epnb6")]
-transform = Transform3D(2.085, 0, 0, 0, 2.085, 0, 0, 0, 2.085, 9.5, 1.5, 0)
+[node name="fruit_veg_manual_spawner9" parent="ManualSpawner_Group" index="7" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 7.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+default_attackDistance = 3
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="BakerySign" parent="." index="26" instance=ExtResource("21_rydwr")]
-transform = Transform3D(-7.6057816e-08, 0, 1.74, 0, 1.74, 0, -1.74, 0, -7.6057816e-08, 0, 1.5, 6.5)
+[node name="fruit_veg_manual_spawner10" parent="ManualSpawner_Group" index="8" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 11.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+default_attackDistance = 3
+spawn_round = 0
+upgrade_rounds = Array[int]([3])
 
-[node name="arrow" parent="." index="27" instance=ExtResource("22_rydwr")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 0.5, 8.5)
+[node name="fruit_veg_manual_spawner2" parent="ManualSpawner_Group" index="9" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 11.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("2_rvjmv")
+default_attackDistance = 5
+spawn_round = 2
 
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
-[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
+[node name="coin" parent="ManualSpawner_Group" index="10" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5, 1, 1.5)
+
+[node name="coin2" parent="ManualSpawner_Group" index="11" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18.5, 1, 2.5)
+spawn_round = 0
+
+[node name="TutorialLevelEditor" parent="." index="7" instance=ExtResource("25_8rql5")]
+reset_path_rounds = Array[int]([])
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

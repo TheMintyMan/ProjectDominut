@@ -18,6 +18,20 @@ var levels = [
 ]
 var level_index: int = 0
 
+func GetPlayer() -> Node3D:
+	return find_player(get_tree().root)
+		
+		
+func find_player(node : Node):
+	for child in node.get_children():
+		if child is Player:
+			return child
+		else:
+			var tempChild = find_player(child)
+			if tempChild is Player:
+				return tempChild
+	return null
+
 func next_level():
 	level_index = (level_index + levels.size() + 1) % levels.size()
 	get_tree().change_scene_to_file(levels[level_index])

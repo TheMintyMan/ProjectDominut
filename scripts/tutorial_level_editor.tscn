@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy4wwy2o7rvn0"]
+
+[ext_resource type="Script" uid="uid://mk0c43gwujvl" path="res://scripts/tutorial_level_editor.gd" id="1_j0ewj"]
+
+[node name="TutorialLevelEditor" type="Node3D"]
+script = ExtResource("1_j0ewj")
+reset_path_rounds = [null]
