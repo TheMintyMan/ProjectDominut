@@ -1,8 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c251f73llbn38"]
+[gd_scene load_steps=8 format=3 uid="uid://c251f73llbn38"]
 
 [ext_resource type="Script" uid="uid://c2v5d5uuxa5u6" path="res://scripts/fruitveg/fruit_veg_placer.gd" id="1_vht8x"]
 [ext_resource type="PackedScene" uid="uid://b23cp3m7s6bg0" path="res://scripts/fruitveg/fruit_veg_placed_object.tscn" id="2_7o3sc"]
+[ext_resource type="Script" uid="uid://c1f2dj206ffa7" path="res://scripts/fruitveg/Upgrades/fruit_veg_unit_upgrade_placer.gd" id="3_ipimv"]
 [ext_resource type="PackedScene" uid="uid://2wfgwbp3myij" path="res://art/characters/fruit_veg/grape_model.tscn" id="3_v0tf6"]
+
+[sub_resource type="Resource" id="Resource_votan"]
+script = ExtResource("3_ipimv")
+weakness = 3
+attackTime = 2.0
+attackDistance = 3.0
+metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7o3sc"]
 albedo_color = Color(0, 1, 0, 1)
@@ -12,8 +20,7 @@ albedo_color = Color(0, 1, 0, 1)
 [node name="FruitVegPlacer" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_vht8x")
 placedPrefab = ExtResource("2_7o3sc")
-weakness = 3
-attackTime = 3
+upgrades = SubResource("Resource_votan")
 mesh = NodePath("Grape_Model")
 
 [node name="Grape_Model" parent="." instance=ExtResource("3_v0tf6")]

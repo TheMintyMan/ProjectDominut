@@ -61,50 +61,82 @@ material_override = ExtResource("2_23pqs")
 [node name="donut_base_body_damage_02" parent="donut_rig/Skeleton3D" index="2"]
 material_override = ExtResource("2_23pqs")
 
+[node name="donut_base_body_eye_l" parent="donut_rig/Skeleton3D" index="3"]
+cast_shadow = 0
+
+[node name="donut_base_body_eye_l_damage_01" parent="donut_rig/Skeleton3D" index="4"]
+cast_shadow = 0
+
+[node name="donut_base_body_eye_l_damage_02" parent="donut_rig/Skeleton3D" index="5"]
+cast_shadow = 0
+
+[node name="donut_base_body_eye_r" parent="donut_rig/Skeleton3D" index="6"]
+cast_shadow = 0
+
+[node name="donut_base_body_eye_r_damage_01" parent="donut_rig/Skeleton3D" index="7"]
+cast_shadow = 0
+
+[node name="donut_base_body_eye_r_damage_02" parent="donut_rig/Skeleton3D" index="8"]
+cast_shadow = 0
+
 [node name="donut_base_eyebrow_l" parent="donut_rig/Skeleton3D" index="9"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_eyebrow_r" parent="donut_rig/Skeleton3D" index="10"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_l_arm" parent="donut_rig/Skeleton3D" index="11"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_l_feet" parent="donut_rig/Skeleton3D" index="12"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_l_leg" parent="donut_rig/Skeleton3D" index="13"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_r_arm" parent="donut_rig/Skeleton3D" index="14"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_r_feet" parent="donut_rig/Skeleton3D" index="15"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_base_r_leg" parent="donut_rig/Skeleton3D" index="16"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_icing_01" parent="donut_rig/Skeleton3D" index="17"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_icing_01_damage_01" parent="donut_rig/Skeleton3D" index="18"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_icing_01_damage_02" parent="donut_rig/Skeleton3D" index="19"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_23pqs")
 
 [node name="donut_sprinkles_01" parent="donut_rig/Skeleton3D" index="20"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_sprinkles_01_damage_01" parent="donut_rig/Skeleton3D" index="21"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="donut_sprinkles_01_damage_02" parent="donut_rig/Skeleton3D" index="22"]
 material_override = ExtResource("2_23pqs")
+cast_shadow = 0
 
 [node name="AnimationPlayer" parent="." index="1"]
 deterministic = true

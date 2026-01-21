@@ -1,8 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvfl6hs5jplyl"]
+[gd_scene load_steps=12 format=3 uid="uid://cvfl6hs5jplyl"]
 
 [ext_resource type="Script" uid="uid://bsxp2ibp4br25" path="res://scripts/fruitveg/fruit_veg_area.gd" id="1_17rid"]
 [ext_resource type="PackedScene" uid="uid://x31nkyri5dxc" path="res://scripts/fruitveg/fruit_veg_area_projectile.tscn" id="2_bncci"]
 [ext_resource type="PackedScene" uid="uid://wxd7henebmgt" path="res://art/characters/fruit_veg/corn_turret_model.tscn" id="3_2a57x"]
+[ext_resource type="Script" uid="uid://vekbgpudso34" path="res://scripts/fruitveg/Upgrades/fruit_veg_unit_upgrade_area.gd" id="3_cpqcg"]
+
+[sub_resource type="Resource" id="Resource_cpqcg"]
+script = ExtResource("3_cpqcg")
+metadata/_custom_type_script = "uid://vekbgpudso34"
+
+[sub_resource type="Resource" id="Resource_ue077"]
+script = ExtResource("3_cpqcg")
+metadata/_custom_type_script = "uid://vekbgpudso34"
+
+[sub_resource type="Resource" id="Resource_t421x"]
+script = ExtResource("3_cpqcg")
+upgradePaths = Array[ExtResource("3_cpqcg")]([SubResource("Resource_cpqcg"), SubResource("Resource_ue077")])
+weakness = 2
+metadata/_custom_type_script = "uid://vekbgpudso34"
+
+[sub_resource type="Resource" id="Resource_36r2x"]
+script = ExtResource("3_cpqcg")
+weakness = 2
+metadata/_custom_type_script = "uid://vekbgpudso34"
+
+[sub_resource type="Resource" id="Resource_3u1h3"]
+script = ExtResource("3_cpqcg")
+upgradePaths = Array[ExtResource("3_cpqcg")]([SubResource("Resource_t421x"), SubResource("Resource_36r2x")])
+weakness = 2
+attackTime = 2.895
+metadata/_custom_type_script = "uid://vekbgpudso34"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bncci"]
 albedo_color = Color(1, 1, 0, 1)
@@ -12,8 +39,7 @@ albedo_color = Color(1, 1, 0, 1)
 [node name="FruitVegArea" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_17rid")
 projectilePrefab = ExtResource("2_bncci")
-weakness = 2
-attackDistance = 3
+upgrades = SubResource("Resource_3u1h3")
 mesh = NodePath("CornTurret_Model")
 
 [node name="StartPointMesh" type="MeshInstance3D" parent="."]
