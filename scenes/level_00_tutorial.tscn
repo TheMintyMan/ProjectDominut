@@ -51,7 +51,7 @@ transform = Transform3D(21, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
 money = 500
 
 [node name="Camera3D" parent="Map/Floor/Player" index="1"]
-transform = Transform3D(0.025, 0, 0, 0, 0.36967862, 0.9291597, 0, -0.030971993, 0.012322621, 0.05163586, 12.193582, 0.19087183)
+transform = Transform3D(0.025, 0, 0, 0, 0.36967862, 0.9291597, 0, -0.030971993, 0.012322621, 0.06413582, 13.193582, 0.19087183)
 
 [node name="Camera3D" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011776447, 0.41803205, 1.3248167)
@@ -305,6 +305,8 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
+default_attackTime = 5
+default_attackDistance = 2
 upgrade_rounds = Array[int]([3])
 
 [node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="1" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
@@ -313,6 +315,8 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
+default_attackTime = 5
+default_attackDistance = 3
 upgrade_rounds = Array[int]([3])
 
 [node name="fruit_veg_manual_spawner4" parent="ManualSpawner_Group" index="2" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
@@ -321,6 +325,8 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
+default_attackTime = 5
+default_attackDistance = 3
 upgrade_rounds = Array[int]([3])
 
 [node name="MopBucket" parent="." index="21" instance=ExtResource("18_pbw0i")]
@@ -343,6 +349,14 @@ transform = Transform3D(-7.6057816e-08, 0, 1.74, 0, 1.74, 0, -1.74, 0, -7.605781
 
 [node name="arrow" parent="." index="27" instance=ExtResource("22_rydwr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 0.5, 8.5)
+
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="item_selected" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
+[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

@@ -4,6 +4,9 @@ extends Node3D
 @export var player : Player
 @export var manager : FruitVegManager
 @export var fruit_veg : PackedScene
+@export var default_attackTime = 1
+@export var default_attackDamage = 1
+@export var default_attackDistance = 4
 @export var spawn_round: int = 1 # Needs reference to round manager
 @export var upgrade_rounds: Array[int] = []
 @export var removal_round: int = 0 # IF you want to remove this tower at somepoint
@@ -27,6 +30,9 @@ func spawn():
 	unit.position = map.CalculateGridPosToWOrld(spawn_point)
 	unit.spawnable = false
 	unit.manager = manager
+	unit.SetAttackDistance(default_attackDistance)
+	unit.SetAttackTime(default_attackTime)
+	unit.SetDamage(default_attackDamage)
 	#unit.visible = true
 	
 	map.add_child(unit)

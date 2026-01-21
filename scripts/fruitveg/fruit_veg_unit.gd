@@ -35,6 +35,14 @@ func LookAt(x, y):
 		
 		mesh.look_at(mesh.global_position - Vector3(posDiffX, 0, posDiffY), Vector3.UP)
 
+func SetAttackTime(new_attackTime: int):
+	attackTime = new_attackTime
+	
+func SetDamage(new_attackDamage: int):
+	attackDamage = new_attackDamage
+
+func SetAttackDistance(new_attackDistance: int):
+	attackDistance = new_attackDistance
 
 func RoundEnd():
 	pass

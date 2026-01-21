@@ -17,6 +17,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	$debug.text = str(Engine.get_frames_per_second())
 	readiedDonutsLabel.text = "Your Available Donuts: " + str(len(player.readyDonuts))
 	healthLabel.text = str(donutUpgrader.health_level)
 	speedLabel.text = str(donutUpgrader.speed_level)
