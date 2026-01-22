@@ -16,6 +16,8 @@ extends Control
 @export var winScreen : Control
 @export var loseScreen : Control
 
+@export var mainMenuScene : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -33,3 +35,12 @@ func _process(delta: float) -> void:
 	
 	winScreen.visible = player.winState == Player.WinState.WIN
 	loseScreen.visible = player.winState == Player.WinState.LOSE
+
+
+func RestartCurrentLevel():
+	get_tree().reload_current_scene()
+	
+func GoToMainMenu():
+	get_tree().change_scene_to_packed(mainMenuScene)
+		
+	
