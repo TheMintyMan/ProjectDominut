@@ -15,13 +15,17 @@ extends Control
 
 @export var winScreen : Control
 @export var loseScreen : Control
+@export var pauseScreen : Control
 
 @export var mainMenuScene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	pass # Replace with function body.
-
+	
+func _exit_tree():
+	get_tree().paused = false
 
 func _process(delta: float) -> void:
 	readiedDonutsLabel.text = "Your Available Donuts: " + str(len(player.readyDonuts))
@@ -33,8 +37,16 @@ func _process(delta: float) -> void:
 	counterHealthLabel.text = "Remaining Counter Health: " + str(player.map.counterHealth)
 	currentRoundLabel.text = "Round: " + str(player.round) + "/" + str(player.maxRounds)
 	
-	winScreen.visible = player.winState == Player.WinState.WIN
-	loseScreen.visible = player.winState == Player.WinState.LOSE
+	if(Input.is_action_just_released("Pause")):
+		pauseScreen.visible = !pauseScreen.visible
+		get_tree().paused = pauseScreen.visible
+
+	
+	winScreen.visible = player.winState == Player.WinState.WIN && !pauseScreen.visible
+	loseScreen.visible = player.winState == Player.WinState.LOSE && !pauseScreen.visible
+	
+	
+	
 
 
 func RestartCurrentLevel():

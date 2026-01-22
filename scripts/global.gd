@@ -5,8 +5,7 @@ enum ResistanceType{
 	NONE,
 	SHOOTER,
 	AREA,
-	PLACING,
-	WALL,
+	PLACING
 }
 
 const inital_currency: int = 10
