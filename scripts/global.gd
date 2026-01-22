@@ -20,8 +20,7 @@ var level_index: int = 0
 
 func GetPlayer() -> Node3D:
 	return find_player(get_tree().root)
-		
-		
+	
 func find_player(node : Node):
 	for child in node.get_children():
 		if child is Player:

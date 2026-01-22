@@ -91,9 +91,10 @@ func SpendMoney(cost : int):
 	
 func GetRound() -> int:
 	return round
-
 	
-		
+func GetPaths() -> Array[DonutPath]:
+	return paths
+
 func AddReadyDonut(donutData : DonutType):
 	print("buy")
 	readyDonuts.append(donutData)	
@@ -206,11 +207,13 @@ func _process(delta: float) -> void:
 				paths.append(currentPath)
 			# Hold
 			else:
-				currentPath.visible = true
+				currentPath.show()
 				currentPath.SetEnd(point.x, point.z)
 			clickHeld = true
 		# Let go
 		elif(clickHeld):
+			if (!currentPath):
+				return
 			currentPath.visible = true
 			var mapStart = map.GetStartPointXY()
 			var mapEnd = map.GetEndPointXY()

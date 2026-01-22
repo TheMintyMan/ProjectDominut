@@ -50,10 +50,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 6)
 transform = Transform3D(21, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
 
 [node name="Player" parent="Map/Floor" index="2"]
+money_per_tile = 1.0
 money = 500
 
 [node name="Camera3D" parent="Map/Floor/Player" index="1"]
-transform = Transform3D(0.025, 0, 0, 0, 0.36967862, 0.9291597, 0, -0.030971993, 0.012322621, 0.06413582, 13.193582, 0.19087183)
+transform = Transform3D(0.024999999, 0, 0, 0, 0.3693346, 0.92923766, 0, -0.03483504, 0.002608201, 0.06413579, 13.193582, 0.1575385)
 
 [node name="Camera3D" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011776447, 0.41803205, 1.3248167)
@@ -107,10 +108,10 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.5, 7)
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.5, 10)
 
 [node name="wall_06" parent="walls" index="14" instance=ExtResource("3_hm13e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 6.5)
 
 [node name="wall_07" parent="walls" index="15" instance=ExtResource("3_hm13e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0.5, 6.5)
 
 [node name="wall_42" parent="walls" index="16" instance=ExtResource("3_hm13e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 7.5)
@@ -248,7 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 11.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 11.5)
 
 [node name="wall_63" parent="walls" index="61" instance=ExtResource("3_hm13e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 7.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 7.5)
 
 [node name="wall_38" parent="walls" index="62" instance=ExtResource("3_hm13e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0.5, 10.5)
@@ -324,111 +325,174 @@ transform = Transform3D(-8.742277e-08, 0, 3, 0, 1, 0, -1.9999999, 0, -1.3113416e
 [node name="ManualSpawner_Group" type="Node" parent="." index="6"]
 
 [node name="fruit_veg_manual_spawner" parent="ManualSpawner_Group" index="0" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 7.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackDistance = 2
-spawn_round = 0
+default_attackDamage = 0.5
+default_attackDistance = 3.0
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="1" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 11.5)
+[node name="fruit_veg_manual_spawner11" parent="ManualSpawner_Group" index="1" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 3.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("3_f5jky")
+default_attackTime = 2.0
+default_attackDamage = 0.5
+default_attackDistance = 3.0
+spawn_round = 3
+upgrade_rounds = Array[int]([3])
+
+[node name="fruit_veg_manual_spawner12" parent="ManualSpawner_Group" index="2" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 10.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("3_f5jky")
+default_attackTime = 2.0
+default_attackDamage = 0.5
+default_attackDistance = 3.0
+spawn_round = 6
+upgrade_rounds = Array[int]([3])
+
+[node name="fruit_veg_manual_spawner13" parent="ManualSpawner_Group" index="3" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 8.5)
+map = NodePath("../../Map")
+player = NodePath("../../Map/Floor/Player")
+manager = NodePath("../../FruitVegManager")
+fruit_veg = ExtResource("4_8rql5")
+default_attackTime = 2.0
+default_attackDamage = 0.5
+default_attackDistance = 3.0
+upgrade_rounds = Array[int]([3])
+
+[node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="4" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 11.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDistance = 3
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner4" parent="ManualSpawner_Group" index="2" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, 9.5)
+[node name="fruit_veg_manual_spawner4" parent="ManualSpawner_Group" index="5" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 9.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDistance = 3
-spawn_round = 0
+spawn_round = 4
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner5" parent="ManualSpawner_Group" index="3" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner5" parent="ManualSpawner_Group" index="6" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 4.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackDistance = 2
 spawn_round = 0
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner6" parent="ManualSpawner_Group" index="4" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner6" parent="ManualSpawner_Group" index="7" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 6.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackTime = 5
-default_attackDistance = 3
 spawn_round = 0
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner7" parent="ManualSpawner_Group" index="5" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner7" parent="ManualSpawner_Group" index="8" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 0.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-spawn_round = 0
+default_attackDamage = 0.5
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner8" parent="ManualSpawner_Group" index="6" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner8" parent="ManualSpawner_Group" index="9" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 3.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-spawn_round = 0
+spawn_round = 4
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner9" parent="ManualSpawner_Group" index="7" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 7.5)
+[node name="fruit_veg_manual_spawner9" parent="ManualSpawner_Group" index="10" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 7.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDistance = 3
-spawn_round = 0
+default_attackTime = 0.5
+default_attackDamage = 0.5
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner10" parent="ManualSpawner_Group" index="8" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner10" parent="ManualSpawner_Group" index="11" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 11.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDistance = 3
 spawn_round = 0
 upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner2" parent="ManualSpawner_Group" index="9" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0.5, 11.5)
+[node name="fruit_veg_manual_spawner2" parent="ManualSpawner_Group" index="12" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 0.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDistance = 5
+spawn_round = 3
+
+[node name="coin" parent="ManualSpawner_Group" index="13" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5, 1, 1.5)
+actual_coin_value = 300
+
+[node name="coin2" parent="ManualSpawner_Group" index="14" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18.5, 1, 2.5)
+spawn_round = 3
+
+[node name="coin3" parent="ManualSpawner_Group" index="15" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12.5, 1, 9.5)
+respawn_per_turn = 0
+spawn_round = 3
+
+[node name="coin5" parent="ManualSpawner_Group" index="16" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 11.5, 1, 8.5)
+actual_coin_value = 500
+respawn_per_turn = 0
+spawn_round = 5
+
+[node name="coin6" parent="ManualSpawner_Group" index="17" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 19.5, 1, 8.5)
+actual_coin_value = 500
+respawn_per_turn = 0
+spawn_round = 6
+
+[node name="coin7" parent="ManualSpawner_Group" index="18" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.5, 1, 5.5)
+actual_coin_value = 300
+respawn_per_turn = 0
+spawn_round = 4
+
+[node name="coin8" parent="ManualSpawner_Group" index="19" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 13.5, 1, 3.5)
+actual_coin_value = 300
+respawn_per_turn = 0
 spawn_round = 2
 
-[node name="coin" parent="ManualSpawner_Group" index="10" instance=ExtResource("19_f5jky")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5, 1, 1.5)
-
-[node name="coin2" parent="ManualSpawner_Group" index="11" instance=ExtResource("19_f5jky")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18.5, 1, 2.5)
-spawn_round = 0
+[node name="coin4" parent="ManualSpawner_Group" index="20" instance=ExtResource("19_f5jky")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.5, 1, 10.5)
+respawn_per_turn = 0
+spawn_round = 6
 
 [node name="TutorialLevelEditor" parent="." index="7" instance=ExtResource("25_8rql5")]
-reset_path_rounds = Array[int]([])
+reset_path_rounds = Array[int]([3, 6])
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

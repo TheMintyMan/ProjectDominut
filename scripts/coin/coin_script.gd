@@ -3,7 +3,7 @@ extends Node3D
 @export var hover_height := 0.25
 @export var base_hover_speed := 2.0
 @export var base_rotation_speed := 45.0
-@export var actual_coin_value := 100
+@export var actual_coin_value := 200
 var temp_coin_value : int
 
 @export var respawn_per_turn : int = 3

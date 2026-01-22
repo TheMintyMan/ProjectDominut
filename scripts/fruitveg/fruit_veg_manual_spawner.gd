@@ -4,9 +4,9 @@ extends Node3D
 @export var player : Player
 @export var manager : FruitVegManager
 @export var fruit_veg : PackedScene
-@export var default_attackTime = 1
-@export var default_attackDamage = 1
-@export var default_attackDistance = 4
+@export var default_attackTime:float = 1.0
+@export var default_attackDamage:float = 1.0
+@export var default_attackDistance = 4.0
 @export var spawn_round: int = 1 # Needs reference to round manager
 @export var upgrade_rounds: Array[int] = []
 @export var removal_round: int = 0 # IF you want to remove this tower at somepoint
@@ -15,7 +15,6 @@ var already_spawned: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_round += 1
 	%MeshInstance3D.visible = false
 	if spawn_round == 1:
 		spawn()
