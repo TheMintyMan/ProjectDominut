@@ -330,9 +330,6 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackDamage = 0.5
-default_attackDistance = 3.0
-upgrade_rounds = Array[int]([3])
 
 [node name="fruit_veg_manual_spawner11" parent="ManualSpawner_Group" index="1" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 3.5)
@@ -340,11 +337,7 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackTime = 2.0
-default_attackDamage = 0.5
-default_attackDistance = 3.0
 spawn_round = 3
-upgrade_rounds = Array[int]([3])
 
 [node name="fruit_veg_manual_spawner12" parent="ManualSpawner_Group" index="2" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, 10.5)
@@ -352,96 +345,70 @@ map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
-default_attackTime = 2.0
-default_attackDamage = 0.5
-default_attackDistance = 3.0
 spawn_round = 6
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner13" parent="ManualSpawner_Group" index="3" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, 8.5)
-map = NodePath("../../Map")
-player = NodePath("../../Map/Floor/Player")
-manager = NodePath("../../FruitVegManager")
-fruit_veg = ExtResource("4_8rql5")
-default_attackTime = 2.0
-default_attackDamage = 0.5
-default_attackDistance = 3.0
-upgrade_rounds = Array[int]([3])
-
-[node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="4" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner3" parent="ManualSpawner_Group" index="3" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 11.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner4" parent="ManualSpawner_Group" index="5" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner4" parent="ManualSpawner_Group" index="4" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 9.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
 spawn_round = 4
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner5" parent="ManualSpawner_Group" index="6" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner5" parent="ManualSpawner_Group" index="5" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 0.5, 4.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("3_f5jky")
 spawn_round = 0
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner6" parent="ManualSpawner_Group" index="7" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner6" parent="ManualSpawner_Group" index="6" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0.5, 6.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
 spawn_round = 0
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner7" parent="ManualSpawner_Group" index="8" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner7" parent="ManualSpawner_Group" index="7" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0.5, 0.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackDamage = 0.5
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner8" parent="ManualSpawner_Group" index="9" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner8" parent="ManualSpawner_Group" index="8" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0.5, 3.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
 spawn_round = 4
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner9" parent="ManualSpawner_Group" index="10" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner9" parent="ManualSpawner_Group" index="9" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 7.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
-default_attackTime = 0.5
-default_attackDamage = 0.5
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner10" parent="ManualSpawner_Group" index="11" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner10" parent="ManualSpawner_Group" index="10" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 0.5, 11.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
 manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
 spawn_round = 0
-upgrade_rounds = Array[int]([3])
 
-[node name="fruit_veg_manual_spawner2" parent="ManualSpawner_Group" index="12" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
+[node name="fruit_veg_manual_spawner2" parent="ManualSpawner_Group" index="11" node_paths=PackedStringArray("map", "player", "manager") instance=ExtResource("16_ogfun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, 0.5)
 map = NodePath("../../Map")
 player = NodePath("../../Map/Floor/Player")
@@ -449,44 +416,44 @@ manager = NodePath("../../FruitVegManager")
 fruit_veg = ExtResource("2_rvjmv")
 spawn_round = 3
 
-[node name="coin" parent="ManualSpawner_Group" index="13" instance=ExtResource("19_f5jky")]
+[node name="coin" parent="ManualSpawner_Group" index="12" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.5, 1, 1.5)
 actual_coin_value = 300
 
-[node name="coin2" parent="ManualSpawner_Group" index="14" instance=ExtResource("19_f5jky")]
+[node name="coin2" parent="ManualSpawner_Group" index="13" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 18.5, 1, 2.5)
 spawn_round = 3
 
-[node name="coin3" parent="ManualSpawner_Group" index="15" instance=ExtResource("19_f5jky")]
+[node name="coin3" parent="ManualSpawner_Group" index="14" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 12.5, 1, 9.5)
 respawn_per_turn = 0
 spawn_round = 3
 
-[node name="coin5" parent="ManualSpawner_Group" index="16" instance=ExtResource("19_f5jky")]
+[node name="coin5" parent="ManualSpawner_Group" index="15" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 11.5, 1, 8.5)
 actual_coin_value = 500
 respawn_per_turn = 0
 spawn_round = 5
 
-[node name="coin6" parent="ManualSpawner_Group" index="17" instance=ExtResource("19_f5jky")]
+[node name="coin6" parent="ManualSpawner_Group" index="16" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 19.5, 1, 8.5)
 actual_coin_value = 500
 respawn_per_turn = 0
 spawn_round = 6
 
-[node name="coin7" parent="ManualSpawner_Group" index="18" instance=ExtResource("19_f5jky")]
+[node name="coin7" parent="ManualSpawner_Group" index="17" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.5, 1, 5.5)
 actual_coin_value = 300
 respawn_per_turn = 0
 spawn_round = 4
 
-[node name="coin8" parent="ManualSpawner_Group" index="19" instance=ExtResource("19_f5jky")]
+[node name="coin8" parent="ManualSpawner_Group" index="18" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 13.5, 1, 3.5)
 actual_coin_value = 300
 respawn_per_turn = 0
 spawn_round = 2
 
-[node name="coin4" parent="ManualSpawner_Group" index="20" instance=ExtResource("19_f5jky")]
+[node name="coin4" parent="ManualSpawner_Group" index="19" instance=ExtResource("19_f5jky")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 6.5, 1, 10.5)
 respawn_per_turn = 0
 spawn_round = 6

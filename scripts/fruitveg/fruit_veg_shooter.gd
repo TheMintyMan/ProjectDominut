@@ -64,7 +64,9 @@ func AttemptAttack():
 					closestDonuts.insert(i, child)
 					closestDonutsDists.insert(i, dist)
 					break
-	
+	if (closestDonuts.is_empty()):
+		return
+		
 	if(len(closestDonuts) > 0):
 		var count = 0
 		var index = 0

@@ -99,7 +99,6 @@ func GetPaths() -> Array[DonutPath]:
 	return paths
 
 func AddReadyDonut(donutData : DonutType):
-	print("buy")
 	readyDonuts.append(donutData)	
 
 func DoesPathInterceptStart(path):

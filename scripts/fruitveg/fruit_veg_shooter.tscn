@@ -47,10 +47,10 @@ attackTime = 0.5
 attackDamage = 2.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
-[sub_resource type="Resource" id="Resource_q60ti"]
+[sub_resource type="Resource" id="Resource_yh3p2"]
 script = ExtResource("3_yh3p2")
 upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_tnmoq"), SubResource("Resource_04ssq")])
-weakness = 1
+meshIndicatorPath = NodePath("StartPointMesh")
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twgoi"]
@@ -61,7 +61,7 @@ albedo_color = Color(1, 0.654902, 0, 1)
 [node name="FruitVegShooter" type="Node3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_3l1p4")
 projectilePrefab = ExtResource("2_oruhs")
-upgrades = SubResource("Resource_q60ti")
+upgrades = SubResource("Resource_yh3p2")
 mesh = NodePath("CarrotCannon_Model")
 
 [node name="CarrotCannon_Model" parent="." instance=ExtResource("3_oruhs")]
