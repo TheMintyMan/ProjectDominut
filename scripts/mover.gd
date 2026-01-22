@@ -15,10 +15,6 @@ var player : Player
 var active = false
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 func Reset():
 	active = false
 	targetGridPosition = [0,0]
@@ -132,7 +128,6 @@ func Move(delta : float):
 		
 		# If travel distance is more than one cell, split movement into multiple parts
 		if(travelDist > 1):
-			print("Fast")
 			var n = int(travelDist)
 			var rem = travelDist-n
 			for i in range(n):
@@ -153,7 +148,6 @@ func Move(delta : float):
 		if(distToTarget <= travelDist*travelDist):
 			position.x = targetGridPosition[0]
 			position.z = targetGridPosition[1]
-			print("distToTargetFinsih")	
 			if(currentPath.endConnectionPos != null):
 				OnMoveGridCell()
 				OnFinish()	

@@ -5,6 +5,10 @@ var mapSizeY = 16
 var startPoint = 0
 var endPoint = 0
 
+@export var counterHealth : int = 100
+func RemoveCounterHealth(damage):
+	counterHealth = max(counterHealth-damage, 0)
+
 func GetAllChildren(node = null):
 	if(node == null):
 		node = self

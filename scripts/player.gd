@@ -16,6 +16,7 @@ const RAY_LENGTH = 10000.0
 
 @export var money_per_tile: float = 0.5
 var round : int = 1
+@export var maxRounds : int = 10
 var donutSpawnTime : float = 0.2
 var donutSpawnTimer : float = 0
 var hasRoundStarted : bool = false
@@ -24,6 +25,13 @@ var spawnedDonuts : Array[Donut] = []
 
 @export var money : int = 1000
 
+enum WinState{
+	PLAYING,
+	WIN,
+	LOSE
+}
+
+var winState : WinState = WinState.PLAYING
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,13 +41,11 @@ func _ready() -> void:
 @export var donutPrefab : PackedScene
 func StartRound():
 	print("Start")
-	if(!hasRoundStarted):
-		if(startPath != null):
-			for path in paths:
-				if(path.endConnectionPos != null):	
-					RoundStarted()
-					return			
-		hasRoundStarted = false	
+	if(!hasRoundStarted && startPath != null && len(readyDonuts) > 0):
+		for path in paths:
+			if(path.endConnectionPos != null):	
+				RoundStarted()
+				return			
 	print("Cant start")
 
 func RoundStarted():
@@ -51,12 +57,29 @@ func RoundStarted():
 		path.visible = false
 
 func NextRound():
+
+	if(map.counterHealth <= 0):
+		Win()
+		return
+	elif(round >= maxRounds):
+		Lose()
+		return
+		
 	round+=1
+	
 	donutSpawnTimer = 0
 	hasRoundStarted = false
 	
 	for path in paths:
 		path.visible = true
+
+func Lose():
+	winState = WinState.LOSE
+	
+func Win():
+	winState = WinState.WIN
+
+
 
 func CanAfford(cost : int):
 	if(hasRoundStarted):
@@ -131,6 +154,12 @@ func RemainingDonuts():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(map.counterHealth <= 0):
+		Win()
+		
+	if(winState != WinState.PLAYING):
+		return
+	
 	if(hasRoundStarted):
 		if(len(readyDonuts) > 0):
 			donutSpawnTimer +=delta
@@ -139,7 +168,8 @@ func _process(delta: float) -> void:
 				var donut : Donut = Donut.CreateDonutInstance(donutPrefab)
 				donut.AssignData(readyDonuts[0])
 				readyDonuts.remove_at(0)
-				map.add_child(donut)
+				if(donut.get_parent() != map):
+					map.add_child(donut)
 				spawnedDonuts.append(donut)
 				donut.Start(startPath, map.CalculateXYFromGridPos(map.startPoint))
 				donut.player = self

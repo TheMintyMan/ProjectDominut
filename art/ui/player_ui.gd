@@ -10,6 +10,11 @@ extends Control
 
 @export var donutCoinsLabel : Label
 @export var remainingDonutsLabel : Label
+@export var counterHealthLabel : Label
+@export var currentRoundLabel : Label
+
+@export var winScreen : Control
+@export var loseScreen : Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,3 +29,8 @@ func _process(delta: float) -> void:
 	upgradeCostLabel.text = "Upgrade Cost: " + str(donutUpgrader.get_total_cost())
 	donutCoinsLabel.text = "Donut Money: " + str(player.money)
 	remainingDonutsLabel.text = "Remaining Donuts: " + str(player.RemainingDonuts())
+	counterHealthLabel.text = "Remaining Counter Health: " + str(player.map.counterHealth)
+	currentRoundLabel.text = "Round: " + str(player.round) + "/" + str(player.maxRounds)
+	
+	winScreen.visible = player.winState == Player.WinState.WIN
+	loseScreen.visible = player.winState == Player.WinState.LOSE

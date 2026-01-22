@@ -15,6 +15,7 @@ static func CreateDonutInstance(instancePrefab):
 		return instancePrefab.instantiate()
 	var instance = instancePoolInactive[0]
 	instancePoolInactive.remove_at(0)
+	instance.set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	return instance
 
 func OnDie():
@@ -22,6 +23,7 @@ func OnDie():
 	Destroy();
 func OnFinish():
 	super()
+	player.map.RemoveCounterHealth(current_health)
 	Destroy();
 
 func Destroy():
@@ -30,6 +32,7 @@ func Destroy():
 	if(active):
 		player.spawnedDonuts.erase(self)
 		instancePoolInactive.append(self)
+		set_process_mode(Node.PROCESS_MODE_DISABLED)
 		visible = false
 		Reset()
 
