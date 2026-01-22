@@ -51,6 +51,10 @@ func AttemptAttack():
 	for child in manager.GetAllDonuts():
 		var dist = position.distance_squared_to(child.position)
 		if(dist <= attackDistance*attackDistance):
+			if(len(closestDonuts) == 0):
+				closestDonuts.append(child)
+				closestDonutsDists.append(dist)
+				
 			for i in range(len(closestDonuts)):
 				if(i == len(closestDonuts)-1):
 					closestDonuts.append(child)
