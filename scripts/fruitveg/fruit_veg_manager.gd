@@ -5,8 +5,12 @@ class_name FruitVegManager extends Node3D
 @export var FruitVegUnitTypes : Array[PackedScene] = []
 
 @export var money = 0
-@export var maxFruitVegs = 4
+@export var maxFruitVegs : Dictionary[int, int]
+@export var roundUpgrades : Dictionary[int, int]
 var fruitVegUnits : Array[FruitVegUnit] = []
+
+var roundStarted = false
+
 
 func GetAllDonuts():
 	return player.spawnedDonuts
@@ -18,7 +22,7 @@ func PointIsFruitVeg(point):
 	return false
 	
 func Spawn():
-	if(len(fruitVegUnits) < maxFruitVegs):
+	if(len(fruitVegUnits) < maxFruitVegs[player.round]):
 		var mapObjects = map.GetSpawnableMapObjects()
 		var gridPoints : Array[int] = []
 		var pointObjectMap : Dictionary[int, MapObject] = {}
@@ -44,6 +48,18 @@ func Spawn():
 			map.add_child(newFruitVegUnit)
 			fruitVegUnits.append(newFruitVegUnit)
 
+func Upgrade():
+	var indicies = []
+	for i in range(len(fruitVegUnits)):
+		indicies.append(i)
+	
+	var upgrades = roundUpgrades[player.round]
+	while(upgrades > 0 && len(indicies) > 0):
+		var rand = indicies[randi_range(0, len(indicies)-1)]
+		if(fruitVegUnits[rand].RandomUpgrade()):
+			upgrades-=1
+		indicies.erase(rand)
+
 func OnKill(donut : Donut):
 	money+=1
 
@@ -55,4 +71,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(player.hasRoundStarted):
 		Spawn()
+		if(!roundStarted):
+			roundStarted = true
+	
+	if(!player.hasRoundStarted && roundStarted):
+		Upgrade()
+		roundStarted = false
+		
+		
 	pass

@@ -19,11 +19,14 @@ func UpgradeLevel(direction):
 	if(paths != 0):
 		var bounded = clampi(direction, 0, paths)
 		currentLevel.append(bounded)
+		return true
+	else:
+		return false
 	
 func RandomUpgrade():
 	var paths = GetCurrentUpgradeLevel().GetUpgradeBranchCount()
-	var rand = randi_range(0, len(paths)-1)
-	UpgradeLevel(rand)
+	var rand = randi_range(0, paths-1)
+	return UpgradeLevel(rand)
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -48,6 +51,10 @@ func AttemptAttack():
 	for child in manager.GetAllDonuts():
 		var dist = position.distance_squared_to(child.position)
 		if(dist <= attackDistance*attackDistance):
+			if(len(closestDonuts) == 0):
+				closestDonuts.append(child)
+				closestDonutsDists.append(dist)
+				
 			for i in range(len(closestDonuts)):
 				if(i == len(closestDonuts)-1):
 					closestDonuts.append(child)

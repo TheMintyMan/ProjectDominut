@@ -30,7 +30,9 @@ func GetCurrentUpgradeLevel():
 
 func UpgradeLevel(direction):
 	pass
-
+	
+func RandomUpgrade():
+	pass
 
 func LookAt(x, y):
 	if(mesh != null):

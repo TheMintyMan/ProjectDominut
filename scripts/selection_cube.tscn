@@ -4,7 +4,6 @@
 transparency = 1
 albedo_color = Color(1, 0.60784316, 0, 0.49019608)
 emission_enabled = true
-emission = Color(1, 0.58431375, 0.05490196, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pqap4"]
 

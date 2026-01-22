@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://hw56ta54n74n"]
+[gd_scene load_steps=36 format=3 uid="uid://hw56ta54n74n"]
 
 [ext_resource type="Script" uid="uid://p3tr8jax1df" path="res://scripts/donut_production/donut_upgrader.gd" id="1_1xcfw"]
 [ext_resource type="Texture2D" uid="uid://b8f4u37iydrg3" path="res://art/ui/UI_Sprites/CookingBG_UI.png" id="1_cjet6"]
@@ -14,6 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://biuxwwb1lupqw" path="res://art/characters/donut/donut_base.tscn" id="10_ga1ty"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o0ku6"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_cjet6")
+modulate_color = Color(0.8217887, 0.82178867, 0.82178867, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5r16"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 texture = ExtResource("1_cjet6")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lugcq"]
@@ -140,7 +152,7 @@ speed_values = Dictionary[int, float]({
 2: 7.0,
 3: 20.0
 })
-displayDonut = NodePath("PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base")
+displayDonut = NodePath("PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -153,21 +165,26 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o0ku6")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_fendo")
+theme_override_styles/panel = SubResource("StyleBoxTexture_a5r16")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBox_Upgrade" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBox_Upgrade" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label_UPGRADE" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade"]
+[node name="Label_UPGRADE" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -175,20 +192,20 @@ theme_override_fonts/font = ExtResource("2_o0ku6")
 theme_override_font_sizes/font_size = 25
 text = "BUY DONUT"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="HBox_HEALTH" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_HEALTH" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_direction = 2
 layout_mode = 2
 
-[node name="HEALTH_TEXT" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="HEALTH_TEXT" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -198,14 +215,14 @@ theme_override_font_sizes/font_size = 20
 text = "HEALTH LEVEL: "
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
 text = " 0"
 
-[node name="btn_remove_health" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="btn_remove_health" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme = ExtResource("3_fendo")
@@ -219,7 +236,7 @@ theme_override_styles/hover = ExtResource("6_1xcfw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lugcq")
 text = "-"
 
-[node name="btn_add_health" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
+[node name="btn_add_health" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -232,10 +249,10 @@ theme_override_styles/hover = ExtResource("6_1xcfw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ga1ty")
 text = "+"
 
-[node name="HBox_SPEED" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_SPEED" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="SPEED_TEXT" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="SPEED_TEXT" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -245,14 +262,14 @@ theme_override_font_sizes/font_size = 20
 text = "SPEED LEVEL: "
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="Label" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
 text = " 0"
 
-[node name="btn_remove_speed" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="btn_remove_speed" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -264,7 +281,7 @@ theme_override_styles/hover = ExtResource("6_1xcfw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_coafi")
 text = "-"
 
-[node name="btn_add_speed" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
+[node name="btn_add_speed" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -276,10 +293,10 @@ theme_override_styles/hover = ExtResource("6_1xcfw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a724q")
 text = "+"
 
-[node name="HBox_RESISTANCE" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_RESISTANCE" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="RESISTANCE_TEXT" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
+[node name="RESISTANCE_TEXT" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
@@ -289,7 +306,7 @@ theme_override_font_sizes/font_size = 20
 text = "RESISTANCE: "
 horizontal_alignment = 1
 
-[node name="_optn_resistance" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
+[node name="_optn_resistance" type="OptionButton" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE"]
 layout_mode = 2
 theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -314,10 +331,10 @@ popup/item_3/id = 3
 popup/item_4/text = "WALL"
 popup/item_4/id = 4
 
-[node name="HBox_CAMOUFLAGE" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_CAMOUFLAGE" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="CAMOUFLAGE" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
+[node name="CAMOUFLAGE" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
@@ -327,7 +344,7 @@ theme_override_font_sizes/font_size = 20
 text = "CAMOUFLAGE: "
 horizontal_alignment = 2
 
-[node name="chck_camo" type="CheckButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
+[node name="chck_camo" type="CheckButton" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE"]
 layout_mode = 2
 theme = ExtResource("3_fendo")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i6gpf")
@@ -335,11 +352,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2hw5")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_a5r16")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0is5q")
 
-[node name="HBox_CAMOUFLAGE2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
+[node name="HBox_CAMOUFLAGE2" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="_text_upgrade_cost" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2"]
+[node name="_text_upgrade_cost" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -348,13 +365,13 @@ theme_override_font_sizes/font_size = 20
 text = "UPGRADE COST: "
 horizontal_alignment = 1
 
-[node name="VBox_BuyBaseDonuts" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBox_BuyBaseDonuts" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 10
 
-[node name="Label_BUY_DONUTS" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
+[node name="Label_BUY_DONUTS" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -364,18 +381,10 @@ theme_override_font_sizes/font_size = 25
 text = "Buy Base Donuts"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
 layout_mode = 2
 
-[node name="btn_buy_donuts2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("3_fendo")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_o0ku6")
-text = "BUY"
-icon_alignment = 1
-
-[node name="btn_buy_donuts" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
+[node name="btn_buy_donuts2" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -383,11 +392,19 @@ theme_override_fonts/font = ExtResource("2_o0ku6")
 text = "BUY"
 icon_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
+[node name="btn_buy_donuts" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_fendo")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_o0ku6")
+text = "BUY BULK"
+icon_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="_text_base_donuts" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer"]
+[node name="_text_base_donuts" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -396,14 +413,14 @@ theme_override_font_sizes/font_size = 20
 text = "Your Available Donuts: "
 horizontal_alignment = 1
 
-[node name="VBox_READY" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBox_READY" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 10
 
-[node name="Label_READY" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
+[node name="Label_READY" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
@@ -411,7 +428,7 @@ theme_override_font_sizes/font_size = 25
 text = "Ready"
 horizontal_alignment = 1
 
-[node name="btn_ready" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
+[node name="btn_ready" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
@@ -420,7 +437,7 @@ icon = ExtResource("2_xcikl")
 flat = true
 icon_alignment = 1
 
-[node name="btn_ready_all" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
+[node name="btn_ready_all" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_o0ku6")
@@ -429,11 +446,11 @@ icon = ExtResource("2_xcikl")
 flat = true
 icon_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_READY"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="_text_readied_donuts" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_READY/HBoxContainer"]
+[node name="_text_readied_donuts" type="Label" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_READY/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -442,110 +459,110 @@ theme_override_font_sizes/font_size = 20
 text = "Your Readied Donuts: 0"
 horizontal_alignment = 1
 
-[node name="VBox_DonutView" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBox_DonutView" type="VBoxContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView"]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_i6gpf")
 
-[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2"]
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_styles/panel = SubResource("StyleBoxTexture_w2hw5")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2"]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(250, 250)
 render_target_update_mode = 4
 
-[node name="donut_base" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" instance=ExtResource("10_ga1ty")]
+[node name="donut_base" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" instance=ExtResource("10_ga1ty")]
 
-[node name="donut_base_body" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="0"]
+[node name="donut_base_body" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="0"]
 layers = 2
 
-[node name="donut_base_body_damage_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="1"]
+[node name="donut_base_body_damage_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="1"]
 layers = 2
 
-[node name="donut_base_body_damage_02" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="2"]
+[node name="donut_base_body_damage_02" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="2"]
 layers = 2
 
-[node name="donut_base_body_eye_l" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="3"]
+[node name="donut_base_body_eye_l" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="3"]
 layers = 2
 
-[node name="donut_base_body_eye_l_damage_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="4"]
+[node name="donut_base_body_eye_l_damage_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="4"]
 layers = 2
 
-[node name="donut_base_body_eye_l_damage_02" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="5"]
+[node name="donut_base_body_eye_l_damage_02" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="5"]
 layers = 2
 
-[node name="donut_base_body_eye_r" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="6"]
+[node name="donut_base_body_eye_r" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="6"]
 layers = 2
 
-[node name="donut_base_body_eye_r_damage_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="7"]
+[node name="donut_base_body_eye_r_damage_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="7"]
 layers = 2
 
-[node name="donut_base_body_eye_r_damage_02" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="8"]
+[node name="donut_base_body_eye_r_damage_02" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="8"]
 layers = 2
 
-[node name="donut_base_eyebrow_l" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="9"]
+[node name="donut_base_eyebrow_l" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="9"]
 layers = 2
 
-[node name="donut_base_eyebrow_r" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="10"]
+[node name="donut_base_eyebrow_r" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="10"]
 layers = 2
 
-[node name="donut_base_l_arm" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="11"]
+[node name="donut_base_l_arm" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="11"]
 layers = 2
 
-[node name="donut_base_l_feet" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="12"]
+[node name="donut_base_l_feet" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="12"]
 layers = 2
 
-[node name="donut_base_l_leg" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="13"]
+[node name="donut_base_l_leg" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="13"]
 layers = 2
 
-[node name="donut_base_r_arm" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="14"]
+[node name="donut_base_r_arm" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="14"]
 layers = 2
 
-[node name="donut_base_r_feet" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="15"]
+[node name="donut_base_r_feet" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="15"]
 layers = 2
 
-[node name="donut_base_r_leg" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="16"]
+[node name="donut_base_r_leg" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="16"]
 layers = 2
 
-[node name="donut_icing_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="17"]
+[node name="donut_icing_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="17"]
 layers = 2
 
-[node name="donut_icing_01_damage_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="18"]
+[node name="donut_icing_01_damage_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="18"]
 layers = 2
 
-[node name="donut_icing_01_damage_02" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="19"]
+[node name="donut_icing_01_damage_02" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="19"]
 layers = 2
 
-[node name="donut_sprinkles_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="20"]
+[node name="donut_sprinkles_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="20"]
 layers = 2
 
-[node name="donut_sprinkles_01_damage_01" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="21"]
+[node name="donut_sprinkles_01_damage_01" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="21"]
 layers = 2
 
-[node name="donut_sprinkles_01_damage_02" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="22"]
+[node name="donut_sprinkles_01_damage_02" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base/donut_rig/Skeleton3D" index="22"]
 layers = 2
 
-[node name="Camera3D" type="Camera3D" parent="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43216455, 1.3085191)
 cull_mask = 34
 environment = SubResource("Environment_0is5q")
 projection = 1
 far = 4028.0
 
-[node name="btn_send_wave" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="btn_send_wave" type="Button" parent="PanelContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_fendo")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -574,4 +591,4 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[editable path="PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
+[editable path="PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]

@@ -25,12 +25,15 @@ var spawnedDonuts : Array[Donut] = []
 
 @export var money : int = 1000
 
+var canDrawPaths : bool = true
+var canDeletePaths : bool = true
+
+
 enum WinState{
 	PLAYING,
 	WIN,
 	LOSE
 }
-
 var winState : WinState = WinState.PLAYING
 
 # Called when the node enters the scene tree for the first time.
@@ -113,6 +116,14 @@ func DeletePath(path : DonutPath):
 		p.intersectingPaths.erase(path)
 	paths.erase(path)
 	path.queue_free()
+	
+func DeleteAllPaths():
+	for path in paths:
+		if(startPath == path):
+			startPath = null
+		path.queue_free()
+	paths.clear()
+	
 
 func DeletePathPoint(x, y):
 	for path in paths:
@@ -178,26 +189,30 @@ func _process(delta: float) -> void:
 		elif(RemainingDonuts() <= 0):
 			NextRound()
 
-
-	
 	if(selectionCube == null):
 		selectionCube = selectionCubePrefab.instantiate()
+				
 		map.add_child(selectionCube)
-		
+	
+	if(Input.is_action_pressed("ResetPath") && canDeletePaths):	
+		DeleteAllPaths()	
 		
 	var mousepos = get_viewport().get_mouse_position()
 	ray.global_position = cam.project_ray_origin(mousepos)
 	ray.target_position = ray.global_position + cam.project_ray_normal(mousepos) * RAY_LENGTH
 	ray.force_raycast_update()
-	if ray.is_colliding():
+	if ray.is_colliding() && (canDrawPaths || canDeletePaths):
 		selectionCube.visible = true
 		var collision_object = ray.get_collider()
 		var point = ray.get_collision_point()
 		point = Vector3(int(point.x), 1, int(point.z))
 		
-		selectionCube.position = Vector3(point.x+0.5, point.y, point.z+0.5)		
+		selectionCube.position = Vector3(point.x+0.5, point.y, point.z+0.5)	
+		selectionCube.material_override.albedo_color = Color(0, 0.5, 0.6,0.5)
+			
 		# Path creation
-		if(Input.is_action_pressed("LeftClick")):
+		if(Input.is_action_pressed("LeftClick") && canDrawPaths):
+			selectionCube.material_override.albedo_color = Color(0, 1, 0,0.5)
 			# First click
 			if(!clickHeld):
 				currentPath = donutPathPrefab.instantiate()
@@ -254,7 +269,9 @@ func _process(delta: float) -> void:
 			clickHeld = false
 			currentPath = null
 			
-		elif(Input.is_action_pressed("RightClick")):	
+		elif(Input.is_action_pressed("RightClick") && canDeletePaths):	
+			selectionCube.material_override.albedo_color = Color(1, 0.1, 0.1, 0.5)
+			
 			DeletePathPoint(point.x, point.z)	
 			CalculatePathsValidity()	
 	else:

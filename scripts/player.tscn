@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmvdiab568plo"]
+[gd_scene load_steps=15 format=3 uid="uid://dmvdiab568plo"]
 
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="1_fhbv5"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/map/donut_path.tscn" id="2_pqap4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cm6jjiilf68k" path="res://scripts/selection_cube.tscn" id="3_pqap4"]
 [ext_resource type="PackedScene" uid="uid://c2dchotmrfaxw" path="res://art/ui/ui_persistent.tscn" id="5_xfidv"]
 [ext_resource type="Script" uid="uid://p7lb2oafl5pt" path="res://art/ui/player_ui.gd" id="6_o8o0x"]
+[ext_resource type="PackedScene" uid="uid://nn4os867moa7" path="res://art/ui/main_menu.tscn" id="7_0pev8"]
 [ext_resource type="PackedScene" uid="uid://hw56ta54n74n" path="res://art/ui/ui_donut_upgrade.tscn" id="7_o8o0x"]
 [ext_resource type="Texture2D" uid="uid://b8f4u37iydrg3" path="res://art/ui/UI_Sprites/CookingBG_UI.png" id="8_o8o0x"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="9_0pev8"]
@@ -29,6 +30,8 @@ donutPathPrefab = ExtResource("2_pqap4")
 selectionCubePrefab = ExtResource("3_pqap4")
 donutPrefab = ExtResource("3_2c7ny")
 
+[node name="Camera3D_CanvasLayer_ui_donut_upgrade_PanelContainer_MarginContainer_VBoxContainer_VBox_DonutView_PanelContainer2#PanelContainer3" type="PanelContainer" parent="."]
+
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.025, 0, 0, 0, 1, 0, 0, 0, 0.033333335, -0.5, 0, -0.5)
 
@@ -38,20 +41,22 @@ transform = Transform3D(0.025, 0, 0, 0, -0.7455163, 0.6664873, 0, -0.022216246, 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 follow_viewport_enabled = true
 
-[node name="ui_persistent" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("donutUpgrader", "player", "readiedDonutsLabel", "healthLabel", "speedLabel", "upgradeCostLabel", "donutCoinsLabel", "remainingDonutsLabel", "counterHealthLabel", "currentRoundLabel", "winScreen", "loseScreen") instance=ExtResource("5_xfidv")]
+[node name="ui_persistent" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("donutUpgrader", "player", "readiedDonutsLabel", "healthLabel", "speedLabel", "upgradeCostLabel", "donutCoinsLabel", "remainingDonutsLabel", "counterHealthLabel", "currentRoundLabel", "winScreen", "loseScreen", "pauseScreen") instance=ExtResource("5_xfidv")]
 script = ExtResource("6_o8o0x")
 donutUpgrader = NodePath("../ui_donut_upgrade")
 player = NodePath("../../..")
-readiedDonutsLabel = NodePath("../ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer/_text_base_donuts")
-healthLabel = NodePath("../ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/Label")
-speedLabel = NodePath("../ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/Label")
-upgradeCostLabel = NodePath("../ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2/_text_upgrade_cost")
+readiedDonutsLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer/_text_base_donuts")
+healthLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/Label")
+speedLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/Label")
+upgradeCostLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2/_text_upgrade_cost")
 donutCoinsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_donut_coins")
 remainingDonutsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_remaining_donuts")
 counterHealthLabel = NodePath("CenterContainer_counter_health/_counter_health")
 currentRoundLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_current_round")
 winScreen = NodePath("CenterContainer_win_screen")
 loseScreen = NodePath("CenterContainer_lose_screen")
+pauseScreen = NodePath("CenterContainer_pause_screen")
+mainMenuScene = ExtResource("7_0pev8")
 
 [node name="_current_round" type="Label" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_donut_coins/VBoxContainer" index="2"]
 layout_mode = 2
@@ -70,6 +75,61 @@ offset_right = 281.0
 offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 0
+
+[node name="CenterContainer_pause_screen" type="CenterContainer" parent="Camera3D/CanvasLayer/ui_persistent"]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen"]
+layout_mode = 2
+theme = ExtResource("9_nxd4c")
+theme_override_styles/panel = SubResource("StyleBoxTexture_fytk8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("9_nxd4c")
+theme_override_styles/panel = SubResource("StyleBoxTexture_clacw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(350, 200)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_jj7ip")
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
+text = "Restart"
+
+[node name="Button3" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to menu"
 
 [node name="CenterContainer_win_screen" type="CenterContainer" parent="Camera3D/CanvasLayer/ui_persistent"]
 visible = false
@@ -117,8 +177,15 @@ label_settings = SubResource("LabelSettings_jj7ip")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_win_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 10
+text = "Restart"
+
+[node name="Button2" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_win_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
 text = "Return to menu"
 
 [node name="CenterContainer_lose_screen" type="CenterContainer" parent="Camera3D/CanvasLayer/ui_persistent"]
@@ -165,10 +232,17 @@ text = "YOU LOSE"
 label_settings = SubResource("LabelSettings_jj7ip")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_lose_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_lose_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 10
 text = "Restart"
+
+[node name="Button3" type="Button" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_lose_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return to menu"
 
 [node name="ui_donut_upgrade" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_o8o0x")]
 anchors_preset = 1
@@ -191,30 +265,28 @@ offset_bottom = 604.0
 grow_vertical = 1
 theme = ExtResource("9_nxd4c")
 
-[node name="btn_buy_donuts" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2" index="1"]
-text = "BUY BULK"
+[node name="_optn_resistance" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE" index="1"]
+item_count = 4
 
-[node name="VBox_DonutView" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="3"]
-custom_minimum_size = Vector2(0, 270)
-size_flags_vertical = 2
+[node name="HBox_CAMOUFLAGE" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3" index="3"]
+visible = false
 
-[node name="PanelContainer3" type="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2" index="0"]
-layout_mode = 2
-
-[node name="btn_send_wave" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer" index="4"]
-size_flags_vertical = 2
-text = "Start Round"
-
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="item_selected" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
-[connection signal="toggled" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
-[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/btn_send_wave" to="." method="StartRound"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button2" to="Camera3D/CanvasLayer/ui_persistent" method="RestartCurrentLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_pause_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button3" to="Camera3D/CanvasLayer/ui_persistent" method="GoToMainMenu"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_win_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button" to="Camera3D/CanvasLayer/ui_persistent" method="RestartCurrentLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_win_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button2" to="Camera3D/CanvasLayer/ui_persistent" method="GoToMainMenu"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_lose_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button2" to="Camera3D/CanvasLayer/ui_persistent" method="RestartCurrentLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_persistent/CenterContainer_lose_screen/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Button3" to="Camera3D/CanvasLayer/ui_persistent" method="GoToMainMenu"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="item_selected" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE/_optn_resistance" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetResistance"]
+[connection signal="toggled" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/btn_send_wave" to="." method="StartRound"]
 
 [editable path="Camera3D/CanvasLayer/ui_persistent"]
 [editable path="Camera3D/CanvasLayer/ui_donut_upgrade"]
-[editable path="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
+[editable path="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]

@@ -1521,7 +1521,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jrw3p"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3o4xp"]
 texture = ExtResource("1_46p75")
 expand_margin_left = 38.0
 expand_margin_top = 38.0
@@ -1662,7 +1662,7 @@ OptionButton/styles/normal = SubResource("StyleBoxTexture_1qkqc")
 OptionButton/styles/normal_mirrored = SubResource("StyleBoxFlat_sgpmq")
 OptionButton/styles/pressed = SubResource("StyleBoxTexture_dipx8")
 OptionButton/styles/pressed_mirrored = SubResource("StyleBoxFlat_b6vgb")
-Panel/styles/panel = SubResource("StyleBoxTexture_jrw3p")
+Panel/styles/panel = SubResource("StyleBoxTexture_3o4xp")
 PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
 PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
