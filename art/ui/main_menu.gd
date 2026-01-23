@@ -1,7 +1,5 @@
 extends Control
 
-@export var tutorialLevel : PackedScene 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -27,6 +25,3 @@ func _on_button_back_pressed() -> void:
 func _on_button_play_button_down() -> void:
 	Global.next_level()
 	
-func GoToTutorial() -> void:
-	if(tutorialLevel != null):
-		get_tree().change_scene_to_packed(tutorialLevel)

@@ -1,7 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://nn4os867moa7"]
 
 [ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
-[ext_resource type="PackedScene" uid="uid://bmlsv1j21845e" path="res://scenes/level_00_tutorial.tscn" id="2_0ty7k"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
 [ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
@@ -65,7 +64,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_me1i1")
-tutorialLevel = ExtResource("2_0ty7k")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -240,7 +238,6 @@ position = Vector2(640, 360)
 position_smoothing_enabled = true
 
 [connection signal="button_down" from="VBoxContainer/Button_Play" to="." method="_on_button_play_button_down"]
-[connection signal="pressed" from="VBoxContainer/Button_Tutorial" to="." method="GoToTutorial"]
 [connection signal="pressed" from="VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="Credits/Button_Back" to="." method="_on_button_back_pressed"]
