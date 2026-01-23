@@ -6,6 +6,10 @@ var camo: bool = false
 var resistance: Global.ResistanceType = Global.ResistanceType.NONE
 var cost = 0;
 
+var damageFlashTime = 0.6
+var damageFlashTimer = 0
+var preFlashValues = null
+
 @export var donutMesh : DonutMesh 
 
 static var instancePoolInactive : Array[Donut]
@@ -39,6 +43,13 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
+	
+	damageFlashTimer-=delta
+	if(damageFlashTimer <= 0 && preFlashValues != null):
+		donutMesh.SetEmission(preFlashValues)
+		preFlashValues = null
+	
+	
 	if(active):
 		visible = true
 		var posDiffX = targetGridPosition[0]-global_position.x
@@ -62,6 +73,9 @@ func AssignData(donutData: DonutType):
 func DoDamage(damage):
 	current_health-=damage
 	donutMesh.set_health_damage(float(current_health)/float(max_health))
+	
+	preFlashValues = donutMesh.SetEmission([2,2,2])
+	damageFlashTimer = damageFlashTime
 	if(current_health <= 0):
 		OnDie()
 		return true

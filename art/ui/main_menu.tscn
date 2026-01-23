@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://nn4os867moa7"]
+[gd_scene load_steps=25 format=3 uid="uid://nn4os867moa7"]
 
 [ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
+[ext_resource type="PackedScene" uid="uid://bmlsv1j21845e" path="res://scenes/level_00_tutorial.tscn" id="2_0ty7k"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
 [ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
@@ -64,6 +65,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_me1i1")
+tutorialLevel = ExtResource("2_0ty7k")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -105,6 +107,24 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_esp8h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7xlwl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ty7k")
 text = "Start Game"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button_Tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_mp0qs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_esp8h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7xlwl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ty7k")
+text = "Tutorial"
 icon_alignment = 1
 expand_icon = true
 
@@ -220,6 +240,7 @@ position = Vector2(640, 360)
 position_smoothing_enabled = true
 
 [connection signal="button_down" from="VBoxContainer/Button_Play" to="." method="_on_button_play_button_down"]
+[connection signal="pressed" from="VBoxContainer/Button_Tutorial" to="." method="GoToTutorial"]
 [connection signal="pressed" from="VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="Credits/Button_Back" to="." method="_on_button_back_pressed"]

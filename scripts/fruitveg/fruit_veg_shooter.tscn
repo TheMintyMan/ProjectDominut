@@ -8,6 +8,7 @@
 [sub_resource type="Resource" id="Resource_yh3p2"]
 script = ExtResource("3_yh3p2")
 projectileCount = 4
+weakness = 1
 attackDamage = 2.0
 attackDistance = 9.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
@@ -15,6 +16,7 @@ metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 [sub_resource type="Resource" id="Resource_wp5hf"]
 script = ExtResource("3_yh3p2")
 projectileCount = 2
+weakness = 1
 attackTime = 0.75
 attackDamage = 5.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
@@ -29,6 +31,7 @@ metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
 [sub_resource type="Resource" id="Resource_tqh2x"]
 script = ExtResource("3_yh3p2")
+weakness = 1
 attackTime = 0.2
 attackDamage = 3.0
 attackDistance = 6.0
@@ -36,6 +39,7 @@ metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
 [sub_resource type="Resource" id="Resource_ias1d"]
 script = ExtResource("3_yh3p2")
+weakness = 1
 attackTime = 0.5
 attackDamage = 6.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
@@ -43,6 +47,7 @@ metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 [sub_resource type="Resource" id="Resource_04ssq"]
 script = ExtResource("3_yh3p2")
 upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_tqh2x"), SubResource("Resource_ias1d")])
+weakness = 1
 attackTime = 0.5
 attackDamage = 2.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"

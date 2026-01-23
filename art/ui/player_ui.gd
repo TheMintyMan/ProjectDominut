@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_just_released("Pause")):
 		pauseScreen.visible = !pauseScreen.visible
-		get_tree().paused = pauseScreen.visible
+		
 
 	
 	winScreen.visible = player.winState == Player.WinState.WIN && !pauseScreen.visible
@@ -50,9 +50,11 @@ func _process(delta: float) -> void:
 
 
 func RestartCurrentLevel():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 func GoToMainMenu():
+	get_tree().paused = false
 	get_tree().change_scene_to_packed(mainMenuScene)
 		
 	

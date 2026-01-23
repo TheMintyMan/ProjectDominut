@@ -46,5 +46,6 @@ func AttemptAttack():
 	pass
 			
 func HitDonut(donut : Donut):
-	if(GetCurrentUpgradeLevel().weakness != donut.resistance):
+	var weakness = GetCurrentUpgradeLevel().weakness
+	if(weakness == Global.ResistanceType.NONE || weakness != donut.resistance):
 		donut.DoDamage(GetCurrentUpgradeLevel().attackDamage)

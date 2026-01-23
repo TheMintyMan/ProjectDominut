@@ -47,7 +47,7 @@ func AttemptAttack():
 	var upgrade = GetCurrentUpgradeLevel()
 	var attackDistance = upgrade.attackDistance
 	var closestDonuts : Array[Donut] = []
-	var closestDonutsDists : Array[int] = []
+	var closestDonutsDists : Array[float] = []
 	for child in manager.GetAllDonuts():
 		var dist = position.distance_squared_to(child.position)
 		if(dist <= attackDistance*attackDistance):

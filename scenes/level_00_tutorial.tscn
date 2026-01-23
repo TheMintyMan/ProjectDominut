@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmlsv1j21845e"]
 
 [ext_resource type="PackedScene" uid="uid://c45t6xkiltfyb" path="res://scenes/MainMap.tscn" id="1_3vy4s"]
-[ext_resource type="PackedScene" uid="uid://uqyr3umqd3dq" path="res://art/environment/wall.tscn" id="2_044v0"]
+[ext_resource type="PackedScene" uid="uid://dfuj57ttdkh6c" path="res://art/environment/models/Wall.fbx" id="2_044v0"]
 [ext_resource type="PackedScene" uid="uid://7bv4t2ma7u10" path="res://art/environment/wall_01.tscn" id="3_hm13e"]
 [ext_resource type="PackedScene" uid="uid://0uphkaht4juy" path="res://art/environment/wet_floor_sign.tscn" id="4_hm13e"]
 [ext_resource type="PackedScene" uid="uid://cwvrlqcohsv5t" path="res://art/environment/counter.tscn" id="5_ogcup"]
@@ -26,14 +26,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 6)
 [node name="FloorMesh" parent="Map/Floor" index="1"]
 transform = Transform3D(21, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
 
-[node name="Camera3D" parent="Map/Floor/Player" index="1"]
+[node name="Camera3D" parent="Map/Floor/Player" index="2"]
 transform = Transform3D(0.025, 0, 0, 0, 0.36967862, 0.9291597, 0, -0.030971993, 0.012322621, 0.026635882, 11.193582, 0.17420518)
-
-[node name="donut_base" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 6.5)
-
-[node name="Camera3D" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48822355, 0.91803205, 7.3248167)
 
 [node name="DirectionalLight3D" parent="map_lighting" index="0"]
 light_energy = 0.2
@@ -186,5 +180,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.5
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade"]
-[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
+[editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_DonutView/PanelContainer2/PanelContainer2/SubViewportContainer/SubViewport/donut_base"]
 [editable path="map_lighting"]
