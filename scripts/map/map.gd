@@ -52,8 +52,6 @@ func GetOccupiedPoints():
 	for child in GetAllChildren():
 		if(child is MapObject):
 			for point in child.gridPositions:
-				print(point)
-				print(child)
 				points.append(CalculateXYFromGridPos(point))
 	return points
 

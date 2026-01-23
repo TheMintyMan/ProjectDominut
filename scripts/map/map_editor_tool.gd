@@ -56,7 +56,7 @@ func on_resource_changed():
 		
 	for child in GetAllChildren(map):
 		if child is MapObject && child.useCenterPositionForGrid:
-			child.gridPositions = [CalculateGridPosFromXY(int(child.position.x), int(child.position.z))]
+			child.gridPositions = [CalculateGridPosFromXY(int(child.global_position.x), int(child.global_position.z))]
 	
 	if(floorMesh != null):
 		floorMesh.scale.x = mapSizeX

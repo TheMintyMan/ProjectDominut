@@ -13,7 +13,7 @@ var current_currency: int = inital_currency
 
 var levels = [
 	"res://art/ui/main_menu.tscn",
-	"res://scenes/Map_03.tscn",
+	"res://scenes/level_00_tutorial.tscn",
 ]
 var level_index: int = 0
 

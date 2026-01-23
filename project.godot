@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectDominut"
-run/main_scene="uid://2inb7ux2pijv"
+run/main_scene="uid://nn4os867moa7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://dwayn2j7stlah"
 config/macos_native_icon="uid://dwayn2j7stlah"

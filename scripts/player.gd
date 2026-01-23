@@ -200,11 +200,16 @@ func _process(delta: float) -> void:
 	ray.global_position = cam.project_ray_origin(mousepos)
 	ray.target_position = ray.global_position + cam.project_ray_normal(mousepos) * RAY_LENGTH
 	ray.force_raycast_update()
-	if ray.is_colliding() && (canDrawPaths || canDeletePaths):
+	var point = null
+	if(ray.is_colliding()):
+		point = ray.get_collision_point()
+			
+	if (canDrawPaths || canDeletePaths) && point != null && point.x > 0 && point.z > 0 && int(point.x) <= map.mapSizeX && int(point.z) <= map.mapSizeY:
 		selectionCube.visible = true
 		var collision_object = ray.get_collider()
-		var point = ray.get_collision_point()
+
 		point = Vector3(int(point.x), 1, int(point.z))
+		
 		
 		selectionCube.position = Vector3(point.x+0.5, point.y, point.z+0.5)	
 		selectionCube.material_override.albedo_color = Color(0, 0.5, 0.6,0.5)
