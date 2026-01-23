@@ -8,14 +8,12 @@
 [sub_resource type="Resource" id="Resource_ipimv"]
 script = ExtResource("3_ipimv")
 placedCount = 5
-weakness = 3
 attackDistance = 5.0
 metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 
 [sub_resource type="Resource" id="Resource_2wwod"]
 script = ExtResource("3_ipimv")
 placedCount = 2
-weakness = 3
 attackDamage = 3.0
 metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 
@@ -23,18 +21,15 @@ metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 script = ExtResource("3_ipimv")
 upgradePaths = Array[ExtResource("3_ipimv")]([SubResource("Resource_ipimv"), SubResource("Resource_2wwod")])
 placedCount = 2
-weakness = 3
 metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 
 [sub_resource type="Resource" id="Resource_08u6s"]
 script = ExtResource("3_ipimv")
-weakness = 3
 attackDamage = 6.0
 metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 
 [sub_resource type="Resource" id="Resource_n33g7"]
 script = ExtResource("3_ipimv")
-weakness = 3
 attackTime = 0.7
 attackDamage = 4.0
 attackDistance = 6.0
@@ -43,7 +38,6 @@ metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 [sub_resource type="Resource" id="Resource_oyr6q"]
 script = ExtResource("3_ipimv")
 upgradePaths = Array[ExtResource("3_ipimv")]([SubResource("Resource_08u6s"), SubResource("Resource_n33g7")])
-weakness = 3
 attackDamage = 4.0
 metadata/_custom_type_script = "uid://c1f2dj206ffa7"
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm51vqulmhy6j"]
+
+[ext_resource type="Script" uid="uid://33or8jpvq22n" path="res://scripts/fruitveg/fruit_veg_manual_spawner.gd" id="1_johb3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_johb3"]
+size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_johb3"]
+
+[node name="fruit_veg_manual_spawner" type="Node3D"]
+script = ExtResource("1_johb3")
+upgrade_rounds = Array[int]([3, 4, 1])
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_johb3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_johb3")
+skeleton = NodePath("../Area3D/CollisionShape3D")

@@ -1,4 +1,9 @@
 class_name FruitVegUnit extends MapObject
+
+#@export var weakness : Global.ResistanceType = Global.ResistanceType.NONE
+#@export var attackTime: float = 1.0
+#@export var attackDamage:float = 1.0
+#@export var attackDistance = 4
 var manager : FruitVegManager = null
 @export var mesh : Node3D 
 
@@ -38,6 +43,14 @@ func LookAt(x, y):
 		
 		mesh.look_at(mesh.global_position - Vector3(posDiffX, 0, posDiffY), Vector3.UP)
 
+#func SetAttackTime(new_attackTime: float):
+	#attackTime = new_attackTime
+	#
+#func SetDamage(new_attackDamage: float):
+	#attackDamage = new_attackDamage
+#
+#func SetAttackDistance(new_attackDistance: int):
+	#attackDistance = new_attackDistance
 
 func RoundEnd():
 	pass
@@ -46,6 +59,5 @@ func AttemptAttack():
 	pass
 			
 func HitDonut(donut : Donut):
-	var weakness = GetCurrentUpgradeLevel().weakness
-	if(weakness == Global.ResistanceType.NONE || weakness != donut.resistance):
+	if(GetCurrentUpgradeLevel().weakness != donut.resistance):
 		donut.DoDamage(GetCurrentUpgradeLevel().attackDamage)

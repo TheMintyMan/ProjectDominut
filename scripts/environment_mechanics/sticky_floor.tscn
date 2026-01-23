@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmodvv8kxu7ox"]
+
+[ext_resource type="Script" uid="uid://b5hirtjkry8j8" path="res://scripts/environment_mechanics/sticky_floor.gd" id="1_w5wym"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qxweu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w5wym"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxweu"]
+transparency = 1
+albedo_color = Color(0.9541667, 1, 0.45, 0.6313726)
+
+[node name="StickyFloor" type="Node3D"]
+script = ExtResource("1_w5wym")
+
+[node name="StickyFloor_Area" type="Area3D" parent="."]
+
+[node name="StickyFloor_Collision" type="CollisionShape3D" parent="StickyFloor_Area"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0, 0)
+shape = SubResource("BoxShape3D_qxweu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_w5wym")
+surface_material_override/0 = SubResource("StandardMaterial3D_qxweu")
+
+[connection signal="area_entered" from="StickyFloor_Area" to="." method="_on_sticky_floor_area_area_entered"]
+[connection signal="area_exited" from="StickyFloor_Area" to="." method="_on_sticky_floor_area_area_exited"]

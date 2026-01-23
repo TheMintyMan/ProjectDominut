@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://nn4os867moa7"]
+[gd_scene load_steps=24 format=3 uid="uid://nn4os867moa7"]
 
 [ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
@@ -105,24 +105,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_esp8h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7xlwl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ty7k")
 text = "Start Game"
-icon_alignment = 1
-expand_icon = true
-
-[node name="Button_Tutorial" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_constants/align_to_largest_stylebox = 0
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("2_me1i1")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxTexture_mp0qs")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_esp8h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7xlwl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0ty7k")
-text = "Tutorial"
 icon_alignment = 1
 expand_icon = true
 

@@ -7,7 +7,6 @@
 
 [sub_resource type="Resource" id="Resource_ue077"]
 script = ExtResource("3_cpqcg")
-weakness = 2
 attackDamage = 4.0
 attackDistance = 5.0
 metadata/_custom_type_script = "uid://vekbgpudso34"
@@ -22,7 +21,6 @@ metadata/_custom_type_script = "uid://vekbgpudso34"
 
 [sub_resource type="Resource" id="Resource_cpqcg"]
 script = ExtResource("3_cpqcg")
-weakness = 2
 attackTime = 3.0
 attackDamage = 6.0
 attackDistance = 6.0

@@ -23,7 +23,7 @@ func End(unit):
 		meshIndicator.visible = false
 
 func LoadMeshIndicator(unit):
-	if(meshIndicator == null && !meshIndicatorPath.is_empty()):
+	if(meshIndicator == null):
 		meshIndicator = unit.get_node(meshIndicatorPath)
 
 func GetNextLevel(level):

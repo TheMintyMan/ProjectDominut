@@ -77,20 +77,4 @@ func SetData(donutData : DonutType):
 		mat.set_shader_parameter("albedo", baseCol) 
 		baseDonut.material_override = mat
 		
-func SetEmission(values):
-	var preValues = []
-	for icing in icing_mesh_01:
-		var mat = icing.material_override
-		preValues.append(mat.get_shader_parameter("light_noise_strength"))
-		mat.set_shader_parameter("light_noise_strength", values[0]);
-	
-	for sprinkles in sprinkle_mesh_01:
-		var mat = sprinkles.material_override
-		preValues.append(mat.get_shader_parameter("light_noise_strength"))
-		mat.set_shader_parameter("light_noise_strength", values[1]);
 		
-	for baseDonut in base_donut_mesh:
-		var mat = baseDonut.material_override
-		preValues.append(mat.get_shader_parameter("light_noise_strength"))
-		mat.set_shader_parameter("light_noise_strength", values[2]);		
-	return preValues

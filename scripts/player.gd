@@ -14,6 +14,7 @@ const RAY_LENGTH = 10000.0
 @onready var cam = $Camera3D
 @onready var ray = $RayCast3D
 
+@export var money_per_tile: float = 0.5
 var round : int = 1
 @export var maxRounds : int = 10
 var donutSpawnTime : float = 0.2
@@ -90,11 +91,14 @@ func CanAfford(cost : int):
 
 func SpendMoney(cost : int):
 	money=max(money-cost, 0)
-
 	
-		
+func GetRound() -> int:
+	return round
+	
+func GetPaths() -> Array[DonutPath]:
+	return paths
+
 func AddReadyDonut(donutData : DonutType):
-	print("buy")
 	readyDonuts.append(donutData)	
 
 func DoesPathInterceptStart(path):
@@ -151,7 +155,10 @@ func CalculatePathsValidity():
 		paths[1].CalculateValidity([map.GetStartPointXY()], [map.GetEndPointXY()], [], true)
 
 func DonutMove(donut : Donut):
-	money+=(sqrt(donut.cost))	
+	money+=(sqrt(donut.cost)) * money_per_tile
+	
+func AddMoney(more_money: int):
+	more_money += money
 
 func RemainingDonuts():
 	return len(spawnedDonuts)
@@ -214,11 +221,13 @@ func _process(delta: float) -> void:
 				paths.append(currentPath)
 			# Hold
 			else:
-				currentPath.visible = true
+				currentPath.show()
 				currentPath.SetEnd(point.x, point.z)
 			clickHeld = true
 		# Let go
 		elif(clickHeld):
+			if (!currentPath):
+				return
 			currentPath.visible = true
 			var mapStart = map.GetStartPointXY()
 			var mapEnd = map.GetEndPointXY()
