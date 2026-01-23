@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhn6skogfgqr5" path="res://art/environment/models/BakerySign.fbx" id="1_4ldna"]
 [ext_resource type="Material" uid="uid://butp0jrtgrvdd" path="res://art/materials/mat_orange_carrot.tres" id="2_vkk2n"]
-[ext_resource type="Material" uid="uid://bmy8iwqufajxv" path="res://art/materials/mat_white.tres" id="3_jijdr"]
+[ext_resource type="Material" uid="uid://mv37vf7k4ymr" path="res://art/materials/basic_material.tres" id="3_jijdr"]
 [ext_resource type="Material" uid="uid://fc57am6ur8q8" path="res://art/materials/mat_wood.tres" id="4_todo3"]
 
 [node name="BakerySign" instance=ExtResource("1_4ldna")]
