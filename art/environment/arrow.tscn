@@ -6,4 +6,5 @@
 [node name="arrow" instance=ExtResource("1_fi1eq")]
 
 [node name="arrow" parent="." index="0"]
+cast_shadow = 0
 surface_material_override/0 = ExtResource("2_uhfpj")

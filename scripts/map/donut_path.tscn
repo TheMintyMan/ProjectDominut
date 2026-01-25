@@ -11,6 +11,7 @@ albedo_color = Color(1, 0, 1, 0.49411765)
 
 [node name="DonutPath" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_ekbkb")
+cast_shadow = 0
 mesh = SubResource("BoxMesh_1qaq4")
 script = ExtResource("1_bu66o")
 validColour = Color(1, 0, 1, 0.49411765)

@@ -9,5 +9,6 @@ emission_enabled = true
 
 [node name="SelectionCube" type="MeshInstance3D"]
 material_override = SubResource("StandardMaterial3D_fhbv5")
+cast_shadow = 0
 mesh = SubResource("BoxMesh_pqap4")
 skeleton = NodePath("../Floor/FloorMesh")
