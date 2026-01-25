@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdp7rqsr1wosv"]
+
+[ext_resource type="Material" uid="uid://vejujoeorr3o" path="res://art/materials/mat_coke.tres" id="2_xr81t"]
+[ext_resource type="Material" path="res://art/materials/mat_metal.tres" id="3_mokqn"]
+[ext_resource type="Material" path="res://art/materials/mat_metalred.tres" id="4_66qiv"]
+[ext_resource type="Material" uid="uid://dvjtmhk561aeh" path="res://art/materials/mat_black_matte.tres" id="5_p0j1c"]
+
+[node name="CokeCan"]
+
+[node name="CokeSpill1" parent="StickyTile" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7984817, 0)
+material_override = ExtResource("2_xr81t")
+
+[node name="Can" parent="StickyTile" index="1"]
+surface_material_override/0 = ExtResource("3_mokqn")
+surface_material_override/1 = ExtResource("4_66qiv")
+surface_material_override/2 = ExtResource("5_p0j1c")

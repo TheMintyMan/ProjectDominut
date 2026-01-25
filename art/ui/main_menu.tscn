@@ -1,13 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://nn4os867moa7"]
+[gd_scene load_steps=25 format=3 uid="uid://nn4os867moa7"]
 
 [ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
 [ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
 [ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/Buttons/BaseButton.png" id="5_0ty7k"]
+[ext_resource type="Texture2D" uid="uid://radfwkknpv3l" path="res://art/credits_icon/Donut_Minty.png" id="5_ud3x8"]
 [ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/Buttons/PresedButton.png" id="6_dunp4"]
+[ext_resource type="Texture2D" uid="uid://dgsl4l6lhvxq8" path="res://art/ui/UI_Sprites/Donut_Wacky.png" id="6_esp8h"]
 [ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/Buttons/HoverButton.png" id="6_mp0qs"]
 [ext_resource type="Texture2D" uid="uid://cmcgnwat3bsni" path="res://art/credits_icon/Donut_Benjayadev.png" id="7_0ty7k"]
+[ext_resource type="Texture2D" uid="uid://dvspxdb3c67nm" path="res://art/ui/UI_Sprites/DonutDominationTitle.png" id="10_habwj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nws0h"]
 texture = ExtResource("5_0ty7k")
@@ -154,7 +157,7 @@ texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("7_0ty7k")
+texture = ExtResource("5_ud3x8")
 stretch_mode = 5
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer"]
@@ -170,7 +173,7 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_me1i1")
 theme_override_font_sizes/font_size = 51
-text = "Benjaydev"
+text = "Joaquin Gundry"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/VBoxContainer2"]
@@ -178,7 +181,7 @@ texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("7_0ty7k")
+texture = ExtResource("6_esp8h")
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
@@ -251,22 +254,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -321.0
-offset_top = -188.0
+offset_top = -297.0
 offset_right = 321.0
-offset_bottom = 188.0
+offset_bottom = 235.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Main/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Main/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 7
-theme_override_constants/shadow_offset_y = 7
-theme_override_fonts/font = ExtResource("2_me1i1")
-theme_override_font_sizes/font_size = 60
-text = "DONUT DOMINATION"
+texture = ExtResource("10_habwj")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Main/VBoxContainer2"]
 layout_mode = 2
