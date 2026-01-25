@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmvdiab568plo"]
+[gd_scene load_steps=18 format=3 uid="uid://dmvdiab568plo"]
 
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="1_fhbv5"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/map/donut_path.tscn" id="2_pqap4"]
@@ -12,8 +12,20 @@
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="9_0pev8"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="9_nxd4c"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0pev8"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.32348853, 1.0889582e-05, 0.25220564, 1)
+sky_curve = 0.047795907
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.7563628, 0.099079706, 0.52604455, 1)
+ground_curve = 0.2185672
+
+[sub_resource type="Sky" id="Sky_fytk8"]
+sky_material = SubResource("ProceduralSkyMaterial_0pev8")
+
 [sub_resource type="Environment" id="Environment_0pev8"]
-background_mode = 1
+background_mode = 2
+sky = SubResource("Sky_fytk8")
 ambient_light_source = 2
 ambient_light_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
 

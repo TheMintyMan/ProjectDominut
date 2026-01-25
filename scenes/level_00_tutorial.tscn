@@ -107,11 +107,8 @@ transform = Transform3D(21, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
 money_per_tile = 1.5
 money = 500
 
-[node name="Camera3D" parent="Map/Floor/Player" index="2"]
+[node name="Camera3D" parent="Map/Floor/Player" index="1"]
 transform = Transform3D(0.025, 0, 0, 0, 0.3332156, 0.9428507, 0, -0.031428356, 0.011107188, 0.0016357601, 13.193582, 0.1575385)
-
-[node name="debug" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent" index="2"]
-visible = false
 
 [node name="walls" type="Node" parent="Map" index="6"]
 
@@ -759,7 +756,7 @@ useCenterPositionForGrid = true
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -24.5, 0)
-amount = 500
+amount = 1000
 lifetime = 10.33
 preprocess = 10.0
 fixed_fps = 20
@@ -773,14 +770,6 @@ script = ExtResource("14_gfqnj")
 direction = Vector3(0.5, 0, 0)
 speed = 3.0
 canBobBackwards = true
-
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
-[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
-[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]

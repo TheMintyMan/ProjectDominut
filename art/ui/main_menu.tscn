@@ -1,16 +1,24 @@
-[gd_scene load_steps=25 format=3 uid="uid://nn4os867moa7"]
+[gd_scene load_steps=29 format=3 uid="uid://nn4os867moa7"]
 
 [ext_resource type="Script" uid="uid://bifv5jfuowf3v" path="res://art/ui/main_menu.gd" id="1_me1i1"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="2_me1i1"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="2_mp0qs"]
 [ext_resource type="Theme" uid="uid://h1stwtlp1a3f" path="res://art/ui/UI_Sprites/PanelBG_Theme.tres" id="4_dunp4"]
+[ext_resource type="Texture2D" uid="uid://bhcw2i1e8yue1" path="res://art/ui/UI_Sprites/MenuBG.png" id="4_habwj"]
 [ext_resource type="Texture2D" uid="uid://duy4hn0b8gup0" path="res://art/ui/UI_Sprites/Buttons/BaseButton.png" id="5_0ty7k"]
+[ext_resource type="FontFile" uid="uid://c175avra4luyg" path="res://art/ui/Fonts/Super Meatball.ttf" id="5_4q1d2"]
 [ext_resource type="Texture2D" uid="uid://radfwkknpv3l" path="res://art/credits_icon/Donut_Minty.png" id="5_ud3x8"]
 [ext_resource type="Texture2D" uid="uid://bv8buhuisla4d" path="res://art/ui/UI_Sprites/Buttons/PresedButton.png" id="6_dunp4"]
 [ext_resource type="Texture2D" uid="uid://dgsl4l6lhvxq8" path="res://art/ui/UI_Sprites/Donut_Wacky.png" id="6_esp8h"]
 [ext_resource type="Texture2D" uid="uid://dkne2jfffg2qk" path="res://art/ui/UI_Sprites/Buttons/HoverButton.png" id="6_mp0qs"]
 [ext_resource type="Texture2D" uid="uid://cmcgnwat3bsni" path="res://art/credits_icon/Donut_Benjayadev.png" id="7_0ty7k"]
+[ext_resource type="Texture2D" uid="uid://c2xlp1rsq2k33" path="res://art/credits_icon/Donut_YourName.png" id="9_4q1d2"]
 [ext_resource type="Texture2D" uid="uid://dvspxdb3c67nm" path="res://art/ui/UI_Sprites/DonutDominationTitle.png" id="10_habwj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jqqrl"]
+content_margin_left = 0.0
+texture = ExtResource("4_habwj")
+modulate_color = Color(0.8992584, 0.8992584, 0.8992584, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nws0h"]
 texture = ExtResource("5_0ty7k")
@@ -122,18 +130,43 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3"]
+[node name="MarginContainer4" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = "Benjaydev"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
@@ -141,18 +174,43 @@ size_flags_vertical = 3
 texture = ExtResource("7_0ty7k")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3"]
+[node name="MarginContainer3" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
-text = "Benjaydev"
+text = " Minty"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
@@ -165,18 +223,43 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
+[node name="MarginContainer4" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = "Joaquin Gundry"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
@@ -184,23 +267,48 @@ size_flags_vertical = 3
 texture = ExtResource("6_esp8h")
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
+[node name="MarginContainer3" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me1i1")
+theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
-text = "Benjaydev"
+text = "Who Am I?"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("7_0ty7k")
+texture = ExtResource("9_4q1d2")
 stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits"]
@@ -253,9 +361,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -321.0
-offset_top = -297.0
-offset_right = 321.0
+offset_left = -321.75
+offset_top = -235.5
+offset_right = 321.75
 offset_bottom = 235.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -266,13 +374,19 @@ layout_mode = 2
 texture = ExtResource("10_habwj")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Main/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Main/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_dunp4")
 theme_override_constants/separation = 10
 
-[node name="Button_Play" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer"]
+[node name="Button_Play" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
@@ -290,7 +404,7 @@ text = "Start Game"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button_Credits" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer"]
+[node name="Button_Credits" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -306,7 +420,7 @@ text = "Credits"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button_Quit" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer"]
+[node name="Button_Quit" type="Button" parent="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_mp0qs")
@@ -324,6 +438,6 @@ icon_alignment = 1
 expand_icon = true
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/Credits/MarginContainer/Button_Back" to="." method="_on_button_back_pressed"]
-[connection signal="button_down" from="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer/Button_Play" to="." method="_on_button_play_button_down"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/Main/VBoxContainer2/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
+[connection signal="button_down" from="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer/Button_Play" to="." method="_on_button_play_button_down"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer/Button_Credits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Main/VBoxContainer2/MarginContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
