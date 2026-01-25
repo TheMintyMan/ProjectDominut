@@ -154,3 +154,4 @@ func _ready() -> void:
 		map.mapSizeY = mapSizeY
 		map.startPoint = startPoint
 		map.endPoint = endPoint
+		map.Start()

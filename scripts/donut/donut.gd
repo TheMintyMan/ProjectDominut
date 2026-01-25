@@ -23,6 +23,7 @@ func OnDie():
 func OnFinish():
 	super()
 	player.map.RemoveCounterHealth(current_health)
+	player.DonutFinish(self)
 	Destroy();
 
 func Destroy():

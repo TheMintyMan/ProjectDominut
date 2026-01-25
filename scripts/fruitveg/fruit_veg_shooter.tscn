@@ -1,55 +1,46 @@
-[gd_scene load_steps=14 format=3 uid="uid://qhxeklit67ga"]
+[gd_scene load_steps=12 format=3 uid="uid://qhxeklit67ga"]
 
 [ext_resource type="Script" uid="uid://c5i5cggks4015" path="res://scripts/fruitveg/fruit_veg_shooter.gd" id="1_3l1p4"]
 [ext_resource type="PackedScene" uid="uid://du623mt1fbupy" path="res://scripts/fruitveg/fruit_veg_projectile.tscn" id="2_oruhs"]
 [ext_resource type="PackedScene" uid="uid://bkiy8ik3nop0i" path="res://art/characters/fruit_veg/carrot_cannon_model.tscn" id="3_oruhs"]
 [ext_resource type="Script" uid="uid://dbksscyh1nh3e" path="res://scripts/fruitveg/Upgrades/fruit_veg_unit_upgrade_shooter.gd" id="3_yh3p2"]
 
-[sub_resource type="Resource" id="Resource_yh3p2"]
-script = ExtResource("3_yh3p2")
-projectileCount = 4
-attackDamage = 2.0
-attackDistance = 9.0
-metadata/_custom_type_script = "uid://dbksscyh1nh3e"
-
-[sub_resource type="Resource" id="Resource_wp5hf"]
-script = ExtResource("3_yh3p2")
-projectileCount = 2
-attackTime = 0.75
-attackDamage = 5.0
-metadata/_custom_type_script = "uid://dbksscyh1nh3e"
-
 [sub_resource type="Resource" id="Resource_tnmoq"]
 script = ExtResource("3_yh3p2")
-upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_yh3p2"), SubResource("Resource_wp5hf")])
-projectileCount = 2
-weakness = 1
-attackDistance = 6.0
-metadata/_custom_type_script = "uid://dbksscyh1nh3e"
-
-[sub_resource type="Resource" id="Resource_tqh2x"]
-script = ExtResource("3_yh3p2")
-attackTime = 0.2
-attackDamage = 3.0
-attackDistance = 6.0
-metadata/_custom_type_script = "uid://dbksscyh1nh3e"
-
-[sub_resource type="Resource" id="Resource_ias1d"]
-script = ExtResource("3_yh3p2")
-attackTime = 0.5
-attackDamage = 6.0
+projectileCount = 3
+attackTime = 0.3
+attackDistance = 5.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
 [sub_resource type="Resource" id="Resource_04ssq"]
 script = ExtResource("3_yh3p2")
-upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_tqh2x"), SubResource("Resource_ias1d")])
+upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_tnmoq")])
+projectileCount = 2
+weakness = 1
 attackTime = 0.5
+attackDistance = 5.0
+metadata/_custom_type_script = "uid://dbksscyh1nh3e"
+
+[sub_resource type="Resource" id="Resource_q60ti"]
+script = ExtResource("3_yh3p2")
+weakness = 1
+attackDamage = 4.0
+attackDistance = 8.0
+metadata/_custom_type_script = "uid://dbksscyh1nh3e"
+
+[sub_resource type="Resource" id="Resource_tqh2x"]
+script = ExtResource("3_yh3p2")
+upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_q60ti")])
+weakness = 1
 attackDamage = 2.0
+attackDistance = 6.0
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 
 [sub_resource type="Resource" id="Resource_yh3p2"]
 script = ExtResource("3_yh3p2")
-upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_tnmoq"), SubResource("Resource_04ssq")])
+upgradePaths = Array[ExtResource("3_yh3p2")]([SubResource("Resource_04ssq"), SubResource("Resource_tqh2x")])
+projectileCount = 4
+weakness = 1
 meshIndicatorPath = NodePath("StartPointMesh")
 metadata/_custom_type_script = "uid://dbksscyh1nh3e"
 

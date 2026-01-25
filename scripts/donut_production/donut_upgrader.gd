@@ -20,7 +20,15 @@ var resistance_level : Global.ResistanceType = Global.ResistanceType.NONE
 
 @export var displayDonut : DonutMesh= null
 
+@export var upgradeMenu : PanelContainer
+@export var upgradeMenuToggleButton : Button
+var menuStartPos = 0;
+var menuOpen = true
+
+
 func _ready() -> void:
+	menuStartPos = upgradeMenu.position.x
+	
 	for key in health_values.keys():
 		max_health_level = max(max_health_level, key)
 	for key in speed_values.keys():
@@ -29,8 +37,20 @@ func _ready() -> void:
 	UpdateDisplayDonut()
 
 func _process(delta: float) -> void:
+	if(!menuOpen):
+		upgradeMenu.position.x=move_toward(upgradeMenu.position.x, menuStartPos+upgradeMenu.size.x-25, delta*500)
+	else:
+		upgradeMenu.position.x=move_toward(upgradeMenu.position.x, menuStartPos, delta*500)
+	
 	DisplayDonutProcess(delta)
 
+func ToggleMenu():
+	menuOpen = !menuOpen
+	
+	if(menuOpen):
+		upgradeMenuToggleButton.text = ">"
+	else:
+		upgradeMenuToggleButton.text = "<"
 
 func SetResistance(index : int):
 	resistance_level = Global.ResistanceType.values()[index]

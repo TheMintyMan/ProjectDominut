@@ -1522,11 +1522,8 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3o4xp"]
+content_margin_left = 0.0
 texture = ExtResource("1_46p75")
-expand_margin_left = 38.0
-expand_margin_top = 38.0
-expand_margin_right = 38.0
-expand_margin_bottom = 38.0
 
 [sub_resource type="DPITexture" id="DPITexture_dipx8"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"16\"><path fill=\"none\" stroke=\"#b2b2b2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-opacity=\".45\" stroke-width=\"2\" d=\"m2.5 11 3-3-3-3\"/></svg>

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmvdiab568plo"]
+[gd_scene load_steps=16 format=3 uid="uid://dmvdiab568plo"]
 
 [ext_resource type="Script" uid="uid://ds4bhddscb328" path="res://scripts/player.gd" id="1_fhbv5"]
 [ext_resource type="PackedScene" uid="uid://3msjqppbib7h" path="res://scripts/map/donut_path.tscn" id="2_pqap4"]
@@ -11,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b8f4u37iydrg3" path="res://art/ui/UI_Sprites/CookingBG_UI.png" id="8_o8o0x"]
 [ext_resource type="FontFile" uid="uid://dngvdej52pski" path="res://art/ui/Fonts/Planet Jumbo.otf" id="9_0pev8"]
 [ext_resource type="Theme" uid="uid://cmsnr0sixdkkw" path="res://art/ui/UI_Sprites/MenuTheme.tres" id="9_nxd4c"]
+
+[sub_resource type="Environment" id="Environment_0pev8"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fytk8"]
 texture = ExtResource("8_o8o0x")
@@ -30,13 +35,12 @@ donutPathPrefab = ExtResource("2_pqap4")
 selectionCubePrefab = ExtResource("3_pqap4")
 donutPrefab = ExtResource("3_2c7ny")
 
-[node name="Camera3D_CanvasLayer_ui_donut_upgrade_PanelContainer_MarginContainer_VBoxContainer_VBox_DonutView_PanelContainer2#PanelContainer3" type="PanelContainer" parent="."]
-
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(0.025, 0, 0, 0, 1, 0, 0, 0, 0.033333335, -0.5, 0, -0.5)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.025, 0, 0, 0, -0.7455163, 0.6664873, 0, -0.022216246, -0.024850547, 0, 21.859045, -0.29684597)
+environment = SubResource("Environment_0pev8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 follow_viewport_enabled = true
@@ -49,36 +53,28 @@ readiedDonutsLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer
 healthLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/Label")
 speedLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/Label")
 upgradeCostLabel = NodePath("../ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE2/_text_upgrade_cost")
-donutCoinsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_donut_coins")
-remainingDonutsLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_remaining_donuts")
-counterHealthLabel = NodePath("CenterContainer_counter_health/_counter_health")
-currentRoundLabel = NodePath("CenterContainer_donut_coins/VBoxContainer/_current_round")
+donutCoinsLabel = NodePath("CenterContainer_donut_coins/MarginContainer/VBoxContainer/_donut_coins")
+remainingDonutsLabel = NodePath("CenterContainer_donut_coins/MarginContainer/VBoxContainer/_remaining_donuts")
+counterHealthLabel = NodePath("CenterContainer_counter_health/MarginContainer/_counter_health")
+currentRoundLabel = NodePath("CenterContainer_donut_coins/MarginContainer/VBoxContainer/Camera3D_CanvasLayer_ui_persistent_CenterContainer_donut_coins_VBoxContainer#_current_round")
 winScreen = NodePath("CenterContainer_win_screen")
 loseScreen = NodePath("CenterContainer_lose_screen")
 pauseScreen = NodePath("CenterContainer_pause_screen")
 mainMenuScene = ExtResource("7_0pev8")
 
-[node name="_current_round" type="Label" parent="Camera3D/CanvasLayer/ui_persistent/CenterContainer_donut_coins/VBoxContainer" index="2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "CURRENT ROUND:"
+[node name="CenterContainer_donut_coins" parent="Camera3D/CanvasLayer/ui_persistent" index="0"]
+offset_right = 214.0
 
 [node name="CenterContainer_counter_health" parent="Camera3D/CanvasLayer/ui_persistent" index="1"]
-anchors_preset = 2
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-offset_left = 0.0
-offset_top = -42.0
 offset_right = 281.0
-offset_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 0
+
+[node name="debug" parent="Camera3D/CanvasLayer/ui_persistent" index="2"]
+visible = false
 
 [node name="CenterContainer_pause_screen" type="CenterContainer" parent="Camera3D/CanvasLayer/ui_persistent"]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -133,11 +129,10 @@ text = "Return to menu"
 
 [node name="CenterContainer_win_screen" type="CenterContainer" parent="Camera3D/CanvasLayer/ui_persistent"]
 visible = false
-layout_mode = 0
-offset_left = 428.0
-offset_top = 240.0
-offset_right = 851.0
-offset_bottom = 480.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -245,11 +240,12 @@ size_flags_vertical = 8
 text = "Return to menu"
 
 [node name="ui_donut_upgrade" parent="Camera3D/CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_o8o0x")]
-anchors_preset = 1
+anchors_preset = 6
 anchor_left = 1.0
-anchor_bottom = 0.0
+anchor_top = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 0
-grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 player = NodePath("../../..")
 speed_values = Dictionary[int, float]({
 0: 3.0,
@@ -259,10 +255,12 @@ speed_values = Dictionary[int, float]({
 })
 
 [node name="PanelContainer" parent="Camera3D/CanvasLayer/ui_donut_upgrade" index="0"]
-anchors_preset = 1
-anchor_bottom = 0.0
-offset_bottom = 604.0
-grow_vertical = 1
+anchors_preset = 6
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -302.0
+offset_bottom = 302.0
 theme = ExtResource("9_nxd4c")
 
 [node name="_optn_resistance" parent="Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_RESISTANCE" index="1"]

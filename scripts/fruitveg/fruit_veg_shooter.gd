@@ -30,16 +30,16 @@ func RandomUpgrade():
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	var closestDonut : Donut = null
-	var closestDist = 0
-	for child in manager.GetAllDonuts():
-		var dist = position.distance_squared_to(child.position)
-		if(closestDonut == null || dist < closestDist):
-			closestDist = dist
-			closestDonut = child
+	#var closestDonut : Donut = null
+	#var closestDist = 0
+	#for child in manager.GetAllDonuts():
+	#	var dist = position.distance_squared_to(child.position)
+	#	if(closestDonut == null || dist < closestDist):
+	#		closestDist = dist
+	#		closestDonut = child
 	
-	if(closestDonut != null):
-		LookAt(closestDonut.global_position.x, closestDonut.global_position.z)
+	#if(closestDonut != null):
+	#	LookAt(closestDonut.global_position.x, closestDonut.global_position.z)
 	
 
 func AttemptAttack():
@@ -47,9 +47,9 @@ func AttemptAttack():
 	var upgrade = GetCurrentUpgradeLevel()
 	var attackDistance = upgrade.attackDistance
 	var closestDonuts : Array[Donut] = []
-	var closestDonutsDists : Array[int] = []
+	var closestDonutsDists : Array[float] = []
 	for child in manager.GetAllDonuts():
-		var dist = position.distance_squared_to(child.position)
+		var dist : float = position.distance_squared_to(child.position)
 		if(dist <= attackDistance*attackDistance):
 			if(len(closestDonuts) == 0):
 				closestDonuts.append(child)
@@ -73,6 +73,7 @@ func AttemptAttack():
 		while(count < upgrade.projectileCount):
 			var donut = closestDonuts[index]
 			LookAt(donut.global_position.x, donut.global_position.z)
+			
 			var projectile : FruitVegProjectile = projectilePrefab.instantiate()
 			manager.map.add_child(projectile)
 			#print("Shoot")

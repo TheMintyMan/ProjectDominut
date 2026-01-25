@@ -1,28 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://n1i1j6kv82pf"]
+[gd_scene load_steps=3 format=3 uid="uid://n1i1j6kv82pf"]
 
 [ext_resource type="PackedScene" uid="uid://cuqxjyxve30hy" path="res://art/environment/models/arrow.glb" id="1_fi1eq"]
-[ext_resource type="Shader" uid="uid://dkptmkjaryi7n" path="res://art/materials/shader/cell_shading.gdshader" id="2_uhfpj"]
-[ext_resource type="Texture2D" uid="uid://cqemjdqicjwx2" path="res://art/materials/shader/color_gradient.tres" id="3_r3y73"]
-[ext_resource type="Texture2D" uid="uid://bssqi5h0wj08y" path="res://art/materials/shader/fresnel_gradient.tres" id="4_ep054"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhfpj"]
-render_priority = 0
-shader = ExtResource("2_uhfpj")
-shader_parameter/albedo = Color(1, 0, 0, 1)
-shader_parameter/albedo_texture_size = Vector2i(0, 0)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/color_gradient = ExtResource("3_r3y73")
-shader_parameter/fresnel_gradient = ExtResource("4_ep054")
+[ext_resource type="Material" uid="uid://m5ve7uuad87i" path="res://art/materials/mat_blue.tres" id="2_uhfpj"]
 
 [node name="arrow" instance=ExtResource("1_fi1eq")]
 
 [node name="arrow" parent="." index="0"]
-surface_material_override/0 = SubResource("ShaderMaterial_uhfpj")
+surface_material_override/0 = ExtResource("2_uhfpj")

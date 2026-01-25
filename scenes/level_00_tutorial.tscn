@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmlsv1j21845e"]
+[gd_scene load_steps=32 format=3 uid="uid://bmlsv1j21845e"]
 
 [ext_resource type="PackedScene" uid="uid://c45t6xkiltfyb" path="res://scenes/MainMap.tscn" id="1_3vy4s"]
 [ext_resource type="PackedScene" uid="uid://uqyr3umqd3dq" path="res://art/environment/wall.tscn" id="2_044v0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dq8to43vooixn" path="res://art/environment/tall_shelf.tscn" id="11_ogfun"]
 [ext_resource type="PackedScene" uid="uid://oaq2a7ino6i3" path="res://art/environment/vegetable_display_case_model.tscn" id="12_pbw0i"]
 [ext_resource type="PackedScene" uid="uid://4o386partou8" path="res://art/environment/veg_tray.tscn" id="13_qfvdg"]
+[ext_resource type="Script" uid="uid://ehqmfuv8oeep" path="res://art/environment/bobber.gd" id="14_gfqnj"]
 [ext_resource type="PackedScene" uid="uid://bdp7rylsqiabr" path="res://art/environment/veg_tray_end.tscn" id="14_xv0nm"]
 [ext_resource type="PackedScene" uid="uid://dfdj335a5aox8" path="res://art/environment/short_shelf_right_end.tscn" id="15_sy474"]
 [ext_resource type="PackedScene" uid="uid://cm51vqulmhy6j" path="res://scripts/fruitveg/fruit_veg_manual_spawner.tscn" id="16_ogfun"]
@@ -26,6 +27,30 @@
 [ext_resource type="PackedScene" uid="uid://cirfpya1chmsr" path="res://art/environment/bakery_sign.tscn" id="21_rydwr"]
 [ext_resource type="PackedScene" uid="uid://n1i1j6kv82pf" path="res://art/environment/arrow.tscn" id="22_rydwr"]
 [ext_resource type="PackedScene" uid="uid://cy4wwy2o7rvn0" path="res://scripts/tutorial_level_editor.tscn" id="25_8rql5"]
+[ext_resource type="Texture2D" uid="uid://d1f04xv1ge3f8" path="res://art/ui/UI_Sprites/DonutIcon.png" id="27_ns7gm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gfqnj"]
+lifetime_randomness = 1.0
+emission_shape_offset = Vector3(0.055, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(80.38, 7.36, 61.135)
+direction = Vector3(0, 0, 0)
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1q7c"]
+transparency = 1
+albedo_texture = ExtResource("27_ns7gm")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_uci7h"]
+material = SubResource("StandardMaterial3D_s1q7c")
 
 [node name="MainMap" instance=ExtResource("1_3vy4s")]
 
@@ -49,6 +74,19 @@ maxFruitVegs = Dictionary[int, int]({
 9: 10,
 10: 10
 })
+roundUpgrades = Dictionary[int, int]({
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 0,
+10: 0
+})
 
 [node name="StartPoint" parent="Map" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
@@ -66,11 +104,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 6)
 transform = Transform3D(21, 0, 0, 0, 1, 0, 0, 0, 12, 0, 0, 0)
 
 [node name="Player" parent="Map/Floor" index="2"]
-money_per_tile = 1.0
+money_per_tile = 1.5
 money = 500
 
 [node name="Camera3D" parent="Map/Floor/Player" index="2"]
-transform = Transform3D(0.024999999, 0, 0, 0, 0.3693346, 0.92923766, 0, -0.03483504, 0.002608201, 0.06413579, 13.193582, 0.1575385)
+transform = Transform3D(0.025, 0, 0, 0, 0.3332156, 0.9428507, 0, -0.031428356, 0.011107188, 0.0016357601, 13.193582, 0.1575385)
+
+[node name="debug" parent="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent" index="2"]
+visible = false
 
 [node name="walls" type="Node" parent="Map" index="6"]
 
@@ -410,13 +451,33 @@ script = ExtResource("6_1ogeq")
 gridPositions = [18]
 useCenterPositionForGrid = true
 
+[node name="wall_70" parent="Map/walls" index="55" instance=ExtResource("3_hm13e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 0.5, 7.5)
+visible = false
+script = ExtResource("6_1ogeq")
+gridPositions = [166]
+useCenterPositionForGrid = true
+
+[node name="wall_71" parent="Map/walls" index="56" instance=ExtResource("3_hm13e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 0.5, 7.5)
+visible = false
+script = ExtResource("6_1ogeq")
+gridPositions = [167]
+useCenterPositionForGrid = true
+
 [node name="props" type="Node" parent="Map" index="7"]
 
 [node name="WetFloorSign" parent="Map/props" index="0" instance=ExtResource("4_hm13e")]
 transform = Transform3D(2.4148145, 0.258819, -0.56035954, -3.725291e-08, 1.7320508, 1.25, 0.64704746, -0.9659258, 2.0912907, 7.4628925, 0.37894005, 7.6384907)
+script = ExtResource("6_1ogeq")
+gridPositions = [154]
+useCenterPositionForGrid = true
 
 [node name="MopBucket" parent="Map/props" index="1" instance=ExtResource("18_pbw0i")]
 transform = Transform3D(-8.392586e-08, 0, 1.92, 0, 1.92, 0, -1.92, 0, -8.392586e-08, 8.5, 0.5, 7.5)
+script = ExtResource("6_1ogeq")
+gridPositions = [155]
+useCenterPositionForGrid = true
 
 [node name="ENTRY DOOR" parent="Map/props" index="2" instance=ExtResource("19_qfvdg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 8)
@@ -434,7 +495,11 @@ transform = Transform3D(2.085, 0, 0, 0, 2.085, 0, 0, 0, 2.085, 9.5, 1.5, 0)
 transform = Transform3D(-7.6057816e-08, 0, 1.74, 0, 1.74, 0, -1.74, 0, -7.6057816e-08, 0, 1.5, 6.5)
 
 [node name="arrow" parent="Map/props" index="7" instance=ExtResource("22_rydwr")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 0.5, 8.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20.5, 2, 8.5)
+script = ExtResource("14_gfqnj")
+direction = Vector3(0.5, 0, 0)
+speed = 3.0
+canBobBackwards = true
 
 [node name="counter" parent="Map/props" index="8" instance=ExtResource("5_ogcup")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19.5, 0.5, 7.5)
@@ -502,87 +567,45 @@ script = ExtResource("6_1ogeq")
 
 [node name="Wall" parent="Map/props" index="22" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [2]
-useCenterPositionForGrid = true
 
 [node name="Wall2" parent="Map/props" index="23" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [5]
-useCenterPositionForGrid = true
 
 [node name="Wall3" parent="Map/props" index="24" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [8]
-useCenterPositionForGrid = true
 
 [node name="Wall4" parent="Map/props" index="25" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [11]
-useCenterPositionForGrid = true
 
 [node name="Wall5" parent="Map/props" index="26" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [14]
-useCenterPositionForGrid = true
 
 [node name="Wall12" parent="Map/props" index="27" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [17]
-useCenterPositionForGrid = true
 
 [node name="Wall13" parent="Map/props" index="28" instance=ExtResource("2_044v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0.5, 0)
-script = ExtResource("6_1ogeq")
-gridPositions = [20]
-useCenterPositionForGrid = true
 
 [node name="Wall6" parent="Map/props" index="29" instance=ExtResource("2_044v0")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 2)
-script = ExtResource("6_1ogeq")
-gridPositions = [63]
-useCenterPositionForGrid = true
 
 [node name="Wall7" parent="Map/props" index="30" instance=ExtResource("2_044v0")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.5, 1)
-script = ExtResource("6_1ogeq")
-gridPositions = [21]
-useCenterPositionForGrid = true
 
 [node name="Wall8" parent="Map/props" index="31" instance=ExtResource("2_044v0")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 6.5)
-script = ExtResource("6_1ogeq")
-gridPositions = [147]
-useCenterPositionForGrid = true
 
 [node name="Wall9" parent="Map/props" index="32" instance=ExtResource("2_044v0")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.5, 4)
-script = ExtResource("6_1ogeq")
-gridPositions = [84]
-useCenterPositionForGrid = true
 
 [node name="Wall10" parent="Map/props" index="33" instance=ExtResource("2_044v0")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 0.5, 11)
-script = ExtResource("6_1ogeq")
-gridPositions = [252]
-useCenterPositionForGrid = true
 
 [node name="Wall11" parent="Map/props" index="34" instance=ExtResource("2_044v0")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0.5, 7)
-script = ExtResource("6_1ogeq")
-gridPositions = [147]
-useCenterPositionForGrid = true
 
 [node name="Wall14" parent="Map/props" index="35" instance=ExtResource("2_044v0")]
 transform = Transform3D(-0.0009903136, -0.00036334485, 0.9999995, 0.0008040117, 0.99999964, 0.0003641541, -0.99999917, 0.0008043777, -0.0009900163, 0, 0.5, 10)
-script = ExtResource("6_1ogeq")
-gridPositions = [210]
-useCenterPositionForGrid = true
 
 [node name="ManualSpawner_Group" type="Node" parent="Map" index="8"]
 
@@ -733,6 +756,31 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21, 
 script = ExtResource("6_1ogeq")
 gridPositions = Array[int]([126])
 useCenterPositionForGrid = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -24.5, 0)
+amount = 500
+lifetime = 10.33
+preprocess = 10.0
+fixed_fps = 20
+visibility_aabb = AABB(-3.335, -4, -4, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_gfqnj")
+draw_pass_1 = SubResource("QuadMesh_uci7h")
+
+[node name="arrow" parent="." index="7" instance=ExtResource("22_rydwr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 2, 9.5)
+script = ExtResource("14_gfqnj")
+direction = Vector3(0.5, 0, 0)
+speed = 3.0
+canBobBackwards = true
+
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_remove_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_HEALTH/btn_add_health" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddHealthLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_remove_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="RemoveSpeedLevel"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_SPEED/btn_add_speed" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="AddSpeedLevel"]
+[connection signal="toggled" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_Upgrade/HBoxContainer/VBoxContainer3/HBox_CAMOUFLAGE/chck_camo" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="SetCamo"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts2" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateDonutData"]
+[connection signal="pressed" from="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade/PanelContainer/PanelContainer/MarginContainer/VBoxContainer/VBox_BuyBaseDonuts/HBoxContainer2/btn_buy_donuts" to="Map/Floor/Player/Camera3D/CanvasLayer/ui_donut_upgrade" method="CreateAllDonutData"]
 
 [editable path="Map/Floor/Player"]
 [editable path="Map/Floor/Player/Camera3D/CanvasLayer/ui_persistent"]
