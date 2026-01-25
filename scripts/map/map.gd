@@ -15,6 +15,7 @@ func GetAllChildren(node = null):
 	if(node == null):
 		node = self
 	var nodes : Array = []
+		
 	for N in node.get_children():
 		if N.get_child_count() > 0:
 			nodes.append(N)
@@ -32,10 +33,14 @@ func GetSpawnableMapObjects():
 				objects.append(child)
 	return objects
 
-func CalculateXYFromGridPos(pos):
+func CalculateXYFromGridPos(pos) -> Array[int]:
 	var x = int(pos % mapSizeX)
 	var y = int(pos / mapSizeX)
 	return [x,y]
+	
+	
+func CalculateGridPosFromXY(x, y) -> int:
+	return y*mapSizeX + x
 
 func CalculateGridPosToWOrld(pos: int) -> Vector3:
 	var x = int(pos % mapSizeX)
@@ -60,6 +65,13 @@ func GetStartPointXY():
 func GetEndPointXY():
 	return CalculateXYFromGridPos(endPoint);
 	
+	
+func Start():
+	for child in GetAllChildren():
+		if child is MapObject && child.useCenterPositionForGrid:
+			var mapObject : MapObject = child
+			mapObject.gridPositions = [CalculateGridPosFromXY(int(child.global_position.x), int(child.global_position.z))]
+			
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

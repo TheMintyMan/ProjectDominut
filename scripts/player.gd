@@ -155,7 +155,12 @@ func CalculatePathsValidity():
 		paths[1].CalculateValidity([map.GetStartPointXY()], [map.GetEndPointXY()], [], true)
 
 func DonutMove(donut : Donut):
-	money+=(sqrt(donut.cost)) * money_per_tile
+	money+= sqrt(donut.cost) * money_per_tile
+	
+func DonutFinish(donut : Donut):
+	money+=donut.cost*1.1
+	
+	
 	
 func AddMoney(more_money: int):
 	more_money += money
@@ -204,7 +209,7 @@ func _process(delta: float) -> void:
 	if(ray.is_colliding()):
 		point = ray.get_collision_point()
 			
-	if (canDrawPaths || canDeletePaths) && point != null && point.x > 0 && point.z > 0 && int(point.x) <= map.mapSizeX && int(point.z) <= map.mapSizeY:
+	if (canDrawPaths || canDeletePaths) && point != null && point.x > 0 && point.z > 0 && int(point.x) <= map.mapSizeX-1 && int(point.z) <= map.mapSizeY-1:
 		selectionCube.visible = true
 		var collision_object = ray.get_collider()
 
@@ -240,7 +245,7 @@ func _process(delta: float) -> void:
 			var isEndOnPathButNotEnd = currentPath.IsPointOnPath(mapEnd[0], mapEnd[1]) && !(currentPath.IsPointAtStartPos(mapEnd[0],mapEnd[1]) || currentPath.IsPointAtEndPos(mapEnd[0],mapEnd[1]))
 			# If path length is invalid or intersects any map objects, it's invalid
 			if(currentPath.GetLength() < 1 
-			|| currentPath.startPosX < 0 || currentPath.startPosY < 0 || currentPath.endPosX >= map.mapSizeX || currentPath.endPosY >= map.mapSizeX 
+			|| currentPath.startPosX < 0 || currentPath.startPosY < 0 || currentPath.endPosX >= map.mapSizeX || currentPath.endPosY >= map.mapSizeY 
 			|| isStartOnPathButNotEnd 
 			|| isEndOnPathButNotEnd 
 			|| currentPath.AreAnyPointsOnPath(map.GetOccupiedPoints())):

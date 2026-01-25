@@ -16,14 +16,12 @@ var already_spawned: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%MeshInstance3D.visible = true
-	if spawn_round == 1:
+	if spawn_round == 0:
 		spawn()
 	pass
 
 func spawn():
 	spawn_point = map.CalculatePosFromWorld(self)
-	if spawn_round != player.GetRound():
-		return
 	
 	%MeshInstance3D.visible = false
 	
@@ -58,11 +56,12 @@ func die():
 func _process(_delta: float) -> void:
 	if (!already_spawned):
 		if(player.hasRoundStarted):
+			if (spawn_round == player.GetRound()):
+				spawn()
 			already_spawned = true
+			
 
 	if (already_spawned):
 		if (!player.hasRoundStarted):
-			if (spawn_round == player.GetRound()):
-				spawn()
-				already_spawned = false
-				# this is the end of the round.
+			already_spawned = false
+			# this is the end of the round.
