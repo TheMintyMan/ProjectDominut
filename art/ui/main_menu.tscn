@@ -138,41 +138,37 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = "Benjaydev"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("7_0ty7k")
 stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer4"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3"]
 layout_mode = 2
@@ -182,41 +178,37 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = " Minty"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("5_ud3x8")
 stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer3/MarginContainer3"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer"]
 layout_mode = 2
@@ -231,41 +223,36 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = "Joaquin Gundry"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/Panel2/MarginContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("6_esp8h")
 stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer4"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2"]
 layout_mode = 2
@@ -275,41 +262,37 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 10
 
-[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_4q1d2")
 theme_override_font_sizes/font_size = 51
 text = "Who Am I?"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/Panel2/MarginContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2"]
 texture_filter = 1
 texture_repeat = 1
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("9_4q1d2")
 stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="Camera2D/CanvasLayer/Credits/MarginContainer3/GridContainer/VBoxContainer2/MarginContainer3"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jqqrl")
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/Credits"]
 layout_mode = 1
